@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */; };
+		3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CD22805BB8007EEC22 /* ViewController.swift */; };
+		3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CF22805BB8007EEC22 /* Main.storyboard */; };
+		3F6EE9D322805BBD007EEC22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D222805BBD007EEC22 /* Assets.xcassets */; };
+		3F6EE9D622805BBD007EEC22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */; };
+		3F6EE9E122805BBD007EEC22 /* PutometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9E022805BBD007EEC22 /* PutometroTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F6EE9DD22805BBD007EEC22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F6EE9C022805BB8007EEC22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F6EE9C722805BB8007EEC22;
+			remoteInfo = Putometro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F6EE9C822805BB8007EEC22 /* Putometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Putometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F6EE9CD22805BB8007EEC22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F6EE9D022805BB8007EEC22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F6EE9D222805BBD007EEC22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F6EE9D522805BBD007EEC22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F6EE9D722805BBD007EEC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F6EE9DC22805BBD007EEC22 /* PutometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PutometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F6EE9E022805BBD007EEC22 /* PutometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutometroTests.swift; sourceTree = "<group>"; };
+		3F6EE9E222805BBD007EEC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F6EE9C522805BB8007EEC22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F6EE9D922805BBD007EEC22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F6EE9BF22805BB8007EEC22 = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9CA22805BB8007EEC22 /* Putometro */,
+				3F6EE9DF22805BBD007EEC22 /* PutometroTests */,
+				3F6EE9C922805BB8007EEC22 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F6EE9C922805BB8007EEC22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9C822805BB8007EEC22 /* Putometro.app */,
+				3F6EE9DC22805BBD007EEC22 /* PutometroTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F6EE9CA22805BB8007EEC22 /* Putometro */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */,
+				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
+				3F6EE9CF22805BB8007EEC22 /* Main.storyboard */,
+				3F6EE9D222805BBD007EEC22 /* Assets.xcassets */,
+				3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */,
+				3F6EE9D722805BBD007EEC22 /* Info.plist */,
+			);
+			path = Putometro;
+			sourceTree = "<group>";
+		};
+		3F6EE9DF22805BBD007EEC22 /* PutometroTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9E022805BBD007EEC22 /* PutometroTests.swift */,
+				3F6EE9E222805BBD007EEC22 /* Info.plist */,
+			);
+			path = PutometroTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F6EE9C722805BB8007EEC22 /* Putometro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F6EE9E522805BBD007EEC22 /* Build configuration list for PBXNativeTarget "Putometro" */;
+			buildPhases = (
+				3F6EE9C422805BB8007EEC22 /* Sources */,
+				3F6EE9C522805BB8007EEC22 /* Frameworks */,
+				3F6EE9C622805BB8007EEC22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Putometro;
+			productName = Putometro;
+			productReference = 3F6EE9C822805BB8007EEC22 /* Putometro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F6EE9DB22805BBD007EEC22 /* PutometroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F6EE9E822805BBD007EEC22 /* Build configuration list for PBXNativeTarget "PutometroTests" */;
+			buildPhases = (
+				3F6EE9D822805BBD007EEC22 /* Sources */,
+				3F6EE9D922805BBD007EEC22 /* Frameworks */,
+				3F6EE9DA22805BBD007EEC22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F6EE9DE22805BBD007EEC22 /* PBXTargetDependency */,
+			);
+			name = PutometroTests;
+			productName = PutometroTests;
+			productReference = 3F6EE9DC22805BBD007EEC22 /* PutometroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F6EE9C022805BB8007EEC22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Abat;
+				TargetAttributes = {
+					3F6EE9C722805BB8007EEC22 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					3F6EE9DB22805BBD007EEC22 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3F6EE9C722805BB8007EEC22;
+					};
+				};
+			};
+			buildConfigurationList = 3F6EE9C322805BB8007EEC22 /* Build configuration list for PBXProject "Putometro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F6EE9BF22805BB8007EEC22;
+			productRefGroup = 3F6EE9C922805BB8007EEC22 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F6EE9C722805BB8007EEC22 /* Putometro */,
+				3F6EE9DB22805BBD007EEC22 /* PutometroTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F6EE9C622805BB8007EEC22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6EE9D622805BBD007EEC22 /* LaunchScreen.storyboard in Resources */,
+				3F6EE9D322805BBD007EEC22 /* Assets.xcassets in Resources */,
+				3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F6EE9DA22805BBD007EEC22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F6EE9C422805BB8007EEC22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
+				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F6EE9D822805BBD007EEC22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6EE9E122805BBD007EEC22 /* PutometroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F6EE9DE22805BBD007EEC22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F6EE9C722805BB8007EEC22 /* Putometro */;
+			targetProxy = 3F6EE9DD22805BBD007EEC22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F6EE9CF22805BB8007EEC22 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F6EE9D022805BB8007EEC22 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F6EE9D522805BBD007EEC22 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F6EE9E322805BBD007EEC22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F6EE9E422805BBD007EEC22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F6EE9E622805BBD007EEC22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LF3U834HDS;
+				INFOPLIST_FILE = Putometro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.abat.Putometro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F6EE9E722805BBD007EEC22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LF3U834HDS;
+				INFOPLIST_FILE = Putometro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.abat.Putometro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3F6EE9E922805BBD007EEC22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LF3U834HDS;
+				INFOPLIST_FILE = PutometroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.abat.PutometroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Putometro.app/Putometro";
+			};
+			name = Debug;
+		};
+		3F6EE9EA22805BBD007EEC22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LF3U834HDS;
+				INFOPLIST_FILE = PutometroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.abat.PutometroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Putometro.app/Putometro";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F6EE9C322805BB8007EEC22 /* Build configuration list for PBXProject "Putometro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F6EE9E322805BBD007EEC22 /* Debug */,
+				3F6EE9E422805BBD007EEC22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F6EE9E522805BBD007EEC22 /* Build configuration list for PBXNativeTarget "Putometro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F6EE9E622805BBD007EEC22 /* Debug */,
+				3F6EE9E722805BBD007EEC22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F6EE9E822805BBD007EEC22 /* Build configuration list for PBXNativeTarget "PutometroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F6EE9E922805BBD007EEC22 /* Debug */,
+				3F6EE9EA22805BBD007EEC22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F6EE9C022805BB8007EEC22 /* Project object */;
+}
