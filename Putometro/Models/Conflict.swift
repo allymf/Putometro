@@ -14,6 +14,6 @@ struct Conflict {
     var troubleMakers: [User]
     var brokenRules: [Rule]
     var createdAt: Date
-    var status: ConflictStatus
+    //var status: ConflictStatus
     
 }
