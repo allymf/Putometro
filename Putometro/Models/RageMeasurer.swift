@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct RageMeasurer {
+    var rageLevel: Int
+    var isInChaos: Bool
+}

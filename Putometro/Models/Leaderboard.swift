@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Leaderboard {
+    var angel: User
+    var devil: User
+}

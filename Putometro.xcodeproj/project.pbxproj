@@ -13,6 +13,14 @@
 		3F6EE9D322805BBD007EEC22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D222805BBD007EEC22 /* Assets.xcassets */; };
 		3F6EE9D622805BBD007EEC22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */; };
 		3F6EE9E122805BBD007EEC22 /* PutometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9E022805BBD007EEC22 /* PutometroTests.swift */; };
+		3F6EE9EE2281C3AA007EEC22 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6EE9ED2281C3AA007EEC22 /* CloudKit.framework */; };
+		3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9F32281D19E007EEC22 /* Team.swift */; };
+		3F6EE9F62281D268007EEC22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9F52281D268007EEC22 /* User.swift */; };
+		3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9F72281D3E3007EEC22 /* Rule.swift */; };
+		3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9F92281D6C0007EEC22 /* Vote.swift */; };
+		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
+		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
+		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +44,15 @@
 		3F6EE9DC22805BBD007EEC22 /* PutometroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PutometroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6EE9E022805BBD007EEC22 /* PutometroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutometroTests.swift; sourceTree = "<group>"; };
 		3F6EE9E222805BBD007EEC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F6EE9EB2281C3A2007EEC22 /* Putometro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Putometro.entitlements; sourceTree = "<group>"; };
+		3F6EE9ED2281C3AA007EEC22 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		3F6EE9F32281D19E007EEC22 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		3F6EE9F52281D268007EEC22 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F6EE9F72281D3E3007EEC22 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		3F6EE9F92281D6C0007EEC22 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
+		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
+		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6EE9EE2281C3AA007EEC22 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +80,7 @@
 				3F6EE9CA22805BB8007EEC22 /* Putometro */,
 				3F6EE9DF22805BBD007EEC22 /* PutometroTests */,
 				3F6EE9C922805BB8007EEC22 /* Products */,
+				3F6EE9EC2281C3AA007EEC22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,8 +96,12 @@
 		3F6EE9CA22805BB8007EEC22 /* Putometro */ = {
 			isa = PBXGroup;
 			children = (
+				3F6EE9F22281D143007EEC22 /* Views */,
+				3F6EE9F12281D137007EEC22 /* View Models */,
+				3F6EE9F02281D131007EEC22 /* Models */,
+				3F6EE9EF2281D125007EEC22 /* View Controllers */,
+				3F6EE9EB2281C3A2007EEC22 /* Putometro.entitlements */,
 				3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */,
-				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
 				3F6EE9CF22805BB8007EEC22 /* Main.storyboard */,
 				3F6EE9D222805BBD007EEC22 /* Assets.xcassets */,
 				3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */,
@@ -94,6 +117,50 @@
 				3F6EE9E222805BBD007EEC22 /* Info.plist */,
 			);
 			path = PutometroTests;
+			sourceTree = "<group>";
+		};
+		3F6EE9EC2281C3AA007EEC22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9ED2281C3AA007EEC22 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F6EE9EF2281D125007EEC22 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3F6EE9F02281D131007EEC22 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9F32281D19E007EEC22 /* Team.swift */,
+				3F6EE9F52281D268007EEC22 /* User.swift */,
+				3F6EE9F72281D3E3007EEC22 /* Rule.swift */,
+				3F6EE9F92281D6C0007EEC22 /* Vote.swift */,
+				3F6EE9FB22820407007EEC22 /* Conflict.swift */,
+				3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */,
+				3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F6EE9F12281D137007EEC22 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		3F6EE9F22281D143007EEC22 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +213,14 @@
 				TargetAttributes = {
 					3F6EE9C722805BB8007EEC22 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					3F6EE9DB22805BBD007EEC22 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -197,7 +272,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
+				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
+				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
+				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
+				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
+				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
+				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Putometro/Putometro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LF3U834HDS;
 				INFOPLIST_FILE = Putometro/Info.plist;
@@ -378,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Putometro/Putometro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LF3U834HDS;
 				INFOPLIST_FILE = Putometro/Info.plist;

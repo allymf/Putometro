@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct Team {
+    var name: String
+    var users: [User]
+    var rules: [Rule]
+    var conflicts: [Conflict]
+    var leaderboard: Leaderboard
+    var rageMeasurer: RageMeasurer
+    
+}

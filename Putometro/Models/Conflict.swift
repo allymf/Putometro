@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct Conflict {
+    var rageMeasurer: RageMeasurer
+    var creator: User
+    var troubleMakers: [User]
+    var brokenRules: [Rule]
+    var createdAt: Date
+    var status: ConflictStatus
+    
+}

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Rule {
+    var title: String
+    var description: String
+    var status: RuleStatus
+    var votes: [Vote]
+}

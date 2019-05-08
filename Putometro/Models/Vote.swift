@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Vote {
+    var status: VoteStatus
+    var user: User
+    
+}
