@@ -10,6 +10,11 @@ import Foundation
 import CloudKit
 
 struct Conflict {
+    
+    private let defaultContainer = CKContainer.default()
+    private let publicDb = CKContainer.default().publicCloudDatabase
+    private var record = CKRecord(recordType: RecordType.conflict.rawValue)
+    
     var rageMeasurer: RageMeasurer{
         didSet{
             let rageReference = CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf)
@@ -45,11 +50,9 @@ struct Conflict {
     }
     //var status: ConflictStatus
     
-    private let defaultContainer = CKContainer.default()
-    private let publicDb = CKContainer.default().publicCloudDatabase
-    private var record = CKRecord(recordType: RecordType.conflict.rawValue)
     
-    func update(recordId: CKRecord.ID){
+    
+    func update(){
         publicDb.save(record) { (_, _) in
             //NAO SEI SE TEM ALGUMA COISA QUE QUEREMOS FAZER QUANDO DERMOS UPDATE
         }
@@ -66,5 +69,8 @@ struct Conflict {
                 completion(record)
             }
         }
+    }
+    mutating func setRecord(record: CKRecord){
+        self.record = record
     }
 }
