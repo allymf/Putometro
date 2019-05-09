@@ -17,11 +17,31 @@ struct User {
     
     private var record: CKRecord?
     
-    init(user: CKRecord) {
-        <#statements#>
+//    init(user: CKRecord) {
+//        record = user
+//    }
+    
+    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
+        self.name = name
+        self.photo = photo
+        self.rageMeasurer = rageMeasurer
     }
     
     func getRecord() -> CKRecord{
-        
+        guard let record = record else {
+            let newRecord = CKRecord(recordType: "User")
+            if let imageData = photo.pngData(){
+                if let temporaryUrl = URL(dataRepresentation: imageData, relativeTo: nil){
+                    let values = [
+                        "name" : name,
+                        "photo" : CKAsset(fileURL: temporaryUrl),
+                        "rageMeasurer" : CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf)
+                        ] as [String : Any]
+                    newRecord.setValuesForKeys(values)
+                }
+            }
+            return newRecord
+        }
+        return record
     }
 }

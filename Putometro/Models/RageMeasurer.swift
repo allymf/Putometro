@@ -15,9 +15,9 @@ struct RageMeasurer {
     
     private var record: CKRecord?
     
-    init(rageMeasurer: CKRecord) {
-        record = rageMeasurer
-    }
+//    init(rageMeasurer: CKRecord) {
+//        record = rageMeasurer
+//    }
     
     init(rageLevel: Int, isInChaos: Bool) {
         self.rageLevel = rageLevel
@@ -26,8 +26,10 @@ struct RageMeasurer {
     
     func getRecord() -> CKRecord{
         guard let record = record else {
-            let values = ["rageLevel" : rageLevel,
-                          "isInChaos" : isInChaos] as [String : Any]
+            let values = [
+                "rageLevel" : rageLevel,
+                "isInChaos" : isInChaos
+                ] as [String : Any]
             let rageRecord = CKRecord(recordType: "RageMeasurer")
             rageRecord.setValuesForKeys(values)
             return rageRecord

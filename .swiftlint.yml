@@ -7,6 +7,9 @@ disabled_rules:
  - trailing_newline
  - vertical_whitespace
  - trailing_whitespace
+ - opening_brace
+ - colon
+ - statement_position
 
 opt_in_rules:
  - force_unwrapping
