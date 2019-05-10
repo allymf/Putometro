@@ -48,18 +48,14 @@ struct Conflict {
             record.setValue(createdAt, forKey: "createdAt")
         }
     }
-    //var status: ConflictStatus
-    
-    
-    
-    func update(){
-        publicDb.save(record) { (_, _) in
-            //NAO SEI SE TEM ALGUMA COISA QUE QUEREMOS FAZER QUANDO DERMOS UPDATE
+    var status: Bool{
+        didSet{
+            record.setValue(status, forKey: "status")
         }
     }
     
     
-    func create(completion: ((CKRecord) -> Void)? = nil){
+    func save(completion: ((CKRecord) -> Void)? = nil){
         publicDb.save(record) { (record, error) in
             if let error = error{
                 print(error.localizedDescription)
@@ -70,6 +66,7 @@ struct Conflict {
             }
         }
     }
+    
     mutating func setRecord(record: CKRecord){
         self.record = record
     }

@@ -15,10 +15,6 @@ struct RageMeasurer {
     
     private var record: CKRecord?
     
-//    init(rageMeasurer: CKRecord) {
-//        record = rageMeasurer
-//    }
-    
     init(rageLevel: Int, isInChaos: Bool) {
         self.rageLevel = rageLevel
         self.isInChaos = isInChaos
@@ -35,5 +31,9 @@ struct RageMeasurer {
             return rageRecord
         }
         return record
+    }
+    
+    mutating func setRecord(record: CKRecord){
+        self.record = record
     }
 }

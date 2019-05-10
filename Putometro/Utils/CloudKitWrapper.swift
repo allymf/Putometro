@@ -17,7 +17,6 @@ enum RecordType: String{
     case conflict = "Conflict"
     case rageMeasurer = "RageMeasurer"
     case leaderboard = "Leaderboard"
-    
 }
 
 class CloudKitWrapper: NSObject{
@@ -44,6 +43,7 @@ class CloudKitWrapper: NSObject{
         }
         return recordsArray
     }
+    
     static func create(record: CKRecord, completion: ((CKRecord) -> Void)? = nil){
         publicDb.save(record) { (recordResponse, error) in
             if let error = error{

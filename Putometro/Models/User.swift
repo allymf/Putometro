@@ -17,10 +17,6 @@ struct User {
     
     private var record: CKRecord?
     
-//    init(user: CKRecord) {
-//        record = user
-//    }
-    
     init(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
         self.name = name
         self.photo = photo
@@ -43,5 +39,9 @@ struct User {
             return newRecord
         }
         return record
+    }
+    
+    mutating func setRecord(record: CKRecord){
+        self.record = record
     }
 }

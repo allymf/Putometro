@@ -12,7 +12,7 @@ import CloudKit
 struct Rule {
     var title: String
     var description: String
-    //var status: RuleStatus
+    var status: Bool
     var votes: [Vote]
     
     private var record: CKRecord?
@@ -25,12 +25,18 @@ struct Rule {
             let values = [
                 "title" : title,
                 "description" : description,
-                "votes" : votesReferenceList
+                "votes" : votesReferenceList,
+                "status" : status
                 ] as [String : Any]
             let newRecord = CKRecord(recordType: "Rule")
             newRecord.setValuesForKeys(values)
+            
             return newRecord
         }
         return record
+    }
+    
+    mutating func setRecord(record: CKRecord){
+        self.record = record
     }
 }
