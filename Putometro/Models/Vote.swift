@@ -11,21 +11,31 @@ import CloudKit
 
 class Vote: CloudKitModel {
     
-    var status: Bool{
+    var status = false{
         didSet{
             record.setValue(status, forKey: "status")
         }
     }
-    var user: User{
+    var user = User(){
         didSet{
             record.setValue(CKRecord.Reference(record: user.getRecord(), action: .deleteSelf), forKey: "user")
         }
     }
     
     override init() {
-        self.status = false
-        self.user = User()
         super.init()
         self.record = CKRecord(recordType: RecordType.vote.rawValue)
+    }
+    
+    init(status: Bool, user: User) {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.vote.rawValue)
+        
+        setupRecord(status: status, user: user)
+    }
+    
+    private func setupRecord(status: Bool, user: User){
+        self.status = status
+        self.user = user
     }
 }

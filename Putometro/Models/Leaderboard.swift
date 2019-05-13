@@ -10,12 +10,10 @@ import Foundation
 import CloudKit
 
 class Leaderboard: CloudKitModel {
-    var angel: User
-    var devil: User
+    var angel = User()
+    var devil = User()
     
     override init() {
-        self.angel = User()
-        self.devil = User()
         super.init()
         self.record = CKRecord(recordType: RecordType.leaderboard.rawValue)
     }

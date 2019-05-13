@@ -12,12 +12,13 @@ import UIKit
 
 class User: CloudKitModel {
     
-    var name: String{
+    var name = String(){
         didSet{
             record.setValue(name, forKey: "name")
         }
     }
-    var photo: UIImage{
+    
+    var photo = UIImage(){
         didSet{
             if let imageData = photo.pngData(){
                 if let temporaryUrl = URL(dataRepresentation: imageData, relativeTo: nil){
@@ -26,17 +27,30 @@ class User: CloudKitModel {
             }
         }
     }
-    var rageMeasurer: RageMeasurer{
+    
+    var rageMeasurer = RageMeasurer(){
         didSet{
             record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf), forKey: "rageMeasurer")
         }
     }
     
     override init(){
-        self.name = String()
-        self.photo = UIImage()
-        self.rageMeasurer = RageMeasurer()
         super.init()
         self.record = CKRecord(recordType: RecordType.user.rawValue)
+    }
+    
+    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer) {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.user.rawValue)
+        
+        setupRecord(name: name, photo: photo, rageMeasurer: rageMeasurer)
+    }
+    
+    
+    
+    private func setupRecord(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
+        self.name = name
+        self.photo = photo
+        self.rageMeasurer = rageMeasurer
     }
 }

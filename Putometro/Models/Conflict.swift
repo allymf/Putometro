@@ -11,19 +11,19 @@ import CloudKit
 
 class Conflict: CloudKitModel {
     
-    var rageMeasurer: RageMeasurer{
+    var rageMeasurer = RageMeasurer(){
         didSet{
             let rageReference = CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf)
             record.setValue(rageReference, forKey: "rageMeasurer")
         }
     }
-    var creator: User{
+    var creator = User(){
         didSet{
             let creatorReference = CKRecord.Reference(record: creator.getRecord(), action: .deleteSelf)
             record.setValue(creatorReference, forKey: "creator")
         }
     }
-    var troubleMakers: [User]{
+    var troubleMakers = [User](){
         didSet{
             let troubleMakersReferenceList = troubleMakers.map { (user) -> CKRecord.Reference in
                 return CKRecord.Reference(record: user.getRecord(), action: .deleteSelf)
@@ -31,7 +31,7 @@ class Conflict: CloudKitModel {
             record.setValue(troubleMakersReferenceList, forKey: "troubleMakers")
         }
     }
-    var brokenRules: [Rule]{
+    var brokenRules = [Rule](){
         didSet{
             let brokenRulesReferenceList = brokenRules.map { (rule) -> CKRecord.Reference in
                 return CKRecord.Reference(record: rule.getRecord(), action: .deleteSelf)
@@ -39,25 +39,35 @@ class Conflict: CloudKitModel {
             record.setValue(brokenRulesReferenceList, forKey: "brokenRules")
         }
     }
-    var createdAt: Date{
+    var createdAt = Date(){
         didSet{
             record.setValue(createdAt, forKey: "createdAt")
         }
     }
-    var status: Bool{
+    var status = false{
         didSet{
             record.setValue(status, forKey: "status")
         }
     }
     
     override init(){
-        self.rageMeasurer = RageMeasurer()
-        self.creator = User()
-        self.troubleMakers = [User]()
-        self.brokenRules = [Rule]()
-        self.createdAt = Date()
-        self.status = false
         super.init()
         self.record = CKRecord(recordType: RecordType.conflict.rawValue)
+    }
+    
+    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool) {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.conflict.rawValue)
+        
+        setupRecord(rageMeasurer: rageMeasurer, creator: creator, troubleMakers: troubleMakers, brokenRules: brokenRules, createdAt: createdAt, status: status)
+    }
+    
+    private func setupRecord(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool){
+        self.rageMeasurer = rageMeasurer
+        self.creator = creator
+        self.troubleMakers = troubleMakers
+        self.brokenRules = brokenRules
+        self.createdAt = createdAt
+        self.status = status
     }
 }

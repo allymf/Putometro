@@ -11,22 +11,31 @@ import CloudKit
 
 class RageMeasurer: CloudKitModel {
     
-    var rageLevel: Int{
+    var rageLevel = 0{
         didSet{
             record.setValue(rageLevel, forKey: "rageLevel")
         }
     }
-    var isInChaos: Bool{
+    var isInChaos = false{
         didSet{
             record.setValue(isInChaos, forKey: "isInChaos")
         }
     }
     
     override init() {
-        self.rageLevel = 0
-        self.isInChaos = false
+        super.init()
+        self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+    }
+    
+    init(rageLevel: Int, isInChaos: Bool) {
         super.init()
         self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
         
+        setupRecord(rageLevel: rageLevel, isInChaos: isInChaos)
+    }
+    
+    private func setupRecord(rageLevel: Int, isInChaos: Bool){
+        self.rageLevel = rageLevel
+        self.isInChaos = isInChaos
     }
 }

@@ -11,22 +11,22 @@ import CloudKit
 
 class Rule: CloudKitModel {
     
-    var title: String{
+    var title = String(){
         didSet{
             record.setValue(title, forKey: "title")
         }
     }
-    var descript: String{
+    var descript = String(){
         didSet{
             record.setValue(description, forKey: "description")
         }
     }
-    var status: Bool{
+    var status = false{
         didSet{
             record.setValue(status, forKey: "status")
         }
     }
-    var votes: [Vote]{
+    var votes = [Vote](){
         didSet{
             let votesReferenceList = votes.map { (vote) -> CKRecord.Reference in
                 return CKRecord.Reference(record: vote.getRecord(), action: .deleteSelf)
@@ -36,11 +36,21 @@ class Rule: CloudKitModel {
     }
     
     override init() {
-        self.title = String()
-        self.descript = String()
-        self.status = false
-        self.votes = [Vote]()
         super.init()
         self.record = CKRecord(recordType: RecordType.rule.rawValue)
+    }
+    
+    init(title: String, descript: String, status: Bool, votes: [Vote]) {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.rule.rawValue)
+        
+        setupRecord(title: title, descript: descript, status: status, votes: votes)
+    }
+    
+    private func setupRecord(title: String, descript: String, status: Bool, votes: [Vote]){
+        self.title = title
+        self.descript = descript
+        self.status = status
+        self.votes = votes
     }
 }

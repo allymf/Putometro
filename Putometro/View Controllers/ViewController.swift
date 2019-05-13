@@ -12,10 +12,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rage = RageMeasurer()
-        rage.isInChaos = false
-        rage.rageLevel = 650
-        rage.save()
         // Do any additional setup after loading the view.
     }
 }
