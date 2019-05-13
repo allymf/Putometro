@@ -11,11 +11,28 @@ import CloudKit
 import UIKit
 
 struct User {
-    var name: String
-    var photo: UIImage
-    var rageMeasurer: RageMeasurer
     
-    private var record: CKRecord?
+    var name: String{
+        didSet{
+            record.setValue(name, forKey: "name")
+        }
+    }
+    var photo: UIImage{
+        didSet{
+            if let imageData = photo.pngData(){
+                if let temporaryUrl = URL(dataRepresentation: imageData, relativeTo: nil){
+                    record.setValue(CKAsset(fileURL: temporaryUrl), forKey: "photo")
+                }
+            }
+        }
+    }
+    var rageMeasurer: RageMeasurer{
+        didSet{
+            record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf), forKey: "rageMeasurer")
+        }
+    }
+    
+    private var record = CKRecord(recordType: RecordType.user.rawValue)
     
     init(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
         self.name = name
@@ -24,20 +41,6 @@ struct User {
     }
     
     func getRecord() -> CKRecord{
-        guard let record = record else {
-            let newRecord = CKRecord(recordType: "User")
-            if let imageData = photo.pngData(){
-                if let temporaryUrl = URL(dataRepresentation: imageData, relativeTo: nil){
-                    let values = [
-                        "name" : name,
-                        "photo" : CKAsset(fileURL: temporaryUrl),
-                        "rageMeasurer" : CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf)
-                        ] as [String : Any]
-                    newRecord.setValuesForKeys(values)
-                }
-            }
-            return newRecord
-        }
         return record
     }
     
