@@ -9,14 +9,14 @@
 import Foundation
 import CloudKit
 
-struct Rule {
+class Rule: CloudKitModel {
     
     var title: String{
         didSet{
             record.setValue(title, forKey: "title")
         }
     }
-    var description: String{
+    var descript: String{
         didSet{
             record.setValue(description, forKey: "description")
         }
@@ -34,14 +34,12 @@ struct Rule {
             record.setValue(votesReferenceList, forKey: "votes")
         }
     }
-    
-    private var record = CKRecord(recordType: RecordType.rule.rawValue)
-    
-    func getRecord() -> CKRecord{
-        return record
-    }
-    
-    mutating func setRecord(record: CKRecord){
-        self.record = record
+    init(title: String, descript: String, status: Bool, votes: [Vote]) {
+        self.title = title
+        self.descript = descript
+        self.status = status
+        self.votes = votes
+        super.init()
+        self.record = CKRecord(recordType: RecordType.rule.rawValue)
     }
 }

@@ -7,8 +7,16 @@
 //
 
 import Foundation
+import CloudKit
 
-struct Leaderboard {
+class Leaderboard: CloudKitModel {
     var angel: User
     var devil: User
+    
+    init(angel: User, devil: User) {
+        self.angel = angel
+        self.devil = devil
+        super.init()
+        self.record = CKRecord(recordType: RecordType.leaderboard.rawValue)
+    }
 }

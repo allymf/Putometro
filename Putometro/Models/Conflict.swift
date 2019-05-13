@@ -9,11 +9,7 @@
 import Foundation
 import CloudKit
 
-struct Conflict {
-    
-    private let defaultContainer = CKContainer.default()
-    private let publicDb = CKContainer.default().publicCloudDatabase
-    private var record = CKRecord(recordType: RecordType.conflict.rawValue)
+class Conflict: CloudKitModel {
     
     var rageMeasurer: RageMeasurer{
         didSet{
@@ -54,20 +50,14 @@ struct Conflict {
         }
     }
     
-    
-    func save(completion: ((CKRecord) -> Void)? = nil){
-        publicDb.save(record) { (record, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-            guard let record = record else { return }
-            if let completion = completion{
-                completion(record)
-            }
-        }
-    }
-    
-    mutating func setRecord(record: CKRecord){
-        self.record = record
+    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool){
+        self.rageMeasurer = rageMeasurer
+        self.creator = creator
+        self.troubleMakers = troubleMakers
+        self.brokenRules = brokenRules
+        self.createdAt = createdAt
+        self.status = status
+        super.init()
+        self.record = CKRecord(recordType: RecordType.conflict.rawValue)
     }
 }

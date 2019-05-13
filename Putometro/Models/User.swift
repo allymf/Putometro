@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 import UIKit
 
-struct User {
+class User: CloudKitModel {
     
     var name: String{
         didSet{
@@ -32,19 +32,11 @@ struct User {
         }
     }
     
-    private var record = CKRecord(recordType: RecordType.user.rawValue)
-    
     init(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
         self.name = name
         self.photo = photo
         self.rageMeasurer = rageMeasurer
-    }
-    
-    func getRecord() -> CKRecord{
-        return record
-    }
-    
-    mutating func setRecord(record: CKRecord){
-        self.record = record
+        super.init()
+        self.record = CKRecord(recordType: RecordType.user.rawValue)
     }
 }
