@@ -32,10 +32,10 @@ class User: CloudKitModel {
         }
     }
     
-    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
-        self.name = name
-        self.photo = photo
-        self.rageMeasurer = rageMeasurer
+    override init(){
+        self.name = String()
+        self.photo = UIImage()
+        self.rageMeasurer = RageMeasurer()
         super.init()
         self.record = CKRecord(recordType: RecordType.user.rawValue)
     }

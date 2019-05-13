@@ -13,7 +13,7 @@ class CloudKitModel: NSObject{
     
     private let defaultContainer = CKContainer.default()
     private let publicDb = CKContainer.default().publicCloudDatabase
-    internal var record = CKRecord(recordType: "")
+    internal var record = CKRecord(recordType: "Placeholder")
     
     func getRecord() -> CKRecord{
         return record

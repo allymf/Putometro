@@ -13,9 +13,9 @@ class Leaderboard: CloudKitModel {
     var angel: User
     var devil: User
     
-    init(angel: User, devil: User) {
-        self.angel = angel
-        self.devil = devil
+    override init() {
+        self.angel = User()
+        self.devil = User()
         super.init()
         self.record = CKRecord(recordType: RecordType.leaderboard.rawValue)
     }

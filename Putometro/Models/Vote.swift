@@ -21,9 +21,10 @@ class Vote: CloudKitModel {
             record.setValue(CKRecord.Reference(record: user.getRecord(), action: .deleteSelf), forKey: "user")
         }
     }
-    init(status: Bool, user: User) {
-        self.status = status
-        self.user = user
+    
+    override init() {
+        self.status = false
+        self.user = User()
         super.init()
         self.record = CKRecord(recordType: RecordType.vote.rawValue)
     }

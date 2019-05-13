@@ -22,10 +22,11 @@ class RageMeasurer: CloudKitModel {
         }
     }
     
-    init(rageLevel: Int, isInChaos: Bool) {
-        self.rageLevel = rageLevel
-        self.isInChaos = isInChaos
+    override init() {
+        self.rageLevel = 0
+        self.isInChaos = false
         super.init()
         self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+        
     }
 }

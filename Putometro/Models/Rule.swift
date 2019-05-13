@@ -34,11 +34,12 @@ class Rule: CloudKitModel {
             record.setValue(votesReferenceList, forKey: "votes")
         }
     }
-    init(title: String, descript: String, status: Bool, votes: [Vote]) {
-        self.title = title
-        self.descript = descript
-        self.status = status
-        self.votes = votes
+    
+    override init() {
+        self.title = String()
+        self.descript = String()
+        self.status = false
+        self.votes = [Vote]()
         super.init()
         self.record = CKRecord(recordType: RecordType.rule.rawValue)
     }

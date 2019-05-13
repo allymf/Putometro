@@ -50,13 +50,13 @@ class Conflict: CloudKitModel {
         }
     }
     
-    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool){
-        self.rageMeasurer = rageMeasurer
-        self.creator = creator
-        self.troubleMakers = troubleMakers
-        self.brokenRules = brokenRules
-        self.createdAt = createdAt
-        self.status = status
+    override init(){
+        self.rageMeasurer = RageMeasurer()
+        self.creator = User()
+        self.troubleMakers = [User]()
+        self.brokenRules = [Rule]()
+        self.createdAt = Date()
+        self.status = false
         super.init()
         self.record = CKRecord(recordType: RecordType.conflict.rawValue)
     }
