@@ -22,6 +22,7 @@
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
 		B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B392289BAF80072E112 /* OneLineSC.swift */; };
+		B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */; };
 		B2A73F652289B8CE00687E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A73F642289B8CD00687E6E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		B27F3B392289BAF80072E112 /* OneLineSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSC.swift; sourceTree = "<group>"; };
+		B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSGDelegate.swift; sourceTree = "<group>"; };
 		B2A73F642289B8CD00687E6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				B27F3B392289BAF80072E112 /* OneLineSC.swift */,
+				B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
+				B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);
