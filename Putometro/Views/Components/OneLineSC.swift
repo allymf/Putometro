@@ -12,35 +12,44 @@ class OneLineSC: UIControl {
     private var buttons = [UIButton]()
     private var buttonTitles: [String]
     private var selectorView: UIView?
+    private var stackView: UIStackView?
     
     var textColor: UIColor = #colorLiteral(red: 0.4950222373, green: 0.4920834899, blue: 0.4972836971, alpha: 1)
     var selectorViewColor: UIColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
     var selectorViewTextColor: UIColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
     
     private func configStackView() {
-        let stack = UIStackView(arrangedSubviews: buttons)
-        stack.axis = .horizontal
-        stack.alignment = .fill
-        stack.distribution = .fillEqually
-        addSubview(stack)
+        stackView = UIStackView(arrangedSubviews: buttons)
+        
+        guard let stackView = stackView else { return }
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        addSubview(stackView)
         
 //      Stack Constraints
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stack.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        stack.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
     }
     
     private func configSelectorView() {
-        let selectorWidth = frame.width/CGFloat(buttonTitles.count)
+        let selectorWidth = frame.width/CGFloat(buttonTitles.count*2)
         selectorView = UIView(frame: CGRect(x: 0,
                                             y: self.frame.height,
                                             width: selectorWidth,
-                                            height: 2))
+                                            height: 1))
         
         guard let selectorView = selectorView else { return }
         selectorView.backgroundColor = selectorViewColor
+        
+//        Constraints
+//        guard let stackView = stackView else { return }
+//        selectorView.translatesAutoresizingMaskIntoConstraints = false
+//        selectorView.centerXAnchor.constrain
+        
         addSubview(selectorView)
     }
     
