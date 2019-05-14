@@ -37,20 +37,15 @@ class OneLineSC: UIControl {
     
     private func configSelectorView() {
         let selectorWidth = frame.width/CGFloat(buttonTitles.count*2)
-        selectorView = UIView(frame: CGRect(x: 0,
+        selectorView = UIView(frame: CGRect(x: selectorWidth/2,
                                             y: self.frame.height,
                                             width: selectorWidth,
                                             height: 1))
         
         guard let selectorView = selectorView else { return }
         selectorView.backgroundColor = selectorViewColor
-        
-//        Constraints
-//        guard let stackView = stackView else { return }
-//        selectorView.translatesAutoresizingMaskIntoConstraints = false
-//        selectorView.centerXAnchor.constrain
-        
         addSubview(selectorView)
+
     }
     
     private func createButton() {
@@ -73,7 +68,8 @@ class OneLineSC: UIControl {
             button.setTitleColor(textColor, for: .normal)
             
             if button == sender {
-                let selectorPosition = frame.width/CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
+                let offset = frame.width/CGFloat(buttonTitles.count*2)/2
+                let selectorPosition = (frame.width/CGFloat(buttonTitles.count)*CGFloat(buttonIndex))+offset
                 
                 UIView.animate(withDuration: 0.3) {
                     guard let selectorView = self.selectorView else { return }
