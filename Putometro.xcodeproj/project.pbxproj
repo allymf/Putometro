@@ -22,6 +22,7 @@
 		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
+		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +120,6 @@
 				3F6EE9F22281D143007EEC22 /* Views */,
 				3F6EE9F12281D137007EEC22 /* View Models */,
 				3F6EE9F02281D131007EEC22 /* Models */,
-				3F6EE9EF2281D125007EEC22 /* View Controllers */,
 				3F6EE9EB2281C3A2007EEC22 /* Putometro.entitlements */,
 				3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */,
 				3F6EE9CF22805BB8007EEC22 /* Main.storyboard */,
@@ -136,14 +137,6 @@
 				3F6EE9E222805BBD007EEC22 /* Info.plist */,
 			);
 			path = PutometroTests;
-			sourceTree = "<group>";
-		};
-		3F6EE9EF2281D125007EEC22 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		3F6EE9F02281D131007EEC22 /* Models */ = {
@@ -170,8 +163,18 @@
 		3F6EE9F22281D143007EEC22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B228B143228ADC1800E46B29 /* Components */,
+				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B228B143228ADC1800E46B29 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B228B144228ADCE600E46B29 /* FillButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +317,7 @@
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
+				B228B145228ADCE600E46B29 /* FillButton.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
