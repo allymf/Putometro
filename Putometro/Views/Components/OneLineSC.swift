@@ -11,15 +11,19 @@ import UIKit
 class OneLineSC: UIControl {
     private var buttons = [UIButton]()
     private var buttonTitles: [String]
-    private var selectorView: UIView?
-    private var stackView: UIStackView?
+    private var selectorView = UIView()
+    private var stackView = UIStackView()
     
     weak var delegate: OneLineSGDelegate?
-    
-    var textColor: UIColor = #colorLiteral(red: 0.4950222373, green: 0.4920834899, blue: 0.4972836971, alpha: 1)
+//    SelectorView
+    var selectedIndex: Int = 0
+    var selectorViewWidth = CGFloat()
+    var textColor: UIColor = #colorLiteral(red: 0.7262298465, green: 0.7219144702, blue: 0.7295480371, alpha: 1)
     var selectorViewColor: UIColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
     var selectorViewTextColor: UIColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
-    var selectedIndex : Int = 0
+    var leftAnchorSelectorView: NSLayoutConstraint?
+//    StackView
+    var stacksWitdh = CGFloat()
     
     init(frame: CGRect, buttonTitles: [String]) {
         self.buttonTitles = buttonTitles
@@ -38,23 +42,29 @@ class OneLineSC: UIControl {
     
 //    Set Index of StackView
     func setIndex(index: Int) {
-        let offset = frame.width/CGFloat(buttonTitles.count*2)/2
-        let selectorPosition = (frame.width/CGFloat(buttonTitles.count)*CGFloat(index))+offset
 //        Set initial index to 0
         selectedIndex = index
         delegate?.changeTo(index: index)
-        UIView.animate(withDuration: 0.3) {
-            guard let selectorView = self.selectorView else { return }
-            selectorView.frame.origin.x = selectorPosition
-        }
     }
     
     @objc func buttonAction(sender: UIButton) {
         for (buttonIndex, button) in buttons.enumerated() {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                setIndex(index: buttonIndex)
                 button.setTitleColor(selectorViewColor, for: .normal)
+                setIndex(index: buttonIndex)
+//                Anchor to animate
+                if let left = leftAnchorSelectorView {
+                    left.isActive = false
+                    selectorView.removeConstraint(left)
+                }
+                let offset = (stacksWitdh - selectorViewWidth)/2 + stacksWitdh*CGFloat(buttonIndex)
+                leftAnchorSelectorView = selectorView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: offset)
+                leftAnchorSelectorView?.isActive = true
+//               Animate
+                UIView.animate(withDuration: 0.3) {
+                    self.layoutIfNeeded()
+                }
             }
         }
     }
@@ -69,9 +79,9 @@ extension OneLineSC {
     }
     
     private func configStackView() {
-        stackView = UIStackView(arrangedSubviews: buttons)
 //        Setup
-        guard let stackView = stackView else { return }
+        stackView = UIStackView(arrangedSubviews: buttons)
+        stacksWitdh = self.frame.width/CGFloat(buttons.count)
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
@@ -79,19 +89,24 @@ extension OneLineSC {
 //        Constraints
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
     }
     
     private func configSelectorView() {
 //        Setup
-        let selectorWidth = frame.width/CGFloat(buttonTitles.count*2)
-        selectorView = UIView(frame: CGRect(x: selectorWidth/2, y: self.frame.height,
-                                            width: selectorWidth, height: 1))
-        guard let selectorView = selectorView else { return }
         selectorView.backgroundColor = selectorViewColor
+        selectorViewWidth = stacksWitdh/1.5
         addSubview(selectorView)
+//        Constraints
+        selectorView.translatesAutoresizingMaskIntoConstraints = false
+        selectorView.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+        selectorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        selectorView.widthAnchor.constraint(equalToConstant: selectorViewWidth).isActive = true
+//        Anchor to animate
+        leftAnchorSelectorView = selectorView.leftAnchor.constraint(equalTo: self.leftAnchor,
+                                                                    constant: (stacksWitdh - selectorViewWidth)/2)
+        leftAnchorSelectorView?.isActive = true
     }
     
 //    Create Buttons to StackView
@@ -103,6 +118,7 @@ extension OneLineSC {
             button.setTitleColor(textColor, for: .normal)
             buttons.append(button)
         }
+//        Set the first item in button to selected
         buttons[0].setTitleColor(selectorViewColor, for: .normal)
     }
 }
