@@ -8,14 +8,8 @@
 
 import UIKit
 
-enum Status {
-    case enabled
-    case disabled
-}
-
 class FillButton: UIButton {
     var title: String
-    var status: Status = .disabled
 //    Colors
     var enableColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
     var enableTextColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
@@ -34,25 +28,20 @@ class FillButton: UIButton {
         super.draw(rect)
         configButton()
     }
-    
-    @objc func buttonAction(sender: UIButton) {
-        
-    }
 }
 
 //Configuration
 extension FillButton {
     private func configButton() {
+        isEnabled = false
         layer.cornerRadius = 10
         setTitle(title, for: .normal)
         
-        switch status {
-        case .enabled:
+        if isEnabled == true {
             layer.borderWidth = 0
             layer.backgroundColor = enableColor.cgColor
             setTitleColor(enableTextColor, for: .normal)
-            addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
-        default:
+        } else {
             layer.borderColor = disabledColor.cgColor
             layer.borderWidth = 1.5
             setTitleColor(disabledColor, for: .normal)

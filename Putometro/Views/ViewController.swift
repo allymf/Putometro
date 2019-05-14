@@ -16,10 +16,8 @@ class ViewController: UIViewController {
                                               width: view.frame.width/3,
                                               height: view.frame.height/17),
                                 title: "Done")
-        button.status = .enabled
         view.backgroundColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
         view.addSubview(button)
-        
     }
 }
 
