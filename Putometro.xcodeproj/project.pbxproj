@@ -23,6 +23,7 @@
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
 		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
+		B272AAE1228AF59000410D84 /* TeammateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAE0228AF59000410D84 /* TeammateCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
+		B272AAE0228AF59000410D84 /* TeammateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammateCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				B228B144228ADCE600E46B29 /* FillButton.swift */,
+				B272AAE0228AF59000410D84 /* TeammateCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
+				B272AAE1228AF59000410D84 /* TeammateCell.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,

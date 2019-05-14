@@ -9,10 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var tableViewTest = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button = FillButton(frame: CGRect(x: view.center.x, y: 50,
+        let button = FillButton(frame: CGRect(x: view.frame.width/2 - view.frame.width/6,
+                                              y: view.frame.height/1.2,
                                               width: view.frame.width/3,
                                               height: view.frame.height/17),
                                 title: "Done")
@@ -20,10 +22,17 @@ class ViewController: UIViewController {
         view.addSubview(button)
         button.isEnabled = true
         button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        
+        tableViewTest = UITableView(frame: CGRect(x: 0,
+                                                      y: 0,
+                                                      width: view.frame.width,
+                                                      height: view.frame.height/1.6))
+        tableViewTest.backgroundColor = .blue
+        view.addSubview(tableViewTest)
     }
     
     @objc func buttonAction(_ sender: UIButton) {
-        view.backgroundColor = .blue
+        view.backgroundColor = .red
     }
 }
 
