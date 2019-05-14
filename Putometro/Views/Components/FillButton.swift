@@ -33,8 +33,7 @@ class FillButton: UIButton {
 //Configuration
 extension FillButton {
     private func configButton() {
-        isEnabled = false
-        layer.cornerRadius = 10
+        layer.cornerRadius = 8
         setTitle(title, for: .normal)
         
         if isEnabled == true {

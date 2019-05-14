@@ -18,6 +18,12 @@ class ViewController: UIViewController {
                                 title: "Done")
         view.backgroundColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
         view.addSubview(button)
+        button.isEnabled = true
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+    }
+    
+    @objc func buttonAction(_ sender: UIButton) {
+        view.backgroundColor = .blue
     }
 }
 
