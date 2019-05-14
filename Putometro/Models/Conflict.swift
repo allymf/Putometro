@@ -13,12 +13,14 @@ class Conflict: CloudKitModel {
     
     var rageMeasurer = RageMeasurer(){
         didSet{
+            rageMeasurer.save()
             let rageReference = CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf)
             record.setValue(rageReference, forKey: "rageMeasurer")
         }
     }
     var creator = User(){
         didSet{
+            creator.save()
             let creatorReference = CKRecord.Reference(record: creator.getRecord(), action: .deleteSelf)
             record.setValue(creatorReference, forKey: "creator")
         }
@@ -26,6 +28,7 @@ class Conflict: CloudKitModel {
     var troubleMakers = [User](){
         didSet{
             let troubleMakersReferenceList = troubleMakers.map { (user) -> CKRecord.Reference in
+                user.save()
                 return CKRecord.Reference(record: user.getRecord(), action: .deleteSelf)
             }
             record.setValue(troubleMakersReferenceList, forKey: "troubleMakers")
@@ -34,6 +37,7 @@ class Conflict: CloudKitModel {
     var brokenRules = [Rule](){
         didSet{
             let brokenRulesReferenceList = brokenRules.map { (rule) -> CKRecord.Reference in
+                rule.save()
                 return CKRecord.Reference(record: rule.getRecord(), action: .deleteSelf)
             }
             record.setValue(brokenRulesReferenceList, forKey: "brokenRules")

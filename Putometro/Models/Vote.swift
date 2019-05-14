@@ -18,6 +18,7 @@ class Vote: CloudKitModel {
     }
     var user = User(){
         didSet{
+            user.save()
             record.setValue(CKRecord.Reference(record: user.getRecord(), action: .deleteSelf), forKey: "user")
         }
     }

@@ -20,16 +20,15 @@ class User: CloudKitModel {
     
     var photo = UIImage(){
         didSet{
-            if let imageData = photo.pngData(){
-                if let temporaryUrl = URL(dataRepresentation: imageData, relativeTo: nil){
-                    record.setValue(CKAsset(fileURL: temporaryUrl), forKey: "photo")
-                }
+            if let temporaryUrl = photo.createTemporaryUrl(image: photo){
+                record.setValue(CKAsset(fileURL: temporaryUrl), forKey: "photo")
             }
         }
     }
     
     var rageMeasurer = RageMeasurer(){
         didSet{
+            rageMeasurer.save()
             record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf), forKey: "rageMeasurer")
         }
     }

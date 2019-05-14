@@ -29,6 +29,7 @@ class Rule: CloudKitModel {
     var votes = [Vote](){
         didSet{
             let votesReferenceList = votes.map { (vote) -> CKRecord.Reference in
+                vote.save()
                 return CKRecord.Reference(record: vote.getRecord(), action: .deleteSelf)
             }
             record.setValue(votesReferenceList, forKey: "votes")
