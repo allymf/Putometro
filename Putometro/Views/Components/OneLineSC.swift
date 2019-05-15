@@ -9,12 +9,15 @@
 import UIKit
 
 class OneLineSC: UIControl {
+//    Variables
     private var buttons = [UIButton]()
     private var buttonTitles: [String]
     private var selectorView = UIView()
     private var stackView = UIStackView()
-    
+//    Delegate
     weak var delegate: OneLineSGDelegate?
+//    StackView
+    var stacksWitdh = CGFloat()
 //    SelectorView
     var selectedIndex: Int = 0
     var selectorViewWidth = CGFloat()
@@ -22,9 +25,8 @@ class OneLineSC: UIControl {
     var selectorViewColor: UIColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
     var selectorViewTextColor: UIColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
     var leftAnchorSelectorView: NSLayoutConstraint?
-//    StackView
-    var stacksWitdh = CGFloat()
     
+//    Functions
     init(frame: CGRect, buttonTitles: [String]) {
         self.buttonTitles = buttonTitles
         super.init(frame: frame)
