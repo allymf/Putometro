@@ -11,7 +11,6 @@ import UIKit
 class TeammateCardView: UIView {
     var name: String
     var image: UIImage
-    var cardViewColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     lazy var teammateImage: UIImageView = {
         let image = UIImageView()
@@ -25,7 +24,7 @@ class TeammateCardView: UIView {
     lazy var teammateName: UILabel = {
         let name = UILabel()
         name.text = self.name
-        name.textColor = #colorLiteral(red: 0.1768031418, green: 0.1757590771, blue: 0.1776101589, alpha: 1)
+        name.textColor = UIColor.AppColors.darkGray
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
@@ -47,7 +46,7 @@ class TeammateCardView: UIView {
     }
     
     private func configCardView() {
-        self.layer.backgroundColor = cardViewColor.cgColor
+        self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 8
         self.layer.shadowColor = ShadowHelper.shared.lightColor
         self.layer.shadowOpacity = ShadowHelper.shared.opacity
