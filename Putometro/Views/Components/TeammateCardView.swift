@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeammateCardView: UIView {
+class TeammateCardView: UIView, Shadow {
     var name: String
     var image: UIImage
     
@@ -48,10 +48,7 @@ class TeammateCardView: UIView {
     private func configCardView() {
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 8
-        self.layer.shadowColor = ShadowHelper.shared.lightColor
-        self.layer.shadowOpacity = ShadowHelper.shared.opacity
-        self.layer.shadowRadius = ShadowHelper.shared.radius
-        self.layer.shadowOffset = ShadowHelper.shared.offset
+        configShadow(self, isDark: false)
         
         self.addSubview(teammateName)
         self.addSubview(teammateImage)

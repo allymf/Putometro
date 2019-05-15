@@ -27,16 +27,13 @@ class FillButton: UIButton {
 }
 
 //Configuration
-extension FillButton {
+extension FillButton: Shadow {
     private func configButton() {
         layer.cornerRadius = 8
-        layer.shadowRadius = ShadowHelper.shared.radius
-        layer.shadowOpacity = ShadowHelper.shared.opacity
-        layer.shadowOffset = ShadowHelper.shared.offset
-        layer.shadowColor = ShadowHelper.shared.darkColor
         setTitle(title, for: .normal)
         
         if isEnabled == true {
+            configShadow(self, isDark: true)
             layer.borderWidth = 0
             layer.backgroundColor = UIColor.AppColors.darkGray.cgColor
             setTitleColor(UIColor.AppColors.ligthGray, for: .normal)

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = #colorLiteral(red: 0.9544002414, green: 0.9487265944, blue: 0.958761394, alpha: 1)
+        table.backgroundColor = UIColor.AppColors.ligthGray
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.9544002414, green: 0.9487265944, blue: 0.958761394, alpha: 1)
+        view.backgroundColor = UIColor.AppColors.ligthGray
         view.addSubview(button)
         view.addSubview(tableView)
 //        Constraints
