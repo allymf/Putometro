@@ -9,25 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var tableViewTest = UITableView()
+    lazy var button: FillButton = {
+        let btn = FillButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), title: "Done")
+        btn.isEnabled = true
+        btn.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    lazy var tableViewTest: UITableView = {
+        let table = UITableView()
+        table.backgroundColor = .gray
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button = FillButton(frame: CGRect(x: view.frame.width/2 - view.frame.width/6,
-                                              y: view.frame.height/1.2,
-                                              width: view.frame.width/3,
-                                              height: view.frame.height/17),
-                                title: "Done")
         view.backgroundColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
         view.addSubview(button)
-        button.isEnabled = true
-        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
-        
-        tableViewTest = UITableView(frame: CGRect(x: 0,
-                                                      y: 0,
-                                                      width: view.frame.width,
-                                                      height: view.frame.height/1.6))
-        tableViewTest.backgroundColor = .blue
         view.addSubview(tableViewTest)
     }
     
