@@ -17,9 +17,10 @@ class ViewController: UIViewController {
         return btn
     }()
     
-    lazy var tableViewTest: UITableView = {
+    lazy var tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = .gray
+        table.backgroundColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
+        table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -28,7 +29,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
         view.addSubview(button)
-        view.addSubview(tableViewTest)
+        view.addSubview(tableView)
+//        Constraints
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.widthAnchor.constraint(equalToConstant: view.frame.width/3).isActive = true
+        button.heightAnchor.constraint(equalToConstant: view.frame.height/17).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        
+        tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -20).isActive = true
+        
+        let card = TeammateCardView(frame: CGRect(x: 100, y: 100, width: 200, height: 50), name: "beatriz plutarco", image: #imageLiteral(resourceName: "houcine-ncib-1579803-unsplash"))
+        view.addSubview(card)
+        view.bringSubviewToFront(card)
     }
     
     @objc func buttonAction(_ sender: UIButton) {

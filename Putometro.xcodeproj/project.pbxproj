@@ -24,6 +24,7 @@
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
 		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
 		B272AAE1228AF59000410D84 /* TeammateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAE0228AF59000410D84 /* TeammateCell.swift */; };
+		B272AAE3228B9E7B00410D84 /* TeammateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAE2228B9E7B00410D84 /* TeammateCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
 		B272AAE0228AF59000410D84 /* TeammateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammateCell.swift; sourceTree = "<group>"; };
+		B272AAE2228B9E7B00410D84 /* TeammateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammateCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				B228B144228ADCE600E46B29 /* FillButton.swift */,
+				B272AAE2228B9E7B00410D84 /* TeammateCardView.swift */,
 				B272AAE0228AF59000410D84 /* TeammateCell.swift */,
 			);
 			path = Components;
@@ -320,6 +323,7 @@
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
+				B272AAE3228B9E7B00410D84 /* TeammateCardView.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				B228B145228ADCE600E46B29 /* FillButton.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
