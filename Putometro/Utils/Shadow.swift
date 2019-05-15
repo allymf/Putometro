@@ -8,8 +8,7 @@
 
 import UIKit
 
-protocol Shadow {
-    func configShadow(_ view: UIView, isDark: Bool)
+protocol Shadow: class {
 }
 
 extension Shadow {

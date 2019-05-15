@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeammateCardView: UIView, Shadow {
+class TeammateCardView: UIView {
     var name: String
     var image: UIImage
     
@@ -40,6 +40,14 @@ class TeammateCardView: UIView, Shadow {
     }
     
     override func draw(_ rect: CGRect) {
+        uptadeView()
+    }
+    
+}
+
+//Configuration
+extension TeammateCardView: Shadow {
+    private func uptadeView() {
         configCardView()
         configTeammateImageConstraints()
         configTeammateNameConstrains()
@@ -48,10 +56,9 @@ class TeammateCardView: UIView, Shadow {
     private func configCardView() {
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 8
-        configShadow(self, isDark: false)
-        
         self.addSubview(teammateName)
         self.addSubview(teammateImage)
+        configShadow(self, isDark: false)
     }
     
     private func configTeammateImageConstraints() {

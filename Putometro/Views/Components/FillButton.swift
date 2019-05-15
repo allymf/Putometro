@@ -33,10 +33,10 @@ extension FillButton: Shadow {
         setTitle(title, for: .normal)
         
         if isEnabled == true {
-            configShadow(self, isDark: true)
             layer.borderWidth = 0
             layer.backgroundColor = UIColor.AppColors.darkGray.cgColor
             setTitleColor(UIColor.AppColors.ligthGray, for: .normal)
+            configShadow(self, isDark: true)
         } else {
             layer.borderColor = UIColor.AppColors.ligthGray.cgColor
             layer.borderWidth = 1.5
