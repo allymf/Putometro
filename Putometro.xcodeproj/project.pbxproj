@@ -185,9 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				B228B144228ADCE600E46B29 /* FillButton.swift */,
+				B272AAEE228CB87E00410D84 /* CircleView.swift */,
 				B272AAE2228B9E7B00410D84 /* TeammateCardView.swift */,
 				B272AAE0228AF59000410D84 /* TeammateCell.swift */,
-				B272AAEE228CB87E00410D84 /* CircleView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
