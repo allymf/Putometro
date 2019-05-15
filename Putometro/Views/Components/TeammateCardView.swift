@@ -12,15 +12,11 @@ class TeammateCardView: UIView {
     var name: String
     var image: UIImage
     var cardViewColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    var shadowColor = #colorLiteral(red: 0.7262298465, green: 0.7219144702, blue: 0.7295480371, alpha: 1)
-    var shadorOffset = CGSize(width: 2, height: 16)
     
     lazy var teammateImage: UIImageView = {
         let image = UIImageView()
         image.image = self.image
         image.layer.cornerRadius = self.frame.height/2.4
-        image.layer.shadowColor = self.shadowColor.cgColor
-        image.layer.shadowOffset = self.shadorOffset
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -53,8 +49,10 @@ class TeammateCardView: UIView {
     private func configCardView() {
         self.layer.backgroundColor = cardViewColor.cgColor
         self.layer.cornerRadius = 8
-        self.layer.shadowColor = shadowColor.cgColor
-        self.layer.shadowOffset = shadorOffset
+        self.layer.shadowColor = ShadowHelper.shared.lightColor
+        self.layer.shadowOpacity = ShadowHelper.shared.opacity
+        self.layer.shadowRadius = ShadowHelper.shared.radius
+        self.layer.shadowOffset = ShadowHelper.shared.offset
         
         self.addSubview(teammateName)
         self.addSubview(teammateImage)
