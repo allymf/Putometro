@@ -25,30 +25,11 @@ class CloudKitWrapper: NSObject{
     static private let container = CKContainer.default()
     static private let publicDb = CKContainer.default().publicCloudDatabase
     
-    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: @escaping ([CKRecord]?) -> Void){
+    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: @escaping ([CKRecord]?, Error?) -> Void){
         
         let query = CKQuery(recordType: recordType.rawValue, predicate: predicate)
         publicDb.perform(query, inZoneWith: nil) { (records, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-            else{
-                completion(records)
-            }
-        }
-    }
-    
-    static func save(record: CKRecord, completion: ((CKRecord?) -> Void)? = nil){
-        
-        publicDb.save(record) { (recordResponse, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-            else{
-                if let completion = completion{
-                    completion(recordResponse)
-                }
-            }
+            completion(records, error)
         }
     }
     
@@ -64,29 +45,13 @@ class CloudKitWrapper: NSObject{
         }
     }
     
-    static func getCurrentUser(completion: @escaping (CKRecord?) -> Void){
+    static func getCurrentUser(completion: @escaping (CKRecord?, Error?) -> Void){
         
         getCurrentUserID { (recordID) in
             if let recordID = recordID{
                 publicDb.fetch(withRecordID: recordID, completionHandler: { (record, error) in
-                    if let error = error{
-                        print(error.localizedDescription)
-                    }
-                    else{
-                        completion(record)
-                    }
+                    completion(record, error)
                 })
-            }
-        }
-    }
-    
-    static func createUser(name: String, photo: UIImage = UIImage(), rageMeasurer: RageMeasurer = RageMeasurer()){
-    
-        getCurrentUserID { (recordID) in
-            if let recordID = recordID{
-                let newUser = CKRecord(recordType: RecordType.user.rawValue, recordID: recordID)
-                newUser.setValue(name, forKey: "name")
-                save(record: newUser)
             }
         }
     }

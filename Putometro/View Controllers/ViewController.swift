@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CloudKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        CloudKitWrapper.getCurrentUser { (record) in
+        CloudKitWrapper.getCurrentUser { (record, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
             if let record = record{
                 let user = User(name: "Adauto Pinheiro", photo: #imageLiteral(resourceName: "SearchPlaceholder"), rageMeasurer: RageMeasurer(), record: record)
                 user.save()
