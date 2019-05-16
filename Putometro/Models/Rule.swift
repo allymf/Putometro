@@ -21,7 +21,7 @@ class Rule: CloudKitModel {
             record.setValue(description, forKey: "description")
         }
     }
-    var status = false{
+    var status = 0{
         didSet{
             record.setValue(status, forKey: "status")
         }
@@ -41,7 +41,7 @@ class Rule: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.rule.rawValue)
     }
     
-    init(title: String, descript: String, status: Bool, votes: [Vote], record: CKRecord?) {
+    init(title: String, descript: String, status: Int, votes: [Vote], record: CKRecord?) {
         super.init()
         if let record = record{
             self.record = record
@@ -52,7 +52,7 @@ class Rule: CloudKitModel {
         setupRecord(title: title, descript: descript, status: status, votes: votes)
     }
     
-    private func setupRecord(title: String, descript: String, status: Bool, votes: [Vote]){
+    private func setupRecord(title: String, descript: String, status: Int, votes: [Vote]){
         self.title = title
         self.descript = descript
         self.status = status

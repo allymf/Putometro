@@ -53,7 +53,7 @@ class Conflict: CloudKitModel {
         }
     }
     
-    var status = false{
+    var status = 0{
         didSet{
             record.setValue(status, forKey: "status")
         }
@@ -64,7 +64,7 @@ class Conflict: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.conflict.rawValue)
     }
     
-    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool, record: CKRecord?) {
+    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int, record: CKRecord?) {
         super.init()
         
         if let record = record{
@@ -77,7 +77,7 @@ class Conflict: CloudKitModel {
         setupRecord(rageMeasurer: rageMeasurer, creator: creator, troubleMakers: troubleMakers, brokenRules: brokenRules, createdAt: createdAt, status: status)
     }
     
-    private func setupRecord(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool){
+    private func setupRecord(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int){
         self.rageMeasurer = rageMeasurer
         self.creator = creator
         self.troubleMakers = troubleMakers

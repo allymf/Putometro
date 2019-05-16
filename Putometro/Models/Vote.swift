@@ -11,7 +11,7 @@ import CloudKit
 
 class Vote: CloudKitModel {
     
-    var status = false{
+    var status = 0{
         didSet{
             record.setValue(status, forKey: "status")
         }
@@ -28,7 +28,7 @@ class Vote: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.vote.rawValue)
     }
     
-    init(status: Bool, user: User, record: CKRecord?) {
+    init(status: Int, user: User, record: CKRecord?) {
         super.init()
         if let record = record{
             self.record = record
@@ -39,7 +39,7 @@ class Vote: CloudKitModel {
         setupRecord(status: status, user: user)
     }
     
-    private func setupRecord(status: Bool, user: User){
+    private func setupRecord(status: Int, user: User){
         self.status = status
         self.user = user
     }

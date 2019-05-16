@@ -16,7 +16,7 @@ class RageMeasurer: CloudKitModel {
             record.setValue(rageLevel, forKey: "rageLevel")
         }
     }
-    var isInChaos = false{
+    var isInChaos = 0{
         didSet{
             record.setValue(isInChaos, forKey: "isInChaos")
         }
@@ -27,7 +27,7 @@ class RageMeasurer: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
     }
     
-    init(rageLevel: Int, isInChaos: Bool, record: CKRecord) {
+    init(rageLevel: Int, isInChaos: Int, record: CKRecord?) {
         super.init()
         
         if let record = record{
@@ -40,7 +40,7 @@ class RageMeasurer: CloudKitModel {
         setupRecord(rageLevel: rageLevel, isInChaos: isInChaos)
     }
     
-    private func setupRecord(rageLevel: Int, isInChaos: Bool){
+    private func setupRecord(rageLevel: Int, isInChaos: Int){
         self.rageLevel = rageLevel
         self.isInChaos = isInChaos
     }
