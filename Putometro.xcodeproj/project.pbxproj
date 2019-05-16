@@ -22,6 +22,7 @@
 		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
+		3F6EEA022289F730007EEC22 /* ConflictHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EEA012289F730007EEC22 /* ConflictHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		3F6EEA012289F730007EEC22 /* ConflictHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		3F6EE9CA22805BB8007EEC22 /* Putometro */ = {
 			isa = PBXGroup;
 			children = (
+				3FF5E373228DA7F400D0B263 /* Delegates */,
 				30FEC34A2284456C009CA355 /* Utils */,
 				3F6EE9F22281D143007EEC22 /* Views */,
 				3F6EE9F12281D137007EEC22 /* View Models */,
@@ -170,8 +173,16 @@
 		3F6EE9F22281D143007EEC22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F6EEA012289F730007EEC22 /* ConflictHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3FF5E373228DA7F400D0B263 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
+				3F6EEA022289F730007EEC22 /* ConflictHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
