@@ -70,7 +70,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TeammateCell else { return UITableViewCell()
         }
-        
         mockItems.forEach { (item) in
             cell.setupCell(color: UIColor.AppColors.red, name: item.1, photo: item.0)
         }
@@ -79,6 +78,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 }
