@@ -30,10 +30,11 @@ class CircleView: UIImageView {
 extension CircleView: Shadow {
     private func configCheckView() {
         if self.isSelected == true {
-            self.image = #imageLiteral(resourceName: "redCheck")
+            self.image = #imageLiteral(resourceName: "checkCircle")
             self.tintColor = color
         } else {
             self.image = #imageLiteral(resourceName: "circle")
+            self.tintColor = UIColor.AppColors.ligthGray
         }
         configShadow(self, isDark: false)
     }

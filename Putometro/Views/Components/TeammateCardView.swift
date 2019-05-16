@@ -40,19 +40,15 @@ class TeammateCardView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        uptadeView()
-    }
-    
-}
-
-//Configuration
-extension TeammateCardView: Shadow {
-    private func uptadeView() {
         configCardView()
         configTeammateImageConstraints()
         configTeammateNameConstrains()
     }
     
+}
+
+//Configuration + Constraints
+extension TeammateCardView: Shadow {
     private func configCardView() {
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 8
