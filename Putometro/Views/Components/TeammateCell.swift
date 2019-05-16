@@ -14,7 +14,6 @@ class TeammateCell: UITableViewCell {
     var photo: UIImage?
     
     var circleView: CircleView?
-    
     var teammateCardView: TeammateCardView?
     
     func setupCell(color: UIColor, name: String, photo: UIImage) {
@@ -31,18 +30,17 @@ class TeammateCell: UITableViewCell {
     }
     
     override func draw(_ rect: CGRect) {
-        configCircleViewConstraints()
-        configTeammateCardViewConstraints()
+        super.draw(rect)
+        configCircleView()
+        configTeammateCardView()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         guard let circleView = circleView else { return }
         if selected == true {
-            circleView.isSelected = true
-            circleView.configCheckView()
+            circleView.update(isSelected: true)
         } else {
-            circleView.isSelected = false
-            circleView.configCheckView()
+            circleView.update(isSelected: false)
         }
     }
     
@@ -50,7 +48,7 @@ class TeammateCell: UITableViewCell {
 
 //Configuration + Constraints
 extension TeammateCell {
-    private func configCircleViewConstraints() {
+    private func configCircleView() {
         guard let circleView = circleView else { return }
         self.addSubview(circleView)
         circleView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +58,7 @@ extension TeammateCell {
         circleView.widthAnchor.constraint(equalToConstant: self.frame.height/6).isActive = true
     }
     
-    private func configTeammateCardViewConstraints() {
+    private func configTeammateCardView() {
         guard let teammateCardView = teammateCardView else { return }
         guard let circleView = circleView else { return }
         teammateCardView.layer.backgroundColor = UIColor.AppColors.darkGray.cgColor

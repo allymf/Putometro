@@ -42,11 +42,11 @@ class TeammateCardView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         configCardView()
         configTeammateImageConstraints()
         configTeammateNameConstrains()
     }
-    
 }
 
 //Configuration + Constraints
@@ -62,8 +62,7 @@ extension TeammateCardView: Shadow {
     private func configTeammateImageConstraints() {
         guard let offset = offset else { return }
         teammateImage.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        teammateImage.leftAnchor.constraint(equalTo: self.leftAnchor,
-                                            constant: offset).isActive = true
+        teammateImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: offset).isActive = true
         teammateImage.widthAnchor.constraint(equalToConstant: self.frame.height/1.6).isActive = true
         teammateImage.heightAnchor.constraint(equalToConstant: self.frame.height/1.6).isActive = true
     }
