@@ -44,7 +44,7 @@ class CloudKitWrapper: NSObject{
         return recordsArray
     }
     
-    static func create(record: CKRecord, completion: ((CKRecord) -> Void)? = nil){
+    static func save(record: CKRecord, completion: ((CKRecord) -> Void)? = nil){
         publicDb.save(record) { (recordResponse, error) in
             if let error = error{
                 print(error.localizedDescription)
@@ -54,5 +54,35 @@ class CloudKitWrapper: NSObject{
                 completion(recordResponse)
             }
         }
+    }
+    
+    static func getUserIdentity() -> CKUserIdentity?{
+        
+        var identity: CKUserIdentity?
+        container.requestApplicationPermission(CKContainer_Application_Permissions.userDiscoverability) { (_, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+        }
+
+        container.fetchUserRecordID { (recordID, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else{
+                guard let recordID = recordID else { return }
+                container.discoverUserIdentity(withUserRecordID: recordID, completionHandler: { (userIdentity, error2) in
+                    if let error2 = error2{
+                        print(error2.localizedDescription)
+                    }
+                    else{
+                        if let userIdentity = userIdentity{
+                            identity = userIdentity
+                        }
+                    }
+                })
+            }
+        }
+        return identity
     }
 }

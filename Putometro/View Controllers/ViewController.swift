@@ -12,8 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = User(name: "Alysson", photo: #imageLiteral(resourceName: "SearchPlaceholder"), rageMeasurer: RageMeasurer(rageLevel: 100, isInChaos: false))
-        user.save()
+        print(CloudKitWrapper.getUserIdentity())
         // Do any additional setup after loading the view.
     }
 }
