@@ -15,27 +15,25 @@ class CircleView: UIImageView {
     init(frame: CGRect, color: UIColor) {
         self.color = color
         super.init(frame: frame)
+        
+        configCheckView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func draw(_ rect: CGRect) {
-        configCheckView()
-    }
 }
 
 //Configuration
 extension CircleView: Shadow {
-    private func configCheckView() {
+    func configCheckView() {
         if self.isSelected == true {
             self.image = #imageLiteral(resourceName: "checkCircle")
             self.tintColor = color
         } else {
             self.image = #imageLiteral(resourceName: "circle")
-            self.tintColor = UIColor.AppColors.ligthGray
+            self.tintColor = UIColor.AppColors.darkGray
         }
-        configShadow(self, isDark: false)
     }
 }

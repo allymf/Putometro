@@ -11,11 +11,12 @@ import UIKit
 class TeammateCardView: UIView {
     var name: String
     var image: UIImage
+    var offset: CGFloat?
     
     lazy var teammateImage: UIImageView = {
         let image = UIImageView()
         image.image = self.image
-        image.layer.cornerRadius = self.frame.height/2.4
+        image.layer.cornerRadius = (self.frame.height/1.6)/2
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -33,6 +34,7 @@ class TeammateCardView: UIView {
         self.name = name
         self.image = image
         super.init(frame: frame)
+        offset = self.frame.height/5
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,15 +60,18 @@ extension TeammateCardView: Shadow {
     }
     
     private func configTeammateImageConstraints() {
+        guard let offset = offset else { return }
         teammateImage.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        teammateImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
-        teammateImage.widthAnchor.constraint(equalToConstant: self.frame.height/1.4).isActive = true
-        teammateImage.heightAnchor.constraint(equalToConstant: self.frame.height/1.4).isActive = true
+        teammateImage.leftAnchor.constraint(equalTo: self.leftAnchor,
+                                            constant: offset).isActive = true
+        teammateImage.widthAnchor.constraint(equalToConstant: self.frame.height/1.6).isActive = true
+        teammateImage.heightAnchor.constraint(equalToConstant: self.frame.height/1.6).isActive = true
     }
     
     private func configTeammateNameConstrains() {
+        guard let offset = offset else { return }
         teammateName.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        teammateName.leftAnchor.constraint(equalTo: teammateImage.rightAnchor, constant: 10).isActive = true
-        teammateName.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 10).isActive = true
+        teammateName.leftAnchor.constraint(equalTo: teammateImage.rightAnchor, constant: offset).isActive = true
+        teammateName.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -offset).isActive = true
     }
 }

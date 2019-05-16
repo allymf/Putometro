@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let mockItems: [(UIImage, String)] = [(#imageLiteral(resourceName: "houcine-ncib-1579803-unsplash"), "Beatriz Plutarco"), (#imageLiteral(resourceName: "houcine-ncib-1579803-unsplash"), "Beatriz Plutarco"), (#imageLiteral(resourceName: "houcine-ncib-1579803-unsplash"), "Beatriz Plutarco")]
+    
     lazy var button: FillButton = {
         let btn = FillButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), title: "Done")
         btn.isEnabled = true
@@ -27,6 +29,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TeammateCell.self, forCellReuseIdentifier: "cell")
+        
         view.backgroundColor = UIColor.AppColors.ligthGray
         view.addSubview(button)
         view.addSubview(tableView)
@@ -55,4 +61,24 @@ extension ViewController {
         button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
 }
-
+//TableView Delagate + Datasource
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mockItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TeammateCell else { return UITableViewCell()
+        }
+        
+        mockItems.forEach { (item) in
+            cell.setupCell(color: UIColor.AppColors.red, name: item.1, photo: item.0)
+        }
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+}
