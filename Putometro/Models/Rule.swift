@@ -41,10 +41,14 @@ class Rule: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.rule.rawValue)
     }
     
-    init(title: String, descript: String, status: Bool, votes: [Vote]) {
+    init(title: String, descript: String, status: Bool, votes: [Vote], record: CKRecord?) {
         super.init()
-        self.record = CKRecord(recordType: RecordType.rule.rawValue)
-        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.rule.rawValue)
+        }
         setupRecord(title: title, descript: descript, status: status, votes: votes)
     }
     

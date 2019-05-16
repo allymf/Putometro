@@ -18,6 +18,7 @@ class Conflict: CloudKitModel {
             record.setValue(rageReference, forKey: "rageMeasurer")
         }
     }
+    
     var creator = User(){
         didSet{
             creator.save()
@@ -25,6 +26,7 @@ class Conflict: CloudKitModel {
             record.setValue(creatorReference, forKey: "creator")
         }
     }
+    
     var troubleMakers = [User](){
         didSet{
             let troubleMakersReferenceList = troubleMakers.map { (user) -> CKRecord.Reference in
@@ -34,6 +36,7 @@ class Conflict: CloudKitModel {
             record.setValue(troubleMakersReferenceList, forKey: "troubleMakers")
         }
     }
+    
     var brokenRules = [Rule](){
         didSet{
             let brokenRulesReferenceList = brokenRules.map { (rule) -> CKRecord.Reference in
@@ -43,11 +46,13 @@ class Conflict: CloudKitModel {
             record.setValue(brokenRulesReferenceList, forKey: "brokenRules")
         }
     }
+    
     var createdAt = Date(){
         didSet{
             record.setValue(createdAt, forKey: "createdAt")
         }
     }
+    
     var status = false{
         didSet{
             record.setValue(status, forKey: "status")
@@ -59,9 +64,15 @@ class Conflict: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.conflict.rawValue)
     }
     
-    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool) {
+    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Bool, record: CKRecord?) {
         super.init()
-        self.record = CKRecord(recordType: RecordType.conflict.rawValue)
+        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.conflict.rawValue)
+        }
         
         setupRecord(rageMeasurer: rageMeasurer, creator: creator, troubleMakers: troubleMakers, brokenRules: brokenRules, createdAt: createdAt, status: status)
     }

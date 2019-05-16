@@ -27,9 +27,15 @@ class RageMeasurer: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
     }
     
-    init(rageLevel: Int, isInChaos: Bool) {
+    init(rageLevel: Int, isInChaos: Bool, record: CKRecord) {
         super.init()
-        self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+        }
         
         setupRecord(rageLevel: rageLevel, isInChaos: isInChaos)
     }

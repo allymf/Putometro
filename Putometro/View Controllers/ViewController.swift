@@ -12,8 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(CloudKitWrapper.getUserIdentity())
-        // Do any additional setup after loading the view.
+        CloudKitWrapper.getCurrentUser { (record) in
+            if let record = record{
+                let user = User(name: "Adauto Pinheiro", photo: #imageLiteral(resourceName: "SearchPlaceholder"), rageMeasurer: RageMeasurer(), record: record)
+                user.save()
+            }
+        }
     }
 }
 

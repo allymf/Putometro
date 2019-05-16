@@ -28,10 +28,14 @@ class Vote: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.vote.rawValue)
     }
     
-    init(status: Bool, user: User) {
+    init(status: Bool, user: User, record: CKRecord?) {
         super.init()
-        self.record = CKRecord(recordType: RecordType.vote.rawValue)
-        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.vote.rawValue)
+        }
         setupRecord(status: status, user: user)
     }
     

@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 import CloudKit
 
 enum RecordType: String{
     case team = "Team"
-    case user = "User"
+    case user = "Users"
     case rule  = "Rule"
     case vote = "Vote"
     case conflict = "Conflict"
@@ -24,65 +25,69 @@ class CloudKitWrapper: NSObject{
     static private let container = CKContainer.default()
     static private let publicDb = CKContainer.default().publicCloudDatabase
     
-    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: (([CKRecord]) -> Void)? = nil) -> [CKRecord]?{
+    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: @escaping ([CKRecord]?) -> Void){
         let query = CKQuery(recordType: recordType.rawValue, predicate: predicate)
-        var recordsArray: [CKRecord]?
         
         publicDb.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error{
                 print(error.localizedDescription)
-                
             }
             else{
-                guard let records = records else { return }
-                recordsArray = records
-                if let completion = completion{
-                    completion(records)
-                }
+                completion(records)
             }
         }
-        return recordsArray
     }
     
-    static func save(record: CKRecord, completion: ((CKRecord) -> Void)? = nil){
+    static func save(record: CKRecord, completion: ((CKRecord?) -> Void)? = nil){
         publicDb.save(record) { (recordResponse, error) in
             if let error = error{
                 print(error.localizedDescription)
             }
-            guard let recordResponse = recordResponse else { return }
-            if let completion = completion{
-                completion(recordResponse)
+            else{
+                if let completion = completion{
+                    completion(recordResponse)
+                }
             }
         }
     }
     
-    static func getUserIdentity() -> CKUserIdentity?{
-        
-        var identity: CKUserIdentity?
-        container.requestApplicationPermission(CKContainer_Application_Permissions.userDiscoverability) { (_, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-        }
+    static private func getCurrentUserID(completion: @escaping (CKRecord.ID?) -> Void){
 
-        container.fetchUserRecordID { (recordID, error) in
+        CloudKitWrapper.container.fetchUserRecordID { (recordID, error) in
             if let error = error {
                 print(error.localizedDescription)
             }
             else{
-                guard let recordID = recordID else { return }
-                container.discoverUserIdentity(withUserRecordID: recordID, completionHandler: { (userIdentity, error2) in
-                    if let error2 = error2{
-                        print(error2.localizedDescription)
+               completion(recordID)
+            }
+        }
+    }
+    
+    static func getCurrentUser(completion: @escaping (CKRecord?) -> Void){
+        
+        
+        getCurrentUserID { (recordID) in
+            if let recordID = recordID{
+                publicDb.fetch(withRecordID: recordID, completionHandler: { (record, error) in
+                    if let error = error{
+                        print(error.localizedDescription)
                     }
                     else{
-                        if let userIdentity = userIdentity{
-                            identity = userIdentity
-                        }
+                        completion(record)
                     }
                 })
             }
         }
-        return identity
+    }
+    
+    static func createUser(name: String, photo: UIImage = UIImage(), rageMeasurer: RageMeasurer = RageMeasurer()){
+        
+        getCurrentUserID { (recordID) in
+            if let recordID = recordID{
+                let newUser = CKRecord(recordType: RecordType.user.rawValue, recordID: recordID)
+                newUser.setValue(name, forKey: "name")
+                save(record: newUser)
+            }
+        }
     }
 }

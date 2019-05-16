@@ -29,7 +29,7 @@ class User: CloudKitModel {
     var rageMeasurer = RageMeasurer(){
         didSet{
             rageMeasurer.save()
-            record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf), forKey: "rageMeasurer")
+            record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .none), forKey: "rageMeasurer")
         }
     }
     
@@ -38,10 +38,14 @@ class User: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.user.rawValue)
     }
     
-    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer) {
+    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer, record: CKRecord? = nil) {
         super.init()
-        self.record = CKRecord(recordType: RecordType.user.rawValue)
-        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.user.rawValue)
+        }
         setupRecord(name: name, photo: photo, rageMeasurer: rageMeasurer)
     }
     
