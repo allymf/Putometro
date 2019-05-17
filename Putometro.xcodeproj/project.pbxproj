@@ -117,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				30FEC34A2284456C009CA355 /* Utils */,
+				B272AAF4228EE19E00410D84 /* ViewControllers */,
 				3F6EE9F22281D143007EEC22 /* Views */,
 				3F6EE9F12281D137007EEC22 /* View Models */,
 				3F6EE9F02281D131007EEC22 /* Models */,
@@ -164,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				B228B143228ADC1800E46B29 /* Components */,
-				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +175,14 @@
 				B228B144228ADCE600E46B29 /* FillButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B272AAF4228EE19E00410D84 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
