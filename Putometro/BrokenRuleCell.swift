@@ -59,7 +59,6 @@ class BrokenRuleCell: UITableViewCell {
         if isBottomLineHidden {
             bottomLineView.isHidden = true
         }
-        
         ruleLabel.text = ruleTitle
     }
     
