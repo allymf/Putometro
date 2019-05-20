@@ -36,11 +36,11 @@ extension CircleView: Shadow {
     
     func update(isSelected: Bool) {
         if isSelected == true {
-            self.image = #imageLiteral(resourceName: "checkCircle")
+            self.image = #imageLiteral(resourceName: " check")
             self.tintColor = color
         } else {
             self.image = #imageLiteral(resourceName: "circle")
-            self.tintColor = UIColor.AppColors.darkGray
+            self.tintColor = UIColor.AppColors.gray
         }
     }
 }

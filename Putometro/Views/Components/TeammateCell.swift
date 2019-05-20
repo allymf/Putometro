@@ -12,19 +12,16 @@ class TeammateCell: UITableViewCell {
     var color: UIColor?
     var name: String?
     var photo: UIImage?
-    var offset: CGFloat?
     var circleView: CircleView?
     var teammateCardView: TeammateCardView?
-    var circleWidthAnchor: NSLayoutConstraint?
     var circleHeigthAnchor: NSLayoutConstraint?
-    var circleLeftAnchor: NSLayoutConstraint?
+    var alreadySelected = false
     
     func setupCell(color: UIColor, name: String, photo: UIImage) {
         self.backgroundColor = .clear
         self.color = color
         self.name = name
         self.photo = photo
-        offset = self.frame.height/5
         circleView = CircleView(frame: CGRect(origin: self.frame.origin, size: self.frame.size), color: color)
         teammateCardView = TeammateCardView(frame: CGRect(origin: self.frame.origin, size: self.frame.size),
                                             name: name,
@@ -35,18 +32,23 @@ class TeammateCell: UITableViewCell {
         super.draw(rect)
         guard let circleView = circleView else { return }
         guard let teammateCardView = teammateCardView else { return }
-        guard let offset = offset else { return }
         
-        configCircleViewConstraints(circleView, offset: offset)
-        configTeammateCardViewConstraints(teammateCardView, circleView, offset: offset)
+        configCircleViewConstraints(circleView)
+        configTeammateCardViewConstraints(teammateCardView)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         guard let circleView = circleView else { return }
         if selected == true {
-            animateConstraintsFrom(circleView: circleView)
-            circleView.update(isSelected: true)
+            if alreadySelected == true {
+                circleView.update(isSelected: true)
+            } else {
+                animateConstraintsFrom(circleView: circleView, didSelected: true)
+                circleView.update(isSelected: true)
+            }
         } else {
+            alreadySelected = false
+            animateConstraintsFrom(circleView: circleView, didSelected: false)
             circleView.update(isSelected: false)
         }
     }
@@ -54,46 +56,49 @@ class TeammateCell: UITableViewCell {
 
 //Configuration + Constraints
 extension TeammateCell {
-    private func configCircleViewConstraints(_ circleView: CircleView, offset: CGFloat) {
+    private func configCircleViewConstraints(_ circleView: CircleView) {
         self.addSubview(circleView)
         circleView.translatesAutoresizingMaskIntoConstraints = false
         circleView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        circleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -self.frame.width/2.6).isActive = true
         
-        circleLeftAnchor = circleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: offset*2)
-        circleLeftAnchor?.isActive = true
         circleHeigthAnchor = circleView.heightAnchor.constraint(equalToConstant: self.frame.height/6)
         circleHeigthAnchor?.isActive = true
-        circleWidthAnchor = circleView.widthAnchor.constraint(equalTo: circleView.heightAnchor)
-        circleWidthAnchor?.isActive = true
+        circleView.widthAnchor.constraint(equalTo: circleView.heightAnchor).isActive = true
     }
     
-    private func animateConstraintsFrom(circleView: CircleView) {
+    private func animateConstraintsFrom(circleView: CircleView, didSelected: Bool) {
         guard let heightAnchor = circleHeigthAnchor else { return }
-        guard let widthAnchor = circleWidthAnchor else { return }
-        guard let leftAnchor = circleLeftAnchor else { return }
-        guard let offset = offset else { return }
+        heightAnchor.isActive = false
+        circleView.removeConstraint(heightAnchor)
         
-        circleView.removeConstraints([heightAnchor, widthAnchor, leftAnchor])
-        
-        circleLeftAnchor = circleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: offset)
-        leftAnchor.isActive = true
-        circleHeigthAnchor = circleView.heightAnchor.constraint(equalToConstant: self.frame.height/4)
-        heightAnchor.isActive = true
-        circleWidthAnchor = circleView.widthAnchor.constraint(equalTo: circleView.heightAnchor)
-        widthAnchor.isActive = true
+        if didSelected == false {
+            circleHeigthAnchor = circleView.heightAnchor.constraint(equalToConstant: self.frame.height/6)
+            circleHeigthAnchor?.isActive = true
             
-        UIView.animate(withDuration: 0.3) {
-            self.layoutIfNeeded()
+            UIView.animate(withDuration: 0.1) {
+                self.layoutIfNeeded()
+            }
+            
+        } else {
+            alreadySelected = true
+            circleHeigthAnchor = circleView.heightAnchor.constraint(equalToConstant: circleView.frame.height*1.6)
+            circleHeigthAnchor?.isActive = true
+            
+            UIView.animate(withDuration: 0.1) {
+                self.layoutIfNeeded()
+            }
         }
         
+        
     }
     
-    private func configTeammateCardViewConstraints(_ teammateCardView: TeammateCardView, _ circleView: CircleView, offset: CGFloat) {
+    private func configTeammateCardViewConstraints(_ teammateCardView: TeammateCardView) {
         self.addSubview(teammateCardView)
         teammateCardView.translatesAutoresizingMaskIntoConstraints = false
         teammateCardView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        teammateCardView.leftAnchor.constraint(equalTo: circleView.rightAnchor, constant: offset).isActive = true
-        teammateCardView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -offset*2).isActive = true
+        teammateCardView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: teammateCardView.frame.width/24).isActive = true
         teammateCardView.heightAnchor.constraint(equalToConstant: self.frame.height/1.2).isActive = true
+        teammateCardView.widthAnchor.constraint(equalToConstant: self.frame.width/1.4).isActive = true
     }
 }
