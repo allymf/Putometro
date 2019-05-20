@@ -22,6 +22,7 @@
 		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
+		7742CC092292D3A500AC924C /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742CC082292D3A500AC924C /* AddCell.swift */; };
 		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		7742CC082292D3A500AC924C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddCell.swift; path = Putometro/AddCell.swift; sourceTree = SOURCE_ROOT; };
 		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/AddView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				777AEA48228AEA8800BF2827 /* AddView.swift */,
+				7742CC082292D3A500AC924C /* AddCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
+				7742CC092292D3A500AC924C /* AddCell.swift in Sources */,
 				777AEA49228AEA8800BF2827 /* AddView.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);

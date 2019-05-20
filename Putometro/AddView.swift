@@ -72,7 +72,7 @@ class AddView: UIView {
             self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 16),
             self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -16),
             self.heightAnchor.constraint(equalToConstant: 60)
-            ])
+        ])
         
         // addButton Constraints
         NSLayoutConstraint.activate([
