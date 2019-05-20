@@ -61,6 +61,19 @@ class Team: CloudKitModel {
         }
     }
     
+    func addMember(user: User){
+        if [User]() == users.filter({ (userAux) -> Bool in
+            if userAux == user{
+                return true
+            }
+            else{
+                return false
+            }
+        }){
+            users.append(user)
+        }
+    }
+    
     override init(){
         super.init()
         self.record = CKRecord(recordType: RecordType.team.rawValue)
