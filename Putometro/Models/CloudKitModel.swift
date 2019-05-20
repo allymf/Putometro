@@ -23,14 +23,10 @@ class CloudKitModel: NSObject{
         self.record = record
     }
     
-    func save(completion: ((CKRecord) -> Void)? = nil){
+    func save(completion: ((CKRecord?, Error?) -> Void)? = nil){
         publicDb.save(record) { (record, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-            guard let record = record else { return }
-            if let completion = completion{
-                completion(record)
+            if let completion = completion {
+                completion(record, error)
             }
         }
     }

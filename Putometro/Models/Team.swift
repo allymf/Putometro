@@ -11,12 +11,55 @@ import CloudKit
 
 class Team: CloudKitModel {
     
-    var name = String()
-    var users = [User]()
-    var rules = [Rule]()
-    var conflicts = [Conflict]()
-    var leaderboard = Leaderboard()
-    var rageMeasurer = RageMeasurer()
+    var name = String(){
+        didSet{
+            record.setValue(name, forKey: "name")
+        }
+    }
+    
+    var users = [User](){
+        didSet{
+            let userReferenceList = users.map { (user) -> CKRecord.Reference in
+                user.save()
+                return CKRecord.Reference(record: user.getRecord(), action: .deleteSelf)
+            }
+            record.setValue(userReferenceList, forKey: "users")
+        }
+    }
+    
+    var rules = [Rule](){
+        didSet{
+            let rulesReferenceList = rules.map { (rule) -> CKRecord.Reference in
+                rule.save()
+                return CKRecord.Reference(record: rule.getRecord(), action: .deleteSelf)
+            }
+            record.setValue(rulesReferenceList, forKey: "rules")
+        }
+    }
+    
+    var conflicts = [Conflict](){
+        didSet{
+            let conflictsReferenceList = conflicts.map { (conflict) -> CKRecord.Reference in
+                conflict.save()
+                return CKRecord.Reference(record: conflict.getRecord(), action: .deleteSelf)
+            }
+            record.setValue(conflictsReferenceList, forKey: "conflicts")
+        }
+    }
+    
+    var leaderboard = Leaderboard(){
+        didSet{
+            leaderboard.save()
+            record.setValue(CKRecord.Reference(record: leaderboard.getRecord(), action: .deleteSelf), forKey: "leaderboard")
+        }
+    }
+    
+    var rageMeasurer = RageMeasurer(){
+        didSet{
+            rageMeasurer.save()
+            record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf), forKey: "rageMeasurer")
+        }
+    }
     
     override init(){
         super.init()
