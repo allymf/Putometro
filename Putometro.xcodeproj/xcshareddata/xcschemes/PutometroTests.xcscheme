@@ -5,6 +5,36 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F6EE9C722805BB8007EEC22"
+               BuildableName = "Putometro.app"
+               BlueprintName = "Putometro"
+               ReferencedContainer = "container:Putometro.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F6EE9DB22805BBD007EEC22"
+               BuildableName = "PutometroTests.xctest"
+               BlueprintName = "PutometroTests"
+               ReferencedContainer = "container:Putometro.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -23,8 +53,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-<<<<<<< HEAD
-=======
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -34,7 +62,6 @@
             ReferencedContainer = "container:Putometro.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
->>>>>>> aeaf7880a86f6b1671e9c28865c890eb8e323df2
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -48,19 +75,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-<<<<<<< HEAD
-=======
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F6EE9C722805BB8007EEC22"
-            BuildableName = "Putometro.app"
-            BlueprintName = "Putometro"
+            BlueprintIdentifier = "3F6EE9DB22805BBD007EEC22"
+            BuildableName = "PutometroTests.xctest"
+            BlueprintName = "PutometroTests"
             ReferencedContainer = "container:Putometro.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
->>>>>>> aeaf7880a86f6b1671e9c28865c890eb8e323df2
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,18 +93,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-<<<<<<< HEAD
-=======
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F6EE9C722805BB8007EEC22"
-            BuildableName = "Putometro.app"
-            BlueprintName = "Putometro"
+            BlueprintIdentifier = "3F6EE9DB22805BBD007EEC22"
+            BuildableName = "PutometroTests.xctest"
+            BlueprintName = "PutometroTests"
             ReferencedContainer = "container:Putometro.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
->>>>>>> aeaf7880a86f6b1671e9c28865c890eb8e323df2
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
