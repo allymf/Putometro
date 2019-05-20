@@ -1,0 +1,20 @@
+line_length: 
+ - 500 # warning
+ - 1000 # error
+
+
+disabled_rules:
+ - trailing_newline
+ - vertical_whitespace
+ - trailing_whitespace
+ - opening_brace
+ - colon
+ - statement_position
+
+opt_in_rules:
+ - force_unwrapping
+
+
+force_unwrapping: 
+ severity: error # explicitly
+
