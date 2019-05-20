@@ -10,18 +10,21 @@ import Foundation
 import CloudKit
 
 struct Vote {
-    var status: Bool
-    var user: User
     
-    private var record: CKRecord?
+    var status: Bool{
+        didSet{
+            record.setValue(status, forKey: "status")
+        }
+    }
+    var user: User{
+        didSet{
+            record.setValue(CKRecord.Reference(record: user.getRecord(), action: .deleteSelf), forKey: "user")
+        }
+    }
+    
+    private var record = CKRecord(recordType: RecordType.vote.rawValue)
     
     func getRecord() -> CKRecord{
-        guard let record = record else{
-            let newRecord = CKRecord(recordType: "Vote")
-            newRecord.setValue(CKRecord.Reference(record: user.getRecord(), action: .deleteSelf), forKey: "user")
-            newRecord.setValue(status, forKey: "status")
-            return newRecord
-        }
         return record
     }
     

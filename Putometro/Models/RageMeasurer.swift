@@ -10,10 +10,19 @@ import Foundation
 import CloudKit
 
 struct RageMeasurer {
-    var rageLevel: Int
-    var isInChaos: Bool
     
-    private var record: CKRecord?
+    var rageLevel: Int{
+        didSet{
+            record.setValue(rageLevel, forKey: "rageLevel")
+        }
+    }
+    var isInChaos: Bool{
+        didSet{
+            record.setValue(isInChaos, forKey: "isInChaos")
+        }
+    }
+    
+    private var record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
     
     init(rageLevel: Int, isInChaos: Bool) {
         self.rageLevel = rageLevel
@@ -21,15 +30,6 @@ struct RageMeasurer {
     }
     
     func getRecord() -> CKRecord{
-        guard let record = record else {
-            let values = [
-                "rageLevel" : rageLevel,
-                "isInChaos" : isInChaos
-                ] as [String : Any]
-            let rageRecord = CKRecord(recordType: "RageMeasurer")
-            rageRecord.setValuesForKeys(values)
-            return rageRecord
-        }
         return record
     }
     
