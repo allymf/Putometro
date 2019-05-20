@@ -40,6 +40,7 @@ class TeammateCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         guard let circleView = circleView else { return }
         if selected == true {
+//            when the user click on a cell already selected
             if alreadySelected == true {
                 circleView.update(isSelected: true)
             } else {
@@ -89,8 +90,6 @@ extension TeammateCell {
                 self.layoutIfNeeded()
             }
         }
-        
-        
     }
     
     private func configTeammateCardViewConstraints(_ teammateCardView: TeammateCardView) {
