@@ -9,65 +9,80 @@
 import Foundation
 import CloudKit
 
-struct Conflict {
+class Conflict: CloudKitModel {
     
-    private let defaultContainer = CKContainer.default()
-    private let publicDb = CKContainer.default().publicCloudDatabase
-    private var record = CKRecord(recordType: RecordType.conflict.rawValue)
-    
-    var rageMeasurer: RageMeasurer{
+    var rageMeasurer = RageMeasurer(){
         didSet{
+            rageMeasurer.save()
             let rageReference = CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf)
             record.setValue(rageReference, forKey: "rageMeasurer")
         }
     }
-    var creator: User{
+    
+    var creator = User(){
         didSet{
+            creator.save()
             let creatorReference = CKRecord.Reference(record: creator.getRecord(), action: .deleteSelf)
             record.setValue(creatorReference, forKey: "creator")
         }
     }
-    var troubleMakers: [User]{
+    
+    var troubleMakers = [User](){
         didSet{
             let troubleMakersReferenceList = troubleMakers.map { (user) -> CKRecord.Reference in
+                user.save()
                 return CKRecord.Reference(record: user.getRecord(), action: .deleteSelf)
             }
             record.setValue(troubleMakersReferenceList, forKey: "troubleMakers")
         }
     }
-    var brokenRules: [Rule]{
+    
+    var brokenRules = [Rule](){
         didSet{
             let brokenRulesReferenceList = brokenRules.map { (rule) -> CKRecord.Reference in
+                rule.save()
                 return CKRecord.Reference(record: rule.getRecord(), action: .deleteSelf)
             }
             record.setValue(brokenRulesReferenceList, forKey: "brokenRules")
         }
     }
-    var createdAt: Date{
+    
+    var createdAt = Date(){
         didSet{
             record.setValue(createdAt, forKey: "createdAt")
         }
     }
-    var status: Bool{
+    
+    var status = 0{
         didSet{
             record.setValue(status, forKey: "status")
         }
     }
     
-    
-    func save(completion: ((CKRecord) -> Void)? = nil){
-        publicDb.save(record) { (record, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-            guard let record = record else { return }
-            if let completion = completion{
-                completion(record)
-            }
-        }
+    override init(){
+        super.init()
+        self.record = CKRecord(recordType: RecordType.conflict.rawValue)
     }
     
-    mutating func setRecord(record: CKRecord){
-        self.record = record
+    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int, record: CKRecord?) {
+        super.init()
+        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.conflict.rawValue)
+        }
+        
+        setupRecord(rageMeasurer: rageMeasurer, creator: creator, troubleMakers: troubleMakers, brokenRules: brokenRules, createdAt: createdAt, status: status)
+    }
+    
+    private func setupRecord(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int){
+        self.rageMeasurer = rageMeasurer
+        self.creator = creator
+        self.troubleMakers = troubleMakers
+        self.brokenRules = brokenRules
+        self.createdAt = createdAt
+        self.status = status
     }
 }

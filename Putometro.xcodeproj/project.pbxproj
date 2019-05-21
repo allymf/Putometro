@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		30DEC5D3228353AA0000EB84 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEC5D2228353AA0000EB84 /* CloudKit.framework */; };
 		30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */; };
+		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
+		30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */; };
 		3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */; };
 		3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CD22805BB8007EEC22 /* ViewController.swift */; };
 		3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CF22805BB8007EEC22 /* Main.storyboard */; };
@@ -22,8 +24,10 @@
 		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
-		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
+		7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */; };
+		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
 		3FF5E37522924A1000D0B263 /* LeaderboardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */; };
+		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,8 @@
 /* Begin PBXFileReference section */
 		30DEC5D2228353AA0000EB84 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitWrapper.swift; sourceTree = "<group>"; };
+		30FEC3702289AE69009CA355 /* CloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModel.swift; sourceTree = "<group>"; };
+		30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		3F6EE9C822805BB8007EEC22 /* Putometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Putometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6EE9CD22805BB8007EEC22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +63,10 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
-		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
+		7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRuleCell.swift; path = Putometro/BrokenRuleCell.swift; sourceTree = SOURCE_ROOT; };
+		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/AddView.swift; sourceTree = SOURCE_ROOT; };
 		3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardImageView.swift; sourceTree = SOURCE_ROOT; };
+		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */,
+				30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 				3F6EE9FB22820407007EEC22 /* Conflict.swift */,
 				3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */,
 				3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */,
+				30FEC3702289AE69009CA355 /* CloudKitModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 		3F6EE9F22281D143007EEC22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				777AEA48228AEA8800BF2827 /* AddView.swift */,
+				7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */,
 				B228B143228ADC1800E46B29 /* Components */,
 				3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */,
 			);
@@ -322,13 +334,16 @@
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
+				30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */,
+				30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
-				3FF5E37522924A1000D0B263 /* LeaderboardImageView.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
+				7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
+				777AEA49228AEA8800BF2827 /* AddView.swift in Sources */,
 				B228B145228ADCE600E46B29 /* FillButton.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);
@@ -494,13 +509,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Putometro/Putometro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LF3U834HDS;
+				DEVELOPMENT_TEAM = ZB4G8WR697;
 				INFOPLIST_FILE = Putometro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.abat.Putometer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.abat.Putometro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -513,13 +528,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Putometro/Putometro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LF3U834HDS;
+				DEVELOPMENT_TEAM = ZB4G8WR697;
 				INFOPLIST_FILE = Putometro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.abat.Putometer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.abat.Putometro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

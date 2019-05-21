@@ -9,26 +9,38 @@
 import Foundation
 import CloudKit
 
-struct Vote {
+class Vote: CloudKitModel {
     
-    var status: Bool{
+    var status = 0{
         didSet{
             record.setValue(status, forKey: "status")
         }
     }
-    var user: User{
+    var user = User(){
         didSet{
+            user.save()
             record.setValue(CKRecord.Reference(record: user.getRecord(), action: .deleteSelf), forKey: "user")
         }
     }
     
-    private var record = CKRecord(recordType: RecordType.vote.rawValue)
-    
-    func getRecord() -> CKRecord{
-        return record
+    override init() {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.vote.rawValue)
     }
     
-    mutating func setRecord(record: CKRecord){
-        self.record = record
+    init(status: Int, user: User, record: CKRecord?) {
+        super.init()
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.vote.rawValue)
+        }
+        setupRecord(status: status, user: user)
+    }
+    
+    private func setupRecord(status: Int, user: User){
+        self.status = status
+        self.user = user
     }
 }
