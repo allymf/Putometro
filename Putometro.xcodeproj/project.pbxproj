@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		30DEC5D3228353AA0000EB84 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEC5D2228353AA0000EB84 /* CloudKit.framework */; };
 		30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */; };
+		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
+		30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */; };
 		3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */; };
 		3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CD22805BB8007EEC22 /* ViewController.swift */; };
 		3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CF22805BB8007EEC22 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		7742CC092292D3A500AC924C /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742CC082292D3A500AC924C /* AddCell.swift */; };
 		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
 		3FF5E37522924A1000D0B263 /* LeaderboardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */; };
+		7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */; };
+		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,8 @@
 /* Begin PBXFileReference section */
 		30DEC5D2228353AA0000EB84 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitWrapper.swift; sourceTree = "<group>"; };
+		30FEC3702289AE69009CA355 /* CloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModel.swift; sourceTree = "<group>"; };
+		30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		3F6EE9C822805BB8007EEC22 /* Putometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Putometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6EE9CD22805BB8007EEC22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 		7742CC082292D3A500AC924C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddCell.swift; path = Putometro/AddCell.swift; sourceTree = SOURCE_ROOT; };
 		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/AddView.swift; sourceTree = SOURCE_ROOT; };
 		3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardImageView.swift; sourceTree = SOURCE_ROOT; };
+		7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRuleCell.swift; path = Putometro/BrokenRuleCell.swift; sourceTree = SOURCE_ROOT; };
+		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */,
+				30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -121,10 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				30FEC34A2284456C009CA355 /* Utils */,
+				B272AAF4228EE19E00410D84 /* ViewControllers */,
 				3F6EE9F22281D143007EEC22 /* Views */,
 				3F6EE9F12281D137007EEC22 /* View Models */,
 				3F6EE9F02281D131007EEC22 /* Models */,
-				3F6EE9EF2281D125007EEC22 /* View Controllers */,
 				3F6EE9EB2281C3A2007EEC22 /* Putometro.entitlements */,
 				3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */,
 				3F6EE9CF22805BB8007EEC22 /* Main.storyboard */,
@@ -144,14 +153,6 @@
 			path = PutometroTests;
 			sourceTree = "<group>";
 		};
-		3F6EE9EF2281D125007EEC22 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		3F6EE9F02281D131007EEC22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +163,7 @@
 				3F6EE9FB22820407007EEC22 /* Conflict.swift */,
 				3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */,
 				3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */,
+				30FEC3702289AE69009CA355 /* CloudKitModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,9 +180,27 @@
 			children = (
 				777AEA48228AEA8800BF2827 /* AddView.swift */,
 				7742CC082292D3A500AC924C /* AddCell.swift */,
+				7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */,
+				B228B143228ADC1800E46B29 /* Components */,
 				3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B228B143228ADC1800E46B29 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B228B144228ADCE600E46B29 /* FillButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B272AAF4228EE19E00410D84 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,15 +337,18 @@
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
+				30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */,
+				30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
-				3FF5E37522924A1000D0B263 /* LeaderboardImageView.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
+				7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				7742CC092292D3A500AC924C /* AddCell.swift in Sources */,
 				777AEA49228AEA8800BF2827 /* AddView.swift in Sources */,
+				B228B145228ADCE600E46B29 /* FillButton.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +519,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abat.Putometer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.abat.Putometro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,7 +538,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abat.Putometer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.abat.Putometro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 final class ViewController: UIViewController {
     lazy var tableView: UITableView = {
@@ -15,6 +16,8 @@ final class ViewController: UIViewController {
         view.addSubview(tv)
         return tv
     }()
+    
+    let count = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
