@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 import CloudKit
 
 enum RecordType: String{
     case team = "Team"
-    case user = "User"
+    case user = "Users"
     case rule  = "Rule"
     case vote = "Vote"
     case conflict = "Conflict"
@@ -24,34 +25,33 @@ class CloudKitWrapper: NSObject{
     static private let container = CKContainer.default()
     static private let publicDb = CKContainer.default().publicCloudDatabase
     
-    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: (([CKRecord]) -> Void)? = nil) -> [CKRecord]?{
-        let query = CKQuery(recordType: recordType.rawValue, predicate: predicate)
-        var recordsArray: [CKRecord]?
+    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: @escaping ([CKRecord]?, Error?) -> Void){
         
+        let query = CKQuery(recordType: recordType.rawValue, predicate: predicate)
         publicDb.perform(query, inZoneWith: nil) { (records, error) in
-            if let error = error{
-                print(error.localizedDescription)
-                
-            }
-            else{
-                guard let records = records else { return }
-                recordsArray = records
-                if let completion = completion{
-                    completion(records)
-                }
-            }
+            completion(records, error)
         }
-        return recordsArray
     }
     
-    static func create(record: CKRecord, completion: ((CKRecord) -> Void)? = nil){
-        publicDb.save(record) { (recordResponse, error) in
-            if let error = error{
+    static private func getCurrentUserID(completion: @escaping (CKRecord.ID?) -> Void){
+
+        CloudKitWrapper.container.fetchUserRecordID { (recordID, error) in
+            if let error = error {
                 print(error.localizedDescription)
             }
-            guard let recordResponse = recordResponse else { return }
-            if let completion = completion{
-                completion(recordResponse)
+            else{
+               completion(recordID)
+            }
+        }
+    }
+    
+    static func getCurrentUser(completion: @escaping (CKRecord?, Error?) -> Void){
+        
+        getCurrentUserID { (recordID) in
+            if let recordID = recordID{
+                publicDb.fetch(withRecordID: recordID, completionHandler: { (record, error) in
+                    completion(record, error)
+                })
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 final class ViewController: UIViewController {
     lazy var tableView: UITableView = {
@@ -62,6 +63,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64.0
+        view.addSubview(addView)
+        CloudKitWrapper.getCurrentUser { (record, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            if let record = record{
+                let user = User(name: "Adauto Pinheiro", photo: #imageLiteral(resourceName: "SearchPlaceholder"), rageMeasurer: RageMeasurer(), record: record)
+                user.save()
+            }
+        }
     }
 }
 
