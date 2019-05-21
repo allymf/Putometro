@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 final class ViewController: UIViewController {
 
@@ -22,6 +23,15 @@ final class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         view.addSubview(addView)
+        CloudKitWrapper.getCurrentUser { (record, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            if let record = record{
+                let user = User(name: "Adauto Pinheiro", photo: #imageLiteral(resourceName: "SearchPlaceholder"), rageMeasurer: RageMeasurer(), record: record)
+                user.save()
+            }
+        }
     }
 }
 
