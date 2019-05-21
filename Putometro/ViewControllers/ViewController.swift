@@ -6,6 +6,8 @@
 //  Copyright © 2019 Abat. All rights reserved.
 //
 
+// Changed folder structure
+
 import UIKit
 
 class ViewController: UIViewController {
