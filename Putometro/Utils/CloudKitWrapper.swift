@@ -41,11 +41,19 @@ class CloudKitWrapper: NSObject{
     static private let container = CKContainer.default()
     static private let publicDb = CKContainer.default().publicCloudDatabase
     
-    static func fetch(recordType: RecordType, filter: Filter, completion: @escaping ([CKRecord]?, Error?) -> Void){
+    static func fetch(recordType: RecordType, filter: Filter? = nil, completion: @escaping ([CKRecord]?, Error?) -> Void){
         
-        let query = CKQuery(recordType: recordType.rawValue, predicate: filter.predicate)
-        publicDb.perform(query, inZoneWith: nil) { (records, error) in
-            completion(records, error)
+        if let filter = filter{
+            let query = CKQuery(recordType: recordType.rawValue, predicate: filter.predicate)
+            publicDb.perform(query, inZoneWith: nil) { (records, error) in
+                completion(records, error)
+            }
+        }
+        else{
+            let query = CKQuery(recordType: recordType.rawValue, predicate: NSPredicate(value: true))
+            publicDb.perform(query, inZoneWith: nil) { (records, error) in
+                completion(records, error)
+            }
         }
     }
     
