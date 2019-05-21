@@ -22,6 +22,9 @@
 		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
+		3FF5E3772292CBF500D0B263 /* RageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E3762292CBF500D0B263 /* RageButton.swift */; };
+		3FF5E37B2292DB0400D0B263 /* RageMeasurerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37A2292DB0400D0B263 /* RageMeasurerView.swift */; };
+		3FF5E37E2293455A00D0B263 /* UIColor+Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		3FF5E3762292CBF500D0B263 /* RageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageButton.swift; sourceTree = SOURCE_ROOT; };
+		3FF5E37A2292DB0400D0B263 /* RageMeasurerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurerView.swift; sourceTree = SOURCE_ROOT; };
+		3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		3F6EE9CA22805BB8007EEC22 /* Putometro */ = {
 			isa = PBXGroup;
 			children = (
+				3FF5E37C2293453900D0B263 /* Extensions */,
 				30FEC34A2284456C009CA355 /* Utils */,
 				3F6EE9F22281D143007EEC22 /* Views */,
 				3F6EE9F12281D137007EEC22 /* View Models */,
@@ -170,8 +177,18 @@
 		3F6EE9F22281D143007EEC22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3FF5E3762292CBF500D0B263 /* RageButton.swift */,
+				3FF5E37A2292DB0400D0B263 /* RageMeasurerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3FF5E37C2293453900D0B263 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,12 +323,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
+				3FF5E37E2293455A00D0B263 /* UIColor+Interpolate.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
+				3FF5E37B2292DB0400D0B263 /* RageMeasurerView.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
+				3FF5E3772292CBF500D0B263 /* RageButton.swift in Sources */,
 				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
