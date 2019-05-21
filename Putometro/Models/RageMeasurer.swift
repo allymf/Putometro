@@ -9,31 +9,39 @@
 import Foundation
 import CloudKit
 
-struct RageMeasurer {
+class RageMeasurer: CloudKitModel {
     
-    var rageLevel: Int{
+    var rageLevel = 0{
         didSet{
             record.setValue(rageLevel, forKey: "rageLevel")
         }
     }
-    var isInChaos: Bool{
+    var isInChaos = 0{
         didSet{
             record.setValue(isInChaos, forKey: "isInChaos")
         }
     }
     
-    private var record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+    override init() {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+    }
     
-    init(rageLevel: Int, isInChaos: Bool) {
+    init(rageLevel: Int, isInChaos: Int, record: CKRecord?) {
+        super.init()
+        
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.rageMeasurer.rawValue)
+        }
+        
+        setupRecord(rageLevel: rageLevel, isInChaos: isInChaos)
+    }
+    
+    private func setupRecord(rageLevel: Int, isInChaos: Int){
         self.rageLevel = rageLevel
         self.isInChaos = isInChaos
-    }
-    
-    func getRecord() -> CKRecord{
-        return record
-    }
-    
-    mutating func setRecord(record: CKRecord){
-        self.record = record
     }
 }
