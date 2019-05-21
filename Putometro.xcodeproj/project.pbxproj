@@ -27,7 +27,11 @@
 		7742CC092292D3A500AC924C /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742CC082292D3A500AC924C /* AddCell.swift */; };
 		7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */; };
 		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
-		77B1CBA4229443C800DCD864 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1CBA3229443C800DCD864 /* FillButton.swift */; };
+		77B1CBA8229447FB00DCD864 /* TeammateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1CBA5229447FB00DCD864 /* TeammateCell.swift */; };
+		77B1CBA9229447FB00DCD864 /* TeammateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1CBA6229447FB00DCD864 /* TeammateCardView.swift */; };
+		77B1CBAA229447FB00DCD864 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1CBA7229447FB00DCD864 /* CircleView.swift */; };
+		B272AAEB228C962400410D84 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAEA228C962400410D84 /* UIColor+AppColors.swift */; };
+		B272AAED228CA43200410D84 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAEC228CA43200410D84 /* Shadow.swift */; };
 		B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B392289BAF80072E112 /* OneLineSC.swift */; };
 		B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */; };
 		B2A73F652289B8CE00687E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A73F642289B8CD00687E6E /* ViewController.swift */; };
@@ -70,7 +74,11 @@
 		7742CC082292D3A500AC924C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddCell.swift; path = Putometro/AddCell.swift; sourceTree = SOURCE_ROOT; };
 		7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRuleCell.swift; path = Putometro/BrokenRuleCell.swift; sourceTree = SOURCE_ROOT; };
 		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/AddView.swift; sourceTree = SOURCE_ROOT; };
-		77B1CBA3229443C800DCD864 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FillButton.swift; path = Putometro/FillButton.swift; sourceTree = SOURCE_ROOT; };
+		77B1CBA5229447FB00DCD864 /* TeammateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeammateCell.swift; sourceTree = "<group>"; };
+		77B1CBA6229447FB00DCD864 /* TeammateCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeammateCardView.swift; sourceTree = "<group>"; };
+		77B1CBA7229447FB00DCD864 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		B272AAEA228C962400410D84 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
+		B272AAEC228CA43200410D84 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		B27F3B392289BAF80072E112 /* OneLineSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSC.swift; sourceTree = "<group>"; };
 		B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSGDelegate.swift; sourceTree = "<group>"; };
 		B2A73F642289B8CD00687E6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */,
+				B272AAEA228C962400410D84 /* UIColor+AppColors.swift */,
+				B272AAEC228CA43200410D84 /* Shadow.swift */,
 				30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */,
 			);
 			path = Utils;
@@ -185,7 +195,6 @@
 		B228B143228ADC1800E46B29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				77B1CBA3229443C800DCD864 /* FillButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -213,6 +222,9 @@
 		B27F3B3B2289BAFD0072E112 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				77B1CBA7229447FB00DCD864 /* CircleView.swift */,
+				77B1CBA6229447FB00DCD864 /* TeammateCardView.swift */,
+				77B1CBA5229447FB00DCD864 /* TeammateCell.swift */,
 				B27F3B392289BAF80072E112 /* OneLineSC.swift */,
 				B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */,
 			);
@@ -350,19 +362,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B1CBA8229447FB00DCD864 /* TeammateCell.swift in Sources */,
 				B2A73F652289B8CE00687E6E /* ViewController.swift in Sources */,
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
 				30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */,
 				30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */,
+				77B1CBAA229447FB00DCD864 /* CircleView.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
+				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
+				B272AAEB228C962400410D84 /* UIColor+AppColors.swift in Sources */,
+				B272AAED228CA43200410D84 /* Shadow.swift in Sources */,
 				B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */,
-				77B1CBA4229443C800DCD864 /* FillButton.swift in Sources */,
+				77B1CBA9229447FB00DCD864 /* TeammateCardView.swift in Sources */,
 				7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				7742CC092292D3A500AC924C /* AddCell.swift in Sources */,
