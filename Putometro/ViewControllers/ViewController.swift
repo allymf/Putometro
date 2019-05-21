@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.text = "Desfalque"
         label.textColor = .black
-        label.font = UIFont(name: "Arial", size: 32)
+        label.font = UIFont.boldSystemFont(ofSize: 32)
         return label
     }()
     

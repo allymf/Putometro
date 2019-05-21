@@ -118,6 +118,7 @@ extension OneLineSC {
             button.setTitle(buttonTitle, for: .normal)
             button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
             button.setTitleColor(.black, for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
             buttons.append(button)
         }
 //        Set the first item in button to selected
