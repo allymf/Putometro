@@ -46,12 +46,12 @@ class OneLineSC: UIControl {
     func setIndex(index: Int) {
 //        Set initial index to 0
         selectedIndex = index
-        delegate?.changeTo(index: index)
+        delegate?.didChangeTo(index: index)
     }
     
     @objc func buttonAction(sender: UIButton) {
         for (buttonIndex, button) in buttons.enumerated() {
-            button.setTitleColor(textColor, for: .normal)
+            button.setTitleColor(.black, for: .normal)
             if button == sender {
                 button.setTitleColor(selectorViewColor, for: .normal)
                 setIndex(index: buttonIndex)
@@ -92,13 +92,13 @@ extension OneLineSC {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1).isActive = true
-        stackView.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
+        stackView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
     }
     
     private func configSelectorView() {
 //        Setup
         selectorView.backgroundColor = selectorViewColor
-        selectorViewWidth = stacksWitdh/1.5
+        selectorViewWidth = 64
         addSubview(selectorView)
 //        Constraints
         selectorView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +117,7 @@ extension OneLineSC {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
-            button.setTitleColor(textColor, for: .normal)
+            button.setTitleColor(.black, for: .normal)
             buttons.append(button)
         }
 //        Set the first item in button to selected

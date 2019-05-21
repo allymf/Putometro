@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3028CAF52292E4B900BB0395 /* PutumetroUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAF42292E4B900BB0395 /* PutumetroUnitTest.swift */; };
+		3028CAF72294873B00BB0395 /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAF62294873B00BB0395 /* LeaderBoardView.swift */; };
 		30DEC5D3228353AA0000EB84 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEC5D2228353AA0000EB84 /* CloudKit.framework */; };
 		30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */; };
 		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		3028CAF42292E4B900BB0395 /* PutumetroUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutumetroUnitTest.swift; sourceTree = "<group>"; };
+		3028CAF62294873B00BB0395 /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		30DEC5D2228353AA0000EB84 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitWrapper.swift; sourceTree = "<group>"; };
 		30FEC3702289AE69009CA355 /* CloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModel.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		3FF5E373228DA7F400D0B263 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -230,7 +233,7 @@
 				77B1CBA6229447FB00DCD864 /* TeammateCardView.swift */,
 				77B1CBA5229447FB00DCD864 /* TeammateCell.swift */,
 				B27F3B392289BAF80072E112 /* OneLineSC.swift */,
-				B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */,
+				3028CAF62294873B00BB0395 /* LeaderBoardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				77B1CBAA229447FB00DCD864 /* CircleView.swift in Sources */,
 				77B1CBAD2294567800DCD864 /* LeaderboardImageView.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
+				3028CAF72294873B00BB0395 /* LeaderBoardView.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,

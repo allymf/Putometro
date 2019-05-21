@@ -11,7 +11,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var viewzinha = UIView()
+    var topButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.black, for: .normal)
+        button.setTitle("X", for: .normal)
+        return button
+    }()
+    
+    var topLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Desfalque"
+        label.textColor = .black
+        label.font = UIFont(name: "Arial", size: 32)
+        return label
+    }()
+    
+    var leaderBoardView = LeaderBoardView()
     
     lazy var mockItems: [String] = {
         return ["Conflicts", "Rules", "Teammates"]
@@ -25,35 +40,59 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.8822783828, green: 0.8824023604, blue: 0.8822392821, alpha: 1)
-//        SegmentedControl
+        view.backgroundColor = UIColor.AppColors.gray
+        //
+        constraintTopButton()
+        constraintLabel()
+        constraintLeaderBoardView()
+        constraintOneLineSC()
+        
+    }
+    
+    private func constraintTopButton(){
+        view.addSubview(topButton)
+        topButton.translatesAutoresizingMaskIntoConstraints = false
+        topButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
+        topButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
+        topButton.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        topButton.widthAnchor.constraint(equalToConstant: 16).isActive = true
+    }
+    
+    private func constraintLabel(){
+        view.addSubview(topLabel)
+        topLabel.translatesAutoresizingMaskIntoConstraints = false
+        topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        topLabel.topAnchor.constraint(equalTo: topButton.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    private func constraintLeaderBoardView(){
+        view.addSubview(leaderBoardView)
+        leaderBoardView.translatesAutoresizingMaskIntoConstraints = false
+        leaderBoardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        leaderBoardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        leaderBoardView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 16).isActive = true
+    }
+    
+    private func constraintOneLineSC(){
         view.addSubview(segmentedControl)
-//          SegmentedControl Constraints
+        //          SegmentedControl Constraints
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        segmentedControl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        segmentedControl.widthAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
+        segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: leaderBoardView.bottomAnchor, constant: 16).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 35).isActive = true
-//        View de Teste
-        view.addSubview(viewzinha)
-//          View de Teste Constraints
-        viewzinha.translatesAutoresizingMaskIntoConstraints = false
-        viewzinha.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        viewzinha.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        viewzinha.widthAnchor.constraint(equalToConstant: view.frame.width/1.5).isActive = true
-        viewzinha.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
 }
 
 extension ViewController: OneLineSGDelegate {
-    func changeTo(index: Int) {
+    func didChangeTo(index: Int) {
         switch index {
         case 0:
-            viewzinha.backgroundColor = .red
+            break
         case 1:
-            viewzinha.backgroundColor = .blue
+            break
         default:
-            viewzinha.backgroundColor = .green
+            break
         }
     }
 }
