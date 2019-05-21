@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3028CAF52292E4B900BB0395 /* PutumetroUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAF42292E4B900BB0395 /* PutumetroUnitTest.swift */; };
 		30DEC5D3228353AA0000EB84 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEC5D2228353AA0000EB84 /* CloudKit.framework */; };
 		30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */; };
 		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3028CAF42292E4B900BB0395 /* PutumetroUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutumetroUnitTest.swift; sourceTree = "<group>"; };
 		30DEC5D2228353AA0000EB84 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitWrapper.swift; sourceTree = "<group>"; };
 		30FEC3702289AE69009CA355 /* CloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModel.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				3F6EE9D222805BBD007EEC22 /* Assets.xcassets */,
 				3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */,
 				3F6EE9D722805BBD007EEC22 /* Info.plist */,
+				3028CAF42292E4B900BB0395 /* PutumetroUnitTest.swift */,
 			);
 			path = Putometro;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6EE9E122805BBD007EEC22 /* PutometroTests.swift in Sources */,
+				3028CAF52292E4B900BB0395 /* PutumetroUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
