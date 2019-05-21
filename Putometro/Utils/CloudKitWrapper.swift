@@ -20,14 +20,30 @@ enum RecordType: String{
     case leaderboard = "Leaderboard"
 }
 
+enum Filter{
+    case byName(_: String)
+    case byTitle(_: String)
+    
+    var predicate: NSPredicate{
+        switch self {
+        case .byName(let name):
+            return NSPredicate(format: "name == %@", name)
+        case .byTitle(let title):
+            return NSPredicate(format: "title == %@", title)
+        default:
+            return NSPredicate(value: true)
+        }
+    }
+}
+
 class CloudKitWrapper: NSObject{
     
     static private let container = CKContainer.default()
     static private let publicDb = CKContainer.default().publicCloudDatabase
     
-    static func fetch(recordType: RecordType, predicate: NSPredicate, completion: @escaping ([CKRecord]?, Error?) -> Void){
+    static func fetch(recordType: RecordType, filter: Filter, completion: @escaping ([CKRecord]?, Error?) -> Void){
         
-        let query = CKQuery(recordType: recordType.rawValue, predicate: predicate)
+        let query = CKQuery(recordType: recordType.rawValue, predicate: filter.predicate)
         publicDb.perform(query, inZoneWith: nil) { (records, error) in
             completion(records, error)
         }
