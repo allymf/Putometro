@@ -13,7 +13,6 @@
 		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
 		30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */; };
 		3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */; };
-		3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CD22805BB8007EEC22 /* ViewController.swift */; };
 		3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CF22805BB8007EEC22 /* Main.storyboard */; };
 		3F6EE9D322805BBD007EEC22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D222805BBD007EEC22 /* Assets.xcassets */; };
 		3F6EE9D622805BBD007EEC22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */; };
@@ -26,10 +25,12 @@
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
 		7742CC092292D3A500AC924C /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742CC082292D3A500AC924C /* AddCell.swift */; };
-		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
-		3FF5E37522924A1000D0B263 /* LeaderboardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */; };
 		7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */; };
-		B228B145228ADCE600E46B29 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228B144228ADCE600E46B29 /* FillButton.swift */; };
+		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
+		77B1CBA4229443C800DCD864 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1CBA3229443C800DCD864 /* FillButton.swift */; };
+		B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B392289BAF80072E112 /* OneLineSC.swift */; };
+		B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */; };
+		B2A73F652289B8CE00687E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A73F642289B8CD00687E6E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 		30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		3F6EE9C822805BB8007EEC22 /* Putometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Putometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F6EE9CD22805BB8007EEC22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F6EE9D022805BB8007EEC22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F6EE9D222805BBD007EEC22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F6EE9D522805BBD007EEC22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,11 +66,14 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
-		7742CC082292D3A500AC924C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddCell.swift; path = Putometro/AddCell.swift; sourceTree = SOURCE_ROOT; };
-		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/AddView.swift; sourceTree = SOURCE_ROOT; };
 		3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardImageView.swift; sourceTree = SOURCE_ROOT; };
+		7742CC082292D3A500AC924C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddCell.swift; path = Putometro/AddCell.swift; sourceTree = SOURCE_ROOT; };
 		7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRuleCell.swift; path = Putometro/BrokenRuleCell.swift; sourceTree = SOURCE_ROOT; };
-		B228B144228ADCE600E46B29 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
+		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/AddView.swift; sourceTree = SOURCE_ROOT; };
+		77B1CBA3229443C800DCD864 /* FillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FillButton.swift; path = Putometro/FillButton.swift; sourceTree = SOURCE_ROOT; };
+		B27F3B392289BAF80072E112 /* OneLineSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSC.swift; sourceTree = "<group>"; };
+		B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSGDelegate.swift; sourceTree = "<group>"; };
+		B2A73F642289B8CD00687E6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +134,10 @@
 		3F6EE9CA22805BB8007EEC22 /* Putometro */ = {
 			isa = PBXGroup;
 			children = (
+				B272AAF3228EDDF000410D84 /* ViewModels */,
+				B272AAF2228EDDB900410D84 /* ViewControllers */,
 				30FEC34A2284456C009CA355 /* Utils */,
-				B272AAF4228EE19E00410D84 /* ViewControllers */,
 				3F6EE9F22281D143007EEC22 /* Views */,
-				3F6EE9F12281D137007EEC22 /* View Models */,
 				3F6EE9F02281D131007EEC22 /* Models */,
 				3F6EE9EB2281C3A2007EEC22 /* Putometro.entitlements */,
 				3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */,
@@ -171,21 +174,10 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3F6EE9F12281D137007EEC22 /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Models";
-			sourceTree = "<group>";
-		};
 		3F6EE9F22281D143007EEC22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				777AEA48228AEA8800BF2827 /* AddView.swift */,
-				7742CC082292D3A500AC924C /* AddCell.swift */,
-				7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */,
-				B228B143228ADC1800E46B29 /* Components */,
-				3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */,
+				B27F3B3B2289BAFD0072E112 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,17 +185,38 @@
 		B228B143228ADC1800E46B29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B228B144228ADCE600E46B29 /* FillButton.swift */,
+				77B1CBA3229443C800DCD864 /* FillButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		B272AAF4228EE19E00410D84 /* ViewControllers */ = {
+		B272AAF2228EDDB900410D84 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3F6EE9CD22805BB8007EEC22 /* ViewController.swift */,
+				B2A73F642289B8CD00687E6E /* ViewController.swift */,
+				777AEA48228AEA8800BF2827 /* AddView.swift */,
+				7742CC082292D3A500AC924C /* AddCell.swift */,
+				7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */,
+				B228B143228ADC1800E46B29 /* Components */,
+				3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B272AAF3228EDDF000410D84 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B27F3B3B2289BAFD0072E112 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B27F3B392289BAF80072E112 /* OneLineSC.swift */,
+				B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A73F652289B8CE00687E6E /* ViewController.swift in Sources */,
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
@@ -344,14 +358,15 @@
 				30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */,
 				3F6EE9FA2281D6C0007EEC22 /* Vote.swift in Sources */,
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
+				B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
-				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
+				B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */,
+				77B1CBA4229443C800DCD864 /* FillButton.swift in Sources */,
 				7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				7742CC092292D3A500AC924C /* AddCell.swift in Sources */,
 				777AEA49228AEA8800BF2827 /* AddView.swift in Sources */,
-				B228B145228ADCE600E46B29 /* FillButton.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
