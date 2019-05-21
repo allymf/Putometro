@@ -10,41 +10,50 @@ import Foundation
 import CloudKit
 import UIKit
 
-struct User {
+class User: CloudKitModel {
     
-    var name: String{
+    var name = String(){
         didSet{
             record.setValue(name, forKey: "name")
         }
     }
-    var photo: UIImage{
+    
+    var photo = UIImage(){
         didSet{
-            if let imageData = photo.pngData(){
-                if let temporaryUrl = URL(dataRepresentation: imageData, relativeTo: nil){
-                    record.setValue(CKAsset(fileURL: temporaryUrl), forKey: "photo")
-                }
+            if let temporaryUrl = photo.createTemporaryUrl(image: photo){
+                record.setValue(CKAsset(fileURL: temporaryUrl), forKey: "photo")
             }
         }
     }
-    var rageMeasurer: RageMeasurer{
+    
+    var rageMeasurer = RageMeasurer(){
         didSet{
-            record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .deleteSelf), forKey: "rageMeasurer")
+            rageMeasurer.save()
+            record.setValue(CKRecord.Reference(record: rageMeasurer.getRecord(), action: .none), forKey: "rageMeasurer")
         }
     }
     
-    private var record = CKRecord(recordType: RecordType.user.rawValue)
+    override init(){
+        super.init()
+        self.record = CKRecord(recordType: RecordType.user.rawValue)
+    }
     
-    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
+    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer, record: CKRecord? = nil) {
+        super.init()
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.user.rawValue)
+        }
+        setupRecord(name: name, photo: photo, rageMeasurer: rageMeasurer)
+    }
+    
+    
+    
+    private func setupRecord(name: String, photo: UIImage, rageMeasurer: RageMeasurer){
         self.name = name
         self.photo = photo
         self.rageMeasurer = rageMeasurer
-    }
-    
-    func getRecord() -> CKRecord{
-        return record
-    }
-    
-    mutating func setRecord(record: CKRecord){
-        self.record = record
     }
 }
