@@ -9,39 +9,53 @@
 import Foundation
 import CloudKit
 
-struct Rule {
+class Rule: CloudKitModel {
     
-    var title: String{
+    var title = String(){
         didSet{
             record.setValue(title, forKey: "title")
         }
     }
-    var description: String{
+    var descript = String(){
         didSet{
             record.setValue(description, forKey: "description")
         }
     }
-    var status: Bool{
+    var status = 0{
         didSet{
             record.setValue(status, forKey: "status")
         }
     }
-    var votes: [Vote]{
+    var votes = [Vote](){
         didSet{
             let votesReferenceList = votes.map { (vote) -> CKRecord.Reference in
+                vote.save()
                 return CKRecord.Reference(record: vote.getRecord(), action: .deleteSelf)
             }
             record.setValue(votesReferenceList, forKey: "votes")
         }
     }
     
-    private var record = CKRecord(recordType: RecordType.rule.rawValue)
-    
-    func getRecord() -> CKRecord{
-        return record
+    override init() {
+        super.init()
+        self.record = CKRecord(recordType: RecordType.rule.rawValue)
     }
     
-    mutating func setRecord(record: CKRecord){
-        self.record = record
+    init(title: String, descript: String, status: Int, votes: [Vote], record: CKRecord?) {
+        super.init()
+        if let record = record{
+            self.record = record
+        }
+        else{
+            self.record = CKRecord(recordType: RecordType.rule.rawValue)
+        }
+        setupRecord(title: title, descript: descript, status: status, votes: votes)
+    }
+    
+    private func setupRecord(title: String, descript: String, status: Int, votes: [Vote]){
+        self.title = title
+        self.descript = descript
+        self.status = status
+        self.votes = votes
     }
 }
