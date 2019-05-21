@@ -26,53 +26,44 @@ final class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.register(BrokenRuleCell.self, forCellReuseIdentifier: "BrokenRuleCell")
+        tableView.register(AddCell.self, forCellReuseIdentifier: "AddCell")
         
         setupConstraints()
     }
 }
 
-// MARK:- Constraints
-extension ViewController {
+private extension ViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BrokenRuleCell", for: indexPath) as? BrokenRuleCell else {
-            print("Could not cast cell to \(BrokenRuleCell.description())")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as? AddCell else {
+            print("Could not load AddCell")
             return UITableViewCell()
         }
-        let lineIsHidden = indexPath.row == (count - 1) ? true : false
-        cell.setupCell(ruleTitle: "Bit the teammate", isBottomLineHidden: lineIsHidden)
-        
+        cell.setupCell(title: "Add new conflict")
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // this will turn on `masksToBounds` just before showing the cell
+        cell.contentView.layer.masksToBounds = true
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64.0
-        view.addSubview(addView)
-        CloudKitWrapper.getCurrentUser { (record, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            }
-            if let record = record{
-                let user = User(name: "Adauto Pinheiro", photo: #imageLiteral(resourceName: "SearchPlaceholder"), rageMeasurer: RageMeasurer(), record: record)
-                user.save()
-            }
-        }
+        return 70
     }
 }
 
