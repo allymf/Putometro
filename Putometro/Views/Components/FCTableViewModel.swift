@@ -32,3 +32,20 @@ class FCTableViewModel: NSObject{
         }
     }
 }
+
+extension FCTableViewModel: UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "BrokenRuleCell") as? BrokenRuleCell{
+            cell.setupCell(ruleTitle: "Bateu no filho da puta", isBottomLineHidden: false)
+            return cell
+        }
+        return UITableViewCell()
+    }
+}

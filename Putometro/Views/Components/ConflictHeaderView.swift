@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ConflictHeaderView: UITableViewHeaderFooterView, Shadow {
     
     lazy var whitePlaneView: UIView = {
