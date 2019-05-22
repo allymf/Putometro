@@ -67,7 +67,7 @@ class ConflictHeaderView: UITableViewHeaderFooterView, Shadow {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        self.contentView.backgroundColor = UIColor.AppColors.gray
+        self.contentView.backgroundColor = UIColor.AppColors.ligthGray
         self.addSubview(whitePlaneView)
         whitePlaneView.addSubview(ivAuthor)
         whitePlaneView.addSubview(ivCauser)

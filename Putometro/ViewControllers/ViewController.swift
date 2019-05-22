@@ -57,7 +57,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.AppColors.gray
+        view.backgroundColor = UIColor.AppColors.ligthGray
         //
         
         tableView.delegate = self
@@ -127,7 +127,7 @@ class ViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         
         
-        tableView.backgroundColor = UIColor.AppColors.gray
+        tableView.backgroundColor = UIColor.AppColors.ligthGray
     }
 }
 
@@ -160,7 +160,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 32
+        return 48
     }
 }
 
