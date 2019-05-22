@@ -32,13 +32,16 @@ class Vote: CloudKitModel {
         super.init()
         self.record = record
         
-        guard let status = record["status"] as? Int else { return }
-        self.status = status
+        if let status = record["status"] as? Int{
+            self.status = status
+        }
         
-        guard let user = record["user"] as? CKRecord.Reference else { return }
-        CloudKitWrapper.fetchWithId(recordID: user.recordID) { (record, error) in
-            if let record = record{
-                self.user = User(record: record)
+        
+        if let user = record["user"] as? CKRecord.Reference {
+            CloudKitWrapper.fetchWithId(recordID: user.recordID) { (record, error) in
+                if let record = record{
+                    self.user = User(record: record)
+                }
             }
         }
     }

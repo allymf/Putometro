@@ -69,55 +69,61 @@ class Conflict: CloudKitModel {
         self.record = record
         
         //fetching the rageMeasurer record from the reference
-        guard let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference  else { return }
-        CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
-            if let record = record{
-                self.rageMeasurer = RageMeasurer(record: record)
+        if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference  {
+            CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
+                if let record = record{
+                    self.rageMeasurer = RageMeasurer(record: record)
+                }
             }
         }
         
+        
         //fetching the creator record from the reference
-        guard let creatorReference = record["creator"] as? CKRecord.Reference else { return }
-        CloudKitWrapper.fetchWithId(recordID: creatorReference.recordID) { (record, error) in
-            if let record = record{
-                self.creator = User(record: record)
+        if let creatorReference = record["creator"] as? CKRecord.Reference {
+            CloudKitWrapper.fetchWithId(recordID: creatorReference.recordID) { (record, error) in
+                if let record = record{
+                    self.creator = User(record: record)
+                }
             }
         }
         
         //fetching the troubleMakers records from the reference list
-        guard let troubleMakersReferenceList = record["troubleMakers"] as? [CKRecord.Reference] else { return }
-        var troubleMakersRecordIDs = [CKRecord.ID]()
-        troubleMakersReferenceList.forEach { (record) in
-            troubleMakersRecordIDs.append(record.recordID)
-        }
-        troubleMakersRecordIDs.forEach { (id) in
-            CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
-                if let record = record{
-                    self.troubleMakers.append(User(record: record))
-                }
-            })
+        if let troubleMakersReferenceList = record["troubleMakers"] as? [CKRecord.Reference] {
+            var troubleMakersRecordIDs = [CKRecord.ID]()
+            troubleMakersReferenceList.forEach { (record) in
+                troubleMakersRecordIDs.append(record.recordID)
+            }
+            troubleMakersRecordIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        self.troubleMakers.append(User(record: record))
+                    }
+                })
+            }
         }
         
         //fetching the brokenRules records from the reference list
-        guard let brokenRulesReferenceList = record["brokenRules"] as? [CKRecord] else { return }
-        var brokenRulesRecordIDs = [CKRecord.ID]()
-        brokenRulesReferenceList.forEach { (record) in
-            brokenRulesRecordIDs.append(record.recordID)
+        if let brokenRulesReferenceList = record["brokenRules"] as? [CKRecord] {
+            var brokenRulesRecordIDs = [CKRecord.ID]()
+            brokenRulesReferenceList.forEach { (record) in
+                brokenRulesRecordIDs.append(record.recordID)
+            }
+            brokenRulesRecordIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        self.brokenRules.append(Rule(record: record))
+                    }
+                })
+            }
         }
-        brokenRulesRecordIDs.forEach { (id) in
-            CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
-                if let record = record{
-                    self.brokenRules.append(Rule(record: record))
-                }
-            })
+        
+        if let createdAt = record["createdAt"] as? Date {
+            self.createdAt = createdAt
         }
         
-        guard let createdAt = record["createdAt"] as? Date else { return }
-        self.createdAt = createdAt
-        
-        guard let status = record["status"] as? Int else { return }
-        self.status = status
-        
+        if let status = record["status"] as? Int {
+            self.status = status
+        }
     }
     
     init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int) {

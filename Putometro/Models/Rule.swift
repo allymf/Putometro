@@ -45,24 +45,30 @@ class Rule: CloudKitModel {
         super.init()
         self.record = record
         
-        guard let title = record["title"] as? String else { return }
-        self.title = title
-        guard let descript = record["description"] as? String else { return }
-        self.descript = descript
-        guard let status = record["status"] as? Int else { return }
-        self.status = status
-        guard let votesReferenceList = record["votes"] as? [CKRecord.Reference] else { return}
-        
-        var votesIDs = [CKRecord.ID]()
-        votesReferenceList.forEach { (record) in
-            votesIDs.append(record.recordID)
+        if let title = record["title"] as? String{
+            self.title = title
         }
-        votesIDs.forEach { (id) in
-            CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
-                if let record = record{
-                    self.votes.append(Vote(record: record))
-                }
-            })
+        
+        if let descript = record["description"] as? String {
+            self.descript = descript
+        }
+        
+        if let status = record["status"] as? Int{
+            self.status = status
+        }
+        
+        if let votesReferenceList = record["votes"] as? [CKRecord.Reference]{
+            var votesIDs = [CKRecord.ID]()
+            votesReferenceList.forEach { (record) in
+                votesIDs.append(record.recordID)
+            }
+            votesIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        self.votes.append(Vote(record: record))
+                    }
+                })
+            }
         }
     }
     
