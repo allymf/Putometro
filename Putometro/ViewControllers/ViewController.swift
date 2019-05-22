@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         tableViewModel.getAllConflicts {
             self.tableView.reloadData()
         }
+
         tableView.delegate = self
         tableView.dataSource = self
         constraintTopButton()

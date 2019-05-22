@@ -45,9 +45,16 @@ class User: CloudKitModel {
         guard let name = record["name"] as? String else { return }
         self.name = name
         
-        guard let photoData = record["photo"] as? Data else { return }
-        guard let image = UIImage(data: photoData) else { return }
-        self.photo = image
+        guard let photoAsset = record["photo"] as? CKAsset else { return }
+        guard let url = photoAsset.fileURL else { return }
+        do{
+            let data = try Data(contentsOf: url)
+            guard let image = UIImage(data: data) else { return }
+            self.photo = image
+        }
+        catch{
+            
+        }
         
         guard let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference else { return}
         CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
