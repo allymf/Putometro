@@ -12,7 +12,7 @@ import CloudKit
 
 enum RecordType: String{
     case team = "Team"
-    case user = "Users"
+    case user = "User"
     case rule  = "Rule"
     case vote = "Vote"
     case conflict = "Conflict"
