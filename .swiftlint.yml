@@ -10,6 +10,9 @@ disabled_rules:
  - opening_brace
  - colon
  - statement_position
+ - unused_closure_parameter
+ - function_parameter_count
+ - identifier_name
 
 opt_in_rules:
  - force_unwrapping

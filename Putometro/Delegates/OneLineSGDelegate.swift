@@ -9,5 +9,5 @@
 import UIKit
 
 protocol OneLineSGDelegate: class {
-    func changeTo(index: Int)
+    func didChangeTo(index: Int)
 }

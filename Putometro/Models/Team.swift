@@ -79,14 +79,14 @@ class Team: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.team.rawValue)
     }
     
-    init(name: String, users: [User], rules: [Rule], conflicts: [Conflict], leaderboard: Leaderboard, rageMeasurer: RageMeasurer, record: CKRecord?) {
+    init(record: CKRecord){
         super.init()
-        if let record = record{
-            self.record = record
-        }
-        else{
-            self.record = CKRecord(recordType: RecordType.team.rawValue)
-        }
+    }
+    
+    init(name: String, users: [User], rules: [Rule], conflicts: [Conflict], leaderboard: Leaderboard, rageMeasurer: RageMeasurer) {
+        super.init()
+        
+        self.record = CKRecord(recordType: RecordType.team.rawValue)
         setupRecord(name: name, users: users, rules: rules, conflicts: conflicts, leaderboard: leaderboard, rageMeasurer: rageMeasurer)
     }
     

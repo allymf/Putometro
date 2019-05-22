@@ -64,15 +64,72 @@ class Conflict: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.conflict.rawValue)
     }
     
-    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int, record: CKRecord?) {
+    init(record: CKRecord) {
         super.init()
+        self.record = record
         
-        if let record = record{
-            self.record = record
+        //fetching the rageMeasurer record from the reference
+        if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference  {
+            CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
+                if let record = record{
+                    self.rageMeasurer = RageMeasurer(record: record)
+                }
+            }
         }
-        else{
-            self.record = CKRecord(recordType: RecordType.conflict.rawValue)
+        
+        
+        //fetching the creator record from the reference
+        if let creatorReference = record["creator"] as? CKRecord.Reference {
+            CloudKitWrapper.fetchWithId(recordID: creatorReference.recordID) { (record, error) in
+                if let record = record{
+                    self.creator = User(record: record)
+                }
+            }
         }
+        
+        //fetching the troubleMakers records from the reference list
+        if let troubleMakersReferenceList = record["troubleMakers"] as? [CKRecord.Reference] {
+            var troubleMakersRecordIDs = [CKRecord.ID]()
+            troubleMakersReferenceList.forEach { (record) in
+                troubleMakersRecordIDs.append(record.recordID)
+            }
+            troubleMakersRecordIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        self.troubleMakers.append(User(record: record))
+                    }
+                })
+            }
+        }
+        
+        //fetching the brokenRules records from the reference list
+        if let brokenRulesReferenceList = record["brokenRules"] as? [CKRecord] {
+            var brokenRulesRecordIDs = [CKRecord.ID]()
+            brokenRulesReferenceList.forEach { (record) in
+                brokenRulesRecordIDs.append(record.recordID)
+            }
+            brokenRulesRecordIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        self.brokenRules.append(Rule(record: record))
+                    }
+                })
+            }
+        }
+        
+        if let createdAt = record["createdAt"] as? Date {
+            self.createdAt = createdAt
+        }
+        
+        if let status = record["status"] as? Int {
+            self.status = status
+        }
+    }
+    
+    init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int) {
+        super.init()
+
+        self.record = CKRecord(recordType: RecordType.conflict.rawValue)
         
         setupRecord(rageMeasurer: rageMeasurer, creator: creator, troubleMakers: troubleMakers, brokenRules: brokenRules, createdAt: createdAt, status: status)
     }
