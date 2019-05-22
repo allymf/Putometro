@@ -24,9 +24,10 @@
 		3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FB22820407007EEC22 /* Conflict.swift */; };
 		3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */; };
 		3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */; };
-		3FF5E3772292CBF500D0B263 /* RageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E3762292CBF500D0B263 /* RageButton.swift */; };
-		3FF5E37B2292DB0400D0B263 /* RageMeasurerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37A2292DB0400D0B263 /* RageMeasurerView.swift */; };
 		3FF5E37E2293455A00D0B263 /* UIColor+Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */; };
+		3FF5E38022956C1500D0B263 /* RageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37F22956C1500D0B263 /* RageButton.swift */; };
+		3FF5E38222956C2B00D0B263 /* RageMeasurerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E38122956C2B00D0B263 /* RageMeasurerView.swift */; };
+		3FF5E38422956CD700D0B263 /* FillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E38322956CD700D0B263 /* FillButton.swift */; };
 		7742CC092292D3A500AC924C /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742CC082292D3A500AC924C /* AddCell.swift */; };
 		7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */; };
 		777AEA49228AEA8800BF2827 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEA48228AEA8800BF2827 /* AddView.swift */; };
@@ -75,10 +76,11 @@
 		3F6EE9FB22820407007EEC22 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		3F6EE9FD228204D0007EEC22 /* RageMeasurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurer.swift; sourceTree = "<group>"; };
 		3F6EE9FF228205A8007EEC22 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
-		3FF5E3762292CBF500D0B263 /* RageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageButton.swift; sourceTree = SOURCE_ROOT; };
-		3FF5E37A2292DB0400D0B263 /* RageMeasurerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RageMeasurerView.swift; sourceTree = SOURCE_ROOT; };
-		3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolate.swift"; sourceTree = "<group>"; };
 		3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LeaderboardImageView.swift; path = Putometro/Views/Components/LeaderboardImageView.swift; sourceTree = SOURCE_ROOT; };
+		3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Interpolate.swift"; sourceTree = "<group>"; };
+		3FF5E37F22956C1500D0B263 /* RageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RageButton.swift; sourceTree = "<group>"; };
+		3FF5E38122956C2B00D0B263 /* RageMeasurerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RageMeasurerView.swift; sourceTree = "<group>"; };
+		3FF5E38322956CD700D0B263 /* FillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillButton.swift; sourceTree = "<group>"; };
 		7742CC082292D3A500AC924C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddCell.swift; path = Putometro/Views/Components/AddCell.swift; sourceTree = SOURCE_ROOT; };
 		7760520D228DB1EB00B1FB5A /* BrokenRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRuleCell.swift; path = Putometro/Views/Components/BrokenRuleCell.swift; sourceTree = SOURCE_ROOT; };
 		777AEA48228AEA8800BF2827 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddView.swift; path = Putometro/Views/Components/AddView.swift; sourceTree = SOURCE_ROOT; };
@@ -206,10 +208,16 @@
 		3FF5E373228DA7F400D0B263 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				3FF5E3762292CBF500D0B263 /* RageButton.swift */,
-				3FF5E37A2292DB0400D0B263 /* RageMeasurerView.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		3FF5E37C2293453900D0B263 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B272AAF2228EDDB900410D84 /* ViewControllers */ = {
@@ -230,6 +238,9 @@
 		B27F3B3B2289BAFD0072E112 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3FF5E38322956CD700D0B263 /* FillButton.swift */,
+				3FF5E38122956C2B00D0B263 /* RageMeasurerView.swift */,
+				3FF5E37F22956C1500D0B263 /* RageButton.swift */,
 				777AEA48228AEA8800BF2827 /* AddView.swift */,
 				7742CC082292D3A500AC924C /* AddCell.swift */,
 				3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */,
@@ -242,14 +253,6 @@
 				B27F3B3C228A48D50072E112 /* OneLineSGDelegate.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		3FF5E37C2293453900D0B263 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3FF5E37D2293455A00D0B263 /* UIColor+Interpolate.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +390,9 @@
 				B2A73F652289B8CE00687E6E /* ViewController.swift in Sources */,
 				3F6EE9FE228204D0007EEC22 /* RageMeasurer.swift in Sources */,
 				3FF5E37E2293455A00D0B263 /* UIColor+Interpolate.swift in Sources */,
+				3FF5E38422956CD700D0B263 /* FillButton.swift in Sources */,
 				3F6EE9FC22820407007EEC22 /* Conflict.swift in Sources */,
+				3FF5E38022956C1500D0B263 /* RageButton.swift in Sources */,
 				3F6EE9F62281D268007EEC22 /* User.swift in Sources */,
 				30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */,
 				30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */,
@@ -397,10 +402,7 @@
 				30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */,
 				B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */,
 				3F6EE9F82281D3E3007EEC22 /* Rule.swift in Sources */,
-				3FF5E37B2292DB0400D0B263 /* RageMeasurerView.swift in Sources */,
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
-				3FF5E3772292CBF500D0B263 /* RageButton.swift in Sources */,
-				3F6EE9CE22805BB8007EEC22 /* ViewController.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				B272AAEB228C962400410D84 /* UIColor+AppColors.swift in Sources */,
 				B272AAED228CA43200410D84 /* Shadow.swift in Sources */,
@@ -408,6 +410,7 @@
 				77B1CBA9229447FB00DCD864 /* TeammateCardView.swift in Sources */,
 				7760520E228DB1EB00B1FB5A /* BrokenRuleCell.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
+				3FF5E38222956C2B00D0B263 /* RageMeasurerView.swift in Sources */,
 				7742CC092292D3A500AC924C /* AddCell.swift in Sources */,
 				777AEA49228AEA8800BF2827 /* AddView.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
