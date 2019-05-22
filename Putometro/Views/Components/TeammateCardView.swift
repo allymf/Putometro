@@ -9,7 +9,6 @@
 import UIKit
 
 class TeammateCardView: UIView {
-    var viewModel: TeammateCellViewModel?
     var offset: CGFloat?
     
     lazy var teammateImage: UIImageView = {
