@@ -107,6 +107,7 @@ class CloudKitWrapper: NSObject{
                 print(error.localizedDescription)
             }
             else if let record = record{
+                user.save()
                 record.setValue(CKRecord.Reference(record: user.getRecord(), action: .none), forKey: "user")
                 publicDb.save(record, completionHandler: { (record, error) in
                     if let error = error {
