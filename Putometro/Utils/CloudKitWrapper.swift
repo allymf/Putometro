@@ -75,12 +75,46 @@ class CloudKitWrapper: NSObject{
         }
     }
     
-    static func getCurrentUser(completion: @escaping (CKRecord?, Error?) -> Void){
+    static func getCurrentSystemUser(completion: @escaping (CKRecord?, Error?) -> Void){
         
         getCurrentUserID { (recordID) in
             if let recordID = recordID{
                 publicDb.fetch(withRecordID: recordID, completionHandler: { (record, error) in
                     completion(record, error)
+                })
+            }
+        }
+    }
+    
+    static func getCurrentUser(completion: @escaping (CKRecord?, Error?) -> Void){
+        getCurrentSystemUser { (record, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            else if let record = record{
+                if let user = record["user"] as? CKRecord.Reference{
+                    publicDb.fetch(withRecordID: user.recordID, completionHandler: { (record, error) in
+                        completion(record,error)
+                    })
+                }
+            }
+        }
+    }
+    
+    static func createCurrentUser(user: User){
+        getCurrentSystemUser { (record, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let record = record{
+                record.setValue(CKRecord.Reference(record: user.getRecord(), action: .none), forKey: "user")
+                publicDb.save(record, completionHandler: { (record, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    else if let record = record{
+                        print(record)
+                    }
                 })
             }
         }
