@@ -13,7 +13,6 @@
 		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
 		30FEC373228AFA2C009CA355 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */; };
 		3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */; };
-		3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9CF22805BB8007EEC22 /* Main.storyboard */; };
 		3F6EE9D322805BBD007EEC22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D222805BBD007EEC22 /* Assets.xcassets */; };
 		3F6EE9D622805BBD007EEC22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */; };
 		3F6EE9E122805BBD007EEC22 /* PutometroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EE9E022805BBD007EEC22 /* PutometroTests.swift */; };
@@ -62,7 +61,6 @@
 		30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		3F6EE9C822805BB8007EEC22 /* Putometro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Putometro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F6EE9D022805BB8007EEC22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F6EE9D222805BBD007EEC22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F6EE9D522805BBD007EEC22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F6EE9D722805BBD007EEC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				3F6EE9F02281D131007EEC22 /* Models */,
 				3F6EE9EB2281C3A2007EEC22 /* Putometro.entitlements */,
 				3F6EE9CB22805BB8007EEC22 /* AppDelegate.swift */,
-				3F6EE9CF22805BB8007EEC22 /* Main.storyboard */,
 				3F6EE9D222805BBD007EEC22 /* Assets.xcassets */,
 				3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */,
 				3F6EE9D722805BBD007EEC22 /* Info.plist */,
@@ -350,7 +347,6 @@
 			files = (
 				3F6EE9D622805BBD007EEC22 /* LaunchScreen.storyboard in Resources */,
 				3F6EE9D322805BBD007EEC22 /* Assets.xcassets in Resources */,
-				3F6EE9D122805BB8007EEC22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,14 +438,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3F6EE9CF22805BB8007EEC22 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F6EE9D022805BB8007EEC22 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3F6EE9D422805BBD007EEC22 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -583,7 +571,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Putometro/Putometro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZB4G8WR697;
+				DEVELOPMENT_TEAM = LF3U834HDS;
 				INFOPLIST_FILE = Putometro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,7 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Putometro/Putometro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZB4G8WR697;
+				DEVELOPMENT_TEAM = LF3U834HDS;
 				INFOPLIST_FILE = Putometro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
