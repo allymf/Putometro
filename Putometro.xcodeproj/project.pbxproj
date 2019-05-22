@@ -36,6 +36,7 @@
 		77B1CBAC22944B3400DCD864 /* ConflictHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1CBAB22944B3400DCD864 /* ConflictHeaderView.swift */; };
 		77B1CBAD2294567800DCD864 /* LeaderboardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5E37422924A1000D0B263 /* LeaderboardImageView.swift */; };
 		B20399982295699D004BFCC8 /* ChooseTeammateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20399972295699D004BFCC8 /* ChooseTeammateViewController.swift */; };
+		B203999A229574C2004BFCC8 /* TeammateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2039999229574C2004BFCC8 /* TeammateCellViewModel.swift */; };
 		B272AAEB228C962400410D84 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAEA228C962400410D84 /* UIColor+AppColors.swift */; };
 		B272AAED228CA43200410D84 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272AAEC228CA43200410D84 /* Shadow.swift */; };
 		B27F3B3A2289BAF80072E112 /* OneLineSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F3B392289BAF80072E112 /* OneLineSC.swift */; };
@@ -88,6 +89,7 @@
 		77B1CBA7229447FB00DCD864 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		77B1CBAB22944B3400DCD864 /* ConflictHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConflictHeaderView.swift; path = Putometro/Views/Components/ConflictHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		B20399972295699D004BFCC8 /* ChooseTeammateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTeammateViewController.swift; sourceTree = "<group>"; };
+		B2039999229574C2004BFCC8 /* TeammateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammateCellViewModel.swift; sourceTree = "<group>"; };
 		B272AAEA228C962400410D84 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		B272AAEC228CA43200410D84 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		B27F3B392289BAF80072E112 /* OneLineSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineSC.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		B272AAF3228EDDF000410D84 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B2039999229574C2004BFCC8 /* TeammateCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				7742CC092292D3A500AC924C /* AddCell.swift in Sources */,
 				777AEA49228AEA8800BF2827 /* AddView.swift in Sources */,
 				3F6EE9CC22805BB8007EEC22 /* AppDelegate.swift in Sources */,
+				B203999A229574C2004BFCC8 /* TeammateCellViewModel.swift in Sources */,
 				77B1CBAC22944B3400DCD864 /* ConflictHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
