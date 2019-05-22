@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var topButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("X", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "team"), for: .normal)
         return button
     }()
     
@@ -64,8 +64,8 @@ class ViewController: UIViewController {
         topButton.translatesAutoresizingMaskIntoConstraints = false
         topButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
         topButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
-        topButton.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        topButton.widthAnchor.constraint(equalToConstant: 16).isActive = true
+        topButton.heightAnchor.constraint(equalToConstant: 21).isActive = true
+        topButton.widthAnchor.constraint(equalToConstant: 31).isActive = true
     }
     
     private func constraintLabel(){

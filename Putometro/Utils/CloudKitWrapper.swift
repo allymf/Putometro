@@ -75,7 +75,7 @@ class CloudKitWrapper: NSObject{
         }
     }
     
-    static func getCurrentSystemUser(completion: @escaping (CKRecord?, Error?) -> Void){
+    static private func getCurrentSystemUser(completion: @escaping (CKRecord?, Error?) -> Void){
         
         getCurrentUserID { (recordID) in
             if let recordID = recordID{
@@ -94,7 +94,7 @@ class CloudKitWrapper: NSObject{
             else if let record = record{
                 if let user = record["user"] as? CKRecord.Reference{
                     publicDb.fetch(withRecordID: user.recordID, completionHandler: { (record, error) in
-                        completion(record,error)
+                        completion(record, error)
                     })
                 }
             }
