@@ -38,14 +38,29 @@ class User: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.user.rawValue)
     }
     
-    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer, record: CKRecord? = nil) {
+    init(record: CKRecord) {
         super.init()
-        if let record = record{
-            self.record = record
-        }
-        else{
-            self.record = CKRecord(recordType: RecordType.user.rawValue)
-        }
+        self.record = record
+        
+        guard let name = record["name"] as? String else { return }
+        self.name = name
+        
+        guard let photoData = record["photo"] as? Data else { return }
+        guard let image = UIImage(data: photoData) else { return }
+        self.photo = image
+        
+        guard let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference else { return}
+        CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
+            if let record = record{
+                self.rageMeasurer = RageMeasurer(record: record)
+            }
+        } 
+    }
+    
+    init(name: String, photo: UIImage, rageMeasurer: RageMeasurer) {
+        super.init()
+
+        self.record = CKRecord(recordType: RecordType.user.rawValue)
         setupRecord(name: name, photo: photo, rageMeasurer: rageMeasurer)
     }
     

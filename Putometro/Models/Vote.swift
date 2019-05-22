@@ -28,14 +28,25 @@ class Vote: CloudKitModel {
         self.record = CKRecord(recordType: RecordType.vote.rawValue)
     }
     
-    init(status: Int, user: User, record: CKRecord?) {
+    init(record: CKRecord) {
         super.init()
-        if let record = record{
-            self.record = record
+        self.record = record
+        
+        guard let status = record["status"] as? Int else { return }
+        self.status = status
+        
+        guard let user = record["user"] as? CKRecord.Reference else { return }
+        CloudKitWrapper.fetchWithId(recordID: user.recordID) { (record, error) in
+            if let record = record{
+                self.user = User(record: record)
+            }
         }
-        else{
-            self.record = CKRecord(recordType: RecordType.vote.rawValue)
-        }
+    }
+    
+    init(status: Int, user: User) {
+        super.init()
+
+        self.record = CKRecord(recordType: RecordType.vote.rawValue)
         setupRecord(status: status, user: user)
     }
     

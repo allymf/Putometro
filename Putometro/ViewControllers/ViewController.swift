@@ -11,6 +11,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     var topButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
@@ -25,6 +26,9 @@ class ViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 32)
         return label
     }()
+    
+    var tableViewModel = FCTableViewModel()
+    var tableView =  UITableView()
     
     var leaderBoardView = LeaderBoardView()
     
@@ -42,6 +46,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.AppColors.gray
         //
+        tableViewModel.getAllConflicts {
+            self.tableView.reloadData()
+        }
+        tableView.delegate = self
+        tableView.dataSource = self
         constraintTopButton()
         constraintLabel()
         constraintLeaderBoardView()
@@ -82,6 +91,18 @@ class ViewController: UIViewController {
         segmentedControl.topAnchor.constraint(equalTo: leaderBoardView.bottomAnchor, constant: 16).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewModel.conflicts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
 }
 
 extension ViewController: OneLineSGDelegate {

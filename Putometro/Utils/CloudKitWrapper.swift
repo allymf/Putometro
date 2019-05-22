@@ -57,6 +57,12 @@ class CloudKitWrapper: NSObject{
         }
     }
     
+    static func fetchWithId(recordID: CKRecord.ID, completion: @escaping (CKRecord?, Error?) -> Void){
+        publicDb.fetch(withRecordID: recordID) { (record, error) in
+            completion(record, error)
+        }
+    }
+    
     static private func getCurrentUserID(completion: @escaping (CKRecord.ID?) -> Void){
 
         CloudKitWrapper.container.fetchUserRecordID { (recordID, error) in
