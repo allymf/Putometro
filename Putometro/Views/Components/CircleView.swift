@@ -11,6 +11,11 @@ import UIKit
 class CircleView: UIImageView {
     var color: UIColor
     
+    convenience init(color: UIColor) {
+        let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        self.init(frame: frame, color: color)
+    }
+    
     init(frame: CGRect, color: UIColor) {
         self.color = color
         super.init(frame: frame)

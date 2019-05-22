@@ -9,11 +9,13 @@
 import UIKit
 
 class TeammateCardView: UIView {
+    private var image: UIImage
+    private var name: String
     var offset: CGFloat?
     
     lazy var teammateImage: UIImageView = {
         let image = UIImageView()
-//        image.image = self.image
+        image.image = self.image
         image.layer.cornerRadius = (self.frame.height/1.6)/2
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -22,15 +24,20 @@ class TeammateCardView: UIView {
     
     lazy var teammateName: UILabel = {
         let name = UILabel()
-//        name.text = self.name
+        name.text = self.name
         name.textColor = UIColor.AppColors.darkGray
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
+    
+    convenience init(name: String, image: UIImage) {
+        let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        self.init(frame: frame, name: name, image: image)
+    }
 
     init(frame: CGRect, name: String, image: UIImage) {
-//        self.name = name
-//        self.image = image
+        self.name = name
+        self.image = image
         super.init(frame: frame)
         offset = self.frame.height/5
     }
