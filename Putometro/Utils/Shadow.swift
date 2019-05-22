@@ -12,18 +12,12 @@ protocol Shadow: class {
 }
 
 extension Shadow {
-    func configShadow(_ view: UIView, isDark: Bool) {
+    func configShadow(_ view: UIView) {
         view.layer.masksToBounds = false
-        view.layer.shadowRadius = 2
-        view.layer.shadowOffset = CGSize(width: 3, height: 3)
-        view.layer.shadowOpacity = 1
-        
-        if isDark{
-            view.layer.shadowColor = UIColor.black.cgColor
-        } else {
-            view.layer.shadowColor = UIColor.lightGray.cgColor
-        }
-        
+        view.layer.shadowOpacity = 0.23
+        view.layer.shadowRadius = 4
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor.black.cgColor
     }
 }
 

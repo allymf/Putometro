@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class ConflictHeaderView: UITableViewHeaderFooterView {
+class ConflictHeaderView: UITableViewHeaderFooterView, Shadow {
     
     lazy var whitePlaneView: UIView = {
         let whiteView = UIView()
@@ -67,7 +67,7 @@ class ConflictHeaderView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        self.contentView.backgroundColor = UIColor(displayP3Red: 0.96470588235, green: 0.96470588235, blue: 0.96470588235, alpha: 1)
+        self.contentView.backgroundColor = UIColor.AppColors.gray
         self.addSubview(whitePlaneView)
         whitePlaneView.addSubview(ivAuthor)
         whitePlaneView.addSubview(ivCauser)
@@ -93,9 +93,10 @@ class ConflictHeaderView: UITableViewHeaderFooterView {
         NSLayoutConstraint.activate([
             whitePlaneView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             whitePlaneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            whitePlaneView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 64),
-            whitePlaneView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -64)
+            whitePlaneView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            whitePlaneView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40)
             ])
+        configShadow(whitePlaneView)
         
         ivAuthor.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

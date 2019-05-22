@@ -28,7 +28,7 @@ enum LeaderboardStatus {
     
 }
 
-class LeaderboardImageView: UIImageView, Shadow {
+class LeaderboardImageView: UIImageView {
     
     var type: LeaderboardStatus = .pissed {
         didSet {
@@ -40,7 +40,6 @@ class LeaderboardImageView: UIImageView, Shadow {
         let layer = CAShapeLayer()
         layer.path = UIBezierPath(ovalIn: self.bounds).cgPath
         layer.fillColor = self.type.color
-        layer.opacity = 0.3
         return layer
     }()
     

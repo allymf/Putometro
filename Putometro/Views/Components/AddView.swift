@@ -38,6 +38,7 @@ class AddView: UIView {
     convenience init(title: String) {
         self.init()
         titleLabel.text = title
+        layoutSubviews()
     }
     
     override func layoutSubviews() {
@@ -62,27 +63,16 @@ class AddView: UIView {
     }
     
     private func setupContraints() {
-        guard let superview = superview else {
-            print("Could not load superview in \(AddView.description())")
-            return
-        }
-        // addView Constraints
-        NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 16),
-            self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -16),
-            self.heightAnchor.constraint(equalToConstant: 60)
-        ])
         
         // addButton Constraints
         NSLayoutConstraint.activate([
             addImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            addImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40)
+            addImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8)
         ])
         // titleLabel Constraints
         NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: addImageView.trailingAnchor, constant: 70)
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 16)
         ])
     }
 }

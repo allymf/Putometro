@@ -57,7 +57,7 @@ extension TeammateCardView: Shadow {
         self.layer.cornerRadius = 8
         self.addSubview(teammateName)
         self.addSubview(teammateImage)
-        configShadow(self, isDark: false)
+        configShadow(self)
     }
     
     private func configTeammateImageConstraints(offset: CGFloat) {

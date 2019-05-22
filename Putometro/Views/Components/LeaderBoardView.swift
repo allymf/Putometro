@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LeaderBoardView: UIView {
+class LeaderBoardView: UIView, Shadow {
     
     var pissed = LeaderboardImageView(frame: CGRect(x: 0, y: 0, width: 96, height: 96))
     var angel = LeaderboardImageView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
@@ -42,7 +42,7 @@ class LeaderBoardView: UIView {
         pissed.heightAnchor.constraint(equalToConstant: 96).isActive = true
         pissed.widthAnchor.constraint(equalToConstant: 96).isActive = true
         
-        pissed.configShadow(pissed, isDark: false)
+        configShadow(pissed)
     }
     
     private func constraintDevilView(){
@@ -54,7 +54,7 @@ class LeaderBoardView: UIView {
         devil.heightAnchor.constraint(equalToConstant: 64).isActive = true
         devil.widthAnchor.constraint(equalToConstant: 64).isActive = true
         
-        devil.configShadow(devil, isDark: false)
+        configShadow(devil)
     }
     
     private func constraintAngelView(){
@@ -66,7 +66,7 @@ class LeaderBoardView: UIView {
         angel.heightAnchor.constraint(equalToConstant: 64).isActive = true
         angel.widthAnchor.constraint(equalToConstant: 64).isActive = true
         
-        angel.configShadow(angel, isDark: false)
+        configShadow(angel)
     }
     
 

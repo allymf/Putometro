@@ -52,6 +52,7 @@ class BrokenRuleCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        contentView.backgroundColor = UIColor.AppColors.gray
         setupConstraints()
     }
     
@@ -65,7 +66,7 @@ class BrokenRuleCell: UITableViewCell {
     private func setupConstraints() {
         // checkView Constraints
         NSLayoutConstraint.activate([
-            checkView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
+            checkView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
             checkView.heightAnchor.constraint(equalToConstant: checkImageSize),
             checkView.widthAnchor.constraint(equalToConstant: checkImageSize),
             checkView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
@@ -86,8 +87,7 @@ class BrokenRuleCell: UITableViewCell {
         ])
         // ruleDescription Constraints
         NSLayoutConstraint.activate([
-            ruleLabel.leadingAnchor.constraint(equalTo: checkView.trailingAnchor, constant: 70),
-            ruleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            ruleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 8),
             ruleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }

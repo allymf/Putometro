@@ -27,8 +27,21 @@ class ViewController: UIViewController {
         return label
     }()
     
+    var addView: AddView = {
+        let view = AddView(title: "Add new conflict")
+        return view
+    }()
+    
     var tableViewModel = FCTableViewModel()
-    var tableView =  UITableView()
+    
+    var tableView: UITableView = {
+        let table = UITableView()
+        table.separatorStyle = .none
+        table.register(ConflictHeaderView.self, forHeaderFooterViewReuseIdentifier: "ConflictHeaderView")
+        table.register(BrokenRuleCell.self, forCellReuseIdentifier: "BrokenRuleCell")
+        
+        return table
+    }()
     
     var leaderBoardView = LeaderBoardView()
     
@@ -46,16 +59,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.AppColors.gray
         //
-        tableViewModel.getAllConflicts {
-            self.tableView.reloadData()
-        }
-
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
         constraintTopButton()
         constraintLabel()
         constraintLeaderBoardView()
         constraintOneLineSC()
+        constraintAddView()
+        constraintTableView()
+        
+        tableViewModel.getAllConflicts {
+            self.tableView.reloadData()
+        }
         
     }
     
@@ -85,25 +102,66 @@ class ViewController: UIViewController {
     
     private func constraintOneLineSC(){
         view.addSubview(segmentedControl)
-        //          SegmentedControl Constraints
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         segmentedControl.topAnchor.constraint(equalTo: leaderBoardView.bottomAnchor, constant: 16).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
+    
+    private func constraintAddView(){
+        view.addSubview(addView)
+        addView.translatesAutoresizingMaskIntoConstraints = false
+        addView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16).isActive = true
+        addView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        addView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        addView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+    }
+    
+    private func constraintTableView(){
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: addView.bottomAnchor, constant: 8).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        
+        
+        tableView.backgroundColor = UIColor.AppColors.gray
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ConflictHeaderView") as? ConflictHeaderView{
+            return headerView
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewModel.conflicts.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "BrokenRuleCell") as? BrokenRuleCell{
+            cell.setupCell(ruleTitle: "Bateu no filho da puta", isBottomLineHidden: false)
+            return cell
+        }
         return UITableViewCell()
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 32
+    }
 }
 
 extension ViewController: OneLineSGDelegate {
