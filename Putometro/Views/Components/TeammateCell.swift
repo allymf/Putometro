@@ -9,23 +9,15 @@
 import UIKit
 
 class TeammateCell: UITableViewCell {
-    var color: UIColor?
-    var name: String?
-    var photo: UIImage?
-    var circleView: CircleView?
-    var teammateCardView: TeammateCardView?
-    var circleHeigthAnchor: NSLayoutConstraint?
+    private var circleView: CircleView?
+    private var teammateCardView: TeammateCardView?
+    private var circleHeigthAnchor: NSLayoutConstraint?
     var alreadySelected = false
     
     func setupCell(color: UIColor, name: String, photo: UIImage) {
         self.backgroundColor = .clear
-        self.color = color
-        self.name = name
-        self.photo = photo
-        circleView = CircleView(frame: CGRect(origin: self.frame.origin, size: self.frame.size), color: color)
-        teammateCardView = TeammateCardView(frame: CGRect(origin: self.frame.origin, size: self.frame.size),
-                                            name: name,
-                                            image: photo)
+        circleView = CircleView(color: color)
+        teammateCardView = TeammateCardView(name: name, image: photo)
     }
     
     override func draw(_ rect: CGRect) {
