@@ -42,17 +42,18 @@ class User: CloudKitModel {
         super.init()
         self.record = record
         
-        
+        var nameAux = String()
         if let name = record["name"] as? String{
-            self.name = name
+            nameAux = name
         }
         
+        var photoAux = UIImage()
         if let photoAsset = record["photo"] as? CKAsset{
             if let url = photoAsset.fileURL{
                 do{
                     let data = try Data(contentsOf: url)
                     if let image = UIImage(data: data){
-                        self.photo = image
+                        photoAux = image
                     }
                 }
                 catch{
@@ -61,13 +62,10 @@ class User: CloudKitModel {
             }
         }
         
-        if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference{
-            CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
-                if let record = record{
-                    self.rageMeasurer = RageMeasurer(record: record)
-                }
-            }
-        }
+        //fetch RageMeasurer
+        let rageMeasurerAux = fetchRageMeasurer(record: record)
+        
+        setupRecord(name: nameAux, photo: photoAux, rageMeasurer: rageMeasurerAux)
     }
     
     init(name: String, photo: UIImage, rageMeasurer: RageMeasurer) {
@@ -83,5 +81,17 @@ class User: CloudKitModel {
         self.name = name
         self.photo = photo
         self.rageMeasurer = rageMeasurer
+    }
+    
+    private func fetchRageMeasurer(record: CKRecord) -> RageMeasurer{
+        var rageMeasurerAux = RageMeasurer()
+        if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference{
+            CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
+                if let record = record{
+                    rageMeasurerAux = RageMeasurer(record: record)
+                }
+            }
+        }
+        return rageMeasurerAux
     }
 }

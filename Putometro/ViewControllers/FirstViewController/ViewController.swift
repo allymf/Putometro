@@ -27,8 +27,10 @@ class ViewController: UIViewController {
         return label
     }()
     
-    var addView: AddView = {
+    var addButton: UIView = {
         let view = AddView(title: "Add new conflict")
+        let button = UIButton()
+        
         return view
     }()
     
@@ -63,17 +65,27 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = tableViewModel
         
+        topButton.addTarget(self, action: #selector(didTapTopButton(sender:)), for: .touchUpInside)
+//        addButton.addTarget(self, action: #selector(didTapAddButton(sender:)), for: .touchUpInside)
+        
         constraintTopButton()
         constraintLabel()
         constraintLeaderBoardView()
         constraintOneLineSC()
-        constraintAddView()
+        constraintAddButton()
         constraintTableView()
         
         tableViewModel.getAllConflicts {
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        
+    }
+    @objc func didTapTopButton(sender: UIButton){
+        print("TopButton")
+    }
+    @objc func didTapAddButton(sender: UIButton){
+        print("AddButton")
     }
 }
 
@@ -96,6 +108,7 @@ extension ViewController: UITableViewDelegate{
         return 48
     }
 }
+
 
 extension ViewController: OneLineSGDelegate {
     func didChangeTo(index: Int) {

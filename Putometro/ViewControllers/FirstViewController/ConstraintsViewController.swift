@@ -44,19 +44,19 @@ extension ViewController{
         segmentedControl.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
     
-    func constraintAddView(){
-        view.addSubview(addView)
-        addView.translatesAutoresizingMaskIntoConstraints = false
-        addView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16).isActive = true
-        addView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        addView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        addView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+    func constraintAddButton(){
+        view.addSubview(addButton)
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16).isActive = true
+        addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
     }
     
     func constraintTableView(){
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: addView.bottomAnchor, constant: 8).isActive = true
+        tableView.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 8).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true

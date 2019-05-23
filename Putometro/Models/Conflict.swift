@@ -10,7 +10,6 @@ import Foundation
 import CloudKit
 
 class Conflict: CloudKitModel {
-    
     var rageMeasurer = RageMeasurer(){
         didSet{
             rageMeasurer.save()
@@ -68,62 +67,32 @@ class Conflict: CloudKitModel {
         super.init()
         self.record = record
         
-        //fetching the rageMeasurer record from the reference
-        if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference  {
-            CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
-                if let record = record{
-                    self.rageMeasurer = RageMeasurer(record: record)
-                }
-            }
-        }
         
+        
+        var createdAtAux = Date()
+        var statusAux = 0
+        
+        //fetching the rageMeasurer record from the reference
+        let rageMeasurerAux = fetchRageMeasurer(record: record)
         
         //fetching the creator record from the reference
-        if let creatorReference = record["creator"] as? CKRecord.Reference {
-            CloudKitWrapper.fetchWithId(recordID: creatorReference.recordID) { (record, error) in
-                if let record = record{
-                    self.creator = User(record: record)
-                }
-            }
-        }
+        let creatorAux = fetchCreator(record: record)
         
         //fetching the troubleMakers records from the reference list
-        if let troubleMakersReferenceList = record["troubleMakers"] as? [CKRecord.Reference] {
-            var troubleMakersRecordIDs = [CKRecord.ID]()
-            troubleMakersReferenceList.forEach { (record) in
-                troubleMakersRecordIDs.append(record.recordID)
-            }
-            troubleMakersRecordIDs.forEach { (id) in
-                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
-                    if let record = record{
-                        self.troubleMakers.append(User(record: record))
-                    }
-                })
-            }
-        }
+        let troubleMakersAux = fetchTroubleMakers(record: record)
         
         //fetching the brokenRules records from the reference list
-        if let brokenRulesReferenceList = record["brokenRules"] as? [CKRecord] {
-            var brokenRulesRecordIDs = [CKRecord.ID]()
-            brokenRulesReferenceList.forEach { (record) in
-                brokenRulesRecordIDs.append(record.recordID)
-            }
-            brokenRulesRecordIDs.forEach { (id) in
-                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
-                    if let record = record{
-                        self.brokenRules.append(Rule(record: record))
-                    }
-                })
-            }
-        }
+        let brokenRulesAux = fetchBrokenRules(record: record)
         
         if let createdAt = record["createdAt"] as? Date {
-            self.createdAt = createdAt
+            createdAtAux = createdAt
         }
         
         if let status = record["status"] as? Int {
-            self.status = status
+            statusAux = status
         }
+        
+        setupRecord(rageMeasurer: rageMeasurerAux, creator: creatorAux, troubleMakers: troubleMakersAux, brokenRules: brokenRulesAux, createdAt: createdAtAux, status: statusAux)
     }
     
     init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int) {
@@ -141,5 +110,66 @@ class Conflict: CloudKitModel {
         self.brokenRules = brokenRules
         self.createdAt = createdAt
         self.status = status
+    }
+    
+    
+    
+    private func fetchRageMeasurer(record: CKRecord) -> RageMeasurer{
+        var rageMesurerAux = RageMeasurer()
+        if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference  {
+            CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
+                if let record = record{
+                    rageMesurerAux = RageMeasurer(record: record)
+                }
+            }
+        }
+        return rageMesurerAux
+    }
+    
+    private func fetchCreator(record: CKRecord) -> User{
+        var creatorAux = User()
+        if let creatorReference = record["creator"] as? CKRecord.Reference {
+            CloudKitWrapper.fetchWithId(recordID: creatorReference.recordID) { (record, error) in
+                if let record = record{
+                    creatorAux = User(record: record)
+                }
+            }
+        }
+        return creatorAux
+    }
+    private func fetchTroubleMakers(record: CKRecord) -> [User]{
+        var troubleMakersAux = [User]()
+        if let troubleMakersReferenceList = record["troubleMakers"] as? [CKRecord.Reference] {
+            var troubleMakersRecordIDs = [CKRecord.ID]()
+            troubleMakersReferenceList.forEach { (record) in
+                troubleMakersRecordIDs.append(record.recordID)
+            }
+            troubleMakersRecordIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        troubleMakersAux.append(User(record: record))
+                    }
+                })
+            }
+        }
+        return troubleMakersAux
+    }
+    
+    private func fetchBrokenRules(record: CKRecord) -> [Rule]{
+        var brokenRulesAux = [Rule]()
+        if let brokenRulesReferenceList = record["brokenRules"] as? [CKRecord.Reference] {
+            var brokenRulesRecordIDs = [CKRecord.ID]()
+            brokenRulesReferenceList.forEach { (record) in
+                brokenRulesRecordIDs.append(record.recordID)
+            }
+            brokenRulesRecordIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        brokenRulesAux.append(Rule(record: record))
+                    }
+                })
+            }
+        }
+        return brokenRulesAux
     }
 }

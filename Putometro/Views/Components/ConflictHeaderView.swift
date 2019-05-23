@@ -89,8 +89,8 @@ class ConflictHeaderView: UITableViewHeaderFooterView, Shadow {
         
         whitePlaneView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            whitePlaneView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            whitePlaneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            whitePlaneView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
+            whitePlaneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
             whitePlaneView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             whitePlaneView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40)
             ])

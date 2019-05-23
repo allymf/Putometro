@@ -45,31 +45,28 @@ class Rule: CloudKitModel {
         super.init()
         self.record = record
         
+        
+        var titleAux = String()
         if let title = record["title"] as? String{
-            self.title = title
+            titleAux = title
         }
         
+        var descriptAux = String()
         if let descript = record["description"] as? String {
-            self.descript = descript
+            descriptAux = descript
         }
         
+        var statusAux = 0
         if let status = record["status"] as? Int{
-            self.status = status
+            statusAux = status
         }
         
-        if let votesReferenceList = record["votes"] as? [CKRecord.Reference]{
-            var votesIDs = [CKRecord.ID]()
-            votesReferenceList.forEach { (record) in
-                votesIDs.append(record.recordID)
-            }
-            votesIDs.forEach { (id) in
-                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
-                    if let record = record{
-                        self.votes.append(Vote(record: record))
-                    }
-                })
-            }
-        }
+        //fetch Votes
+        let votesAux = fetchVotes(record: record)
+        
+        setupRecord(title: titleAux, descript: descriptAux, status: statusAux, votes: votesAux)
+        
+        
     }
     
     init(title: String, descript: String, status: Int, votes: [Vote]) {
@@ -84,5 +81,23 @@ class Rule: CloudKitModel {
         self.descript = descript
         self.status = status
         self.votes = votes
+    }
+    
+    private func fetchVotes(record : CKRecord) -> [Vote]{
+        var votesAux = [Vote]()
+        if let votesReferenceList = record["votes"] as? [CKRecord.Reference]{
+            var votesIDs = [CKRecord.ID]()
+            votesReferenceList.forEach { (record) in
+                votesIDs.append(record.recordID)
+            }
+            votesIDs.forEach { (id) in
+                CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
+                    if let record = record{
+                        self.votes.append(Vote(record: record))
+                    }
+                })
+            }
+        }
+        return votesAux
     }
 }

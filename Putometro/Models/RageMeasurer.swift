@@ -31,10 +31,18 @@ class RageMeasurer: CloudKitModel {
         super.init()
         self.record = record
         
-        guard let rageLevel = record["rageLevel"] as? Int else { return }
-        guard let isInChaos = record["isInChaos"] as? Int else { return }
         
-        setupRecord(rageLevel: rageLevel, isInChaos: isInChaos)
+        var rageLevelAux = 0
+        if let rageLevel = record["rageLevel"] as? Int{
+            rageLevelAux = rageLevel
+        }
+        
+        var isInChaosAux = 0
+        if let isInChaos = record["isInChaos"] as? Int{
+            isInChaosAux = isInChaos
+        }
+        
+        setupRecord(rageLevel: rageLevelAux, isInChaos: isInChaosAux)
     }
     
     init(rageLevel: Int, isInChaos: Int) {

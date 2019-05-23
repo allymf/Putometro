@@ -32,18 +32,15 @@ class Vote: CloudKitModel {
         super.init()
         self.record = record
         
+        var statusAux = 0
         if let status = record["status"] as? Int{
-            self.status = status
+            statusAux = status
         }
         
+        //fetch User
+        let userAux = fetchUser(record: record)
         
-        if let user = record["user"] as? CKRecord.Reference {
-            CloudKitWrapper.fetchWithId(recordID: user.recordID) { (record, error) in
-                if let record = record{
-                    self.user = User(record: record)
-                }
-            }
-        }
+        setupRecord(status: statusAux, user: userAux)
     }
     
     init(status: Int, user: User) {
@@ -56,5 +53,17 @@ class Vote: CloudKitModel {
     private func setupRecord(status: Int, user: User){
         self.status = status
         self.user = user
+    }
+    
+    private func fetchUser(record: CKRecord) -> User{
+        var userAux = User()
+        if let user = record["user"] as? CKRecord.Reference {
+            CloudKitWrapper.fetchWithId(recordID: user.recordID) { (record, error) in
+                if let record = record{
+                    self.user = User(record: record)
+                }
+            }
+        }
+        return userAux
     }
 }
