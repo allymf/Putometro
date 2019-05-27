@@ -11,6 +11,8 @@
 		3028CAF72294873B00BB0395 /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAF62294873B00BB0395 /* LeaderBoardView.swift */; };
 		3028CAF92294DB5400BB0395 /* FCTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAF82294DB5400BB0395 /* FCTableViewModel.swift */; };
 		3028CAFC2295A39900BB0395 /* ConstraintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAFB2295A39900BB0395 /* ConstraintsViewController.swift */; };
+		3028CAFE22981BE700BB0395 /* DispatchGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028CAFD22981BE700BB0395 /* DispatchGroupManager.swift */; };
+		308F1EED229C0DE000B2D254 /* MockUpDataFirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F1EEC229C0DE000B2D254 /* MockUpDataFirstScreen.swift */; };
 		30DEC5D3228353AA0000EB84 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEC5D2228353AA0000EB84 /* CloudKit.framework */; };
 		30FEC34C2284457D009CA355 /* CloudKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */; };
 		30FEC3712289AE69009CA355 /* CloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FEC3702289AE69009CA355 /* CloudKitModel.swift */; };
@@ -57,6 +59,8 @@
 		3028CAF62294873B00BB0395 /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		3028CAF82294DB5400BB0395 /* FCTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FCTableViewModel.swift; path = Putometro/Views/Components/FCTableViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3028CAFB2295A39900BB0395 /* ConstraintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsViewController.swift; sourceTree = "<group>"; };
+		3028CAFD22981BE700BB0395 /* DispatchGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchGroupManager.swift; sourceTree = "<group>"; };
+		308F1EEC229C0DE000B2D254 /* MockUpDataFirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUpDataFirstScreen.swift; sourceTree = "<group>"; };
 		30DEC5D2228353AA0000EB84 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		30FEC34B2284457D009CA355 /* CloudKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitWrapper.swift; sourceTree = "<group>"; };
 		30FEC3702289AE69009CA355 /* CloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModel.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				B272AAEA228C962400410D84 /* UIColor+AppColors.swift */,
 				B272AAEC228CA43200410D84 /* Shadow.swift */,
 				30FEC372228AFA2C009CA355 /* ExtensionUIImage.swift */,
+				3028CAFD22981BE700BB0395 /* DispatchGroupManager.swift */,
+				308F1EEC229C0DE000B2D254 /* MockUpDataFirstScreen.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 				3F6EE9F42281D19E007EEC22 /* Team.swift in Sources */,
 				3F6EEA00228205A8007EEC22 /* Leaderboard.swift in Sources */,
 				B272AAEB228C962400410D84 /* UIColor+AppColors.swift in Sources */,
+				308F1EED229C0DE000B2D254 /* MockUpDataFirstScreen.swift in Sources */,
+				3028CAFE22981BE700BB0395 /* DispatchGroupManager.swift in Sources */,
 				B272AAED228CA43200410D84 /* Shadow.swift in Sources */,
 				B27F3B3D228A48D50072E112 /* OneLineSGDelegate.swift in Sources */,
 				77B1CBA9229447FB00DCD864 /* TeammateCardView.swift in Sources */,

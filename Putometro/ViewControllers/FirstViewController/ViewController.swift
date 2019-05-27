@@ -62,6 +62,7 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.AppColors.ligthGray
         //
         
+        //tableView.contentInset.top = 5
         tableView.delegate = self
         tableView.dataSource = tableViewModel
         
@@ -74,18 +75,25 @@ class ViewController: UIViewController {
         constraintOneLineSC()
         constraintAddButton()
         constraintTableView()
+        refreshControl()
+        mockUp()
         
-        tableViewModel.getAllConflicts {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+//        tableViewModel.getAllConflicts {
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
     }
+    
     @objc func didTapTopButton(sender: UIButton){
         print("TopButton")
     }
     @objc func didTapAddButton(sender: UIButton){
         print("AddButton")
+    }
+    @objc func reloadTableView(){
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
 }
 
@@ -93,6 +101,11 @@ extension ViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ConflictHeaderView") as? ConflictHeaderView{
+            
+            let model = MockUpDataFirstScreen.conflicts[section]
+            headerView.ivAuthor.image = model.creator.photo
+            headerView.ivCauser.image = model.troubleMakers.first?.photo
+            headerView.lbPlus.isHidden = true
             return headerView
         }
         return nil

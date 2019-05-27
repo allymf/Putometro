@@ -62,10 +62,21 @@ class User: CloudKitModel {
             }
         }
         
-        //fetch RageMeasurer
-        let rageMeasurerAux = fetchRageMeasurer(record: record)
+        DispatchGroupManager.dispatchGroup.enter()
         
-        setupRecord(name: nameAux, photo: photoAux, rageMeasurer: rageMeasurerAux)
+        //fetch RageMeasurer
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        var rageMeasurerAux = RageMeasurer()
+        fetchRageMeasurer(record: record, completion: { rageMeasurerResponse in
+            rageMeasurerAux = rageMeasurerResponse
+            dispatchGroup.leave()
+        })
+        
+        dispatchGroup.notify(queue: .main) {
+            self.setupRecord(name: nameAux, photo: photoAux, rageMeasurer: rageMeasurerAux)
+            DispatchGroupManager.dispatchGroup.leave()
+        }
     }
     
     init(name: String, photo: UIImage, rageMeasurer: RageMeasurer) {
@@ -83,15 +94,15 @@ class User: CloudKitModel {
         self.rageMeasurer = rageMeasurer
     }
     
-    private func fetchRageMeasurer(record: CKRecord) -> RageMeasurer{
+    private func fetchRageMeasurer(record: CKRecord, completion: @escaping (RageMeasurer) -> Void){
         var rageMeasurerAux = RageMeasurer()
         if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference{
             CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
                 if let record = record{
                     rageMeasurerAux = RageMeasurer(record: record)
+                    completion(rageMeasurerAux)
                 }
             }
         }
-        return rageMeasurerAux
     }
 }

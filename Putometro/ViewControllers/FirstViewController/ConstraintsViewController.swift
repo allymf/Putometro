@@ -33,6 +33,7 @@ extension ViewController{
         leaderBoardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         leaderBoardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         leaderBoardView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 16).isActive = true
+        leaderBoardView.layer.masksToBounds = false
     }
     
     func constraintOneLineSC(){
@@ -63,5 +64,16 @@ extension ViewController{
         
         
         tableView.backgroundColor = UIColor.AppColors.ligthGray
+    }
+    func refreshControl(){
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.AppColors.gray
+        refreshControl.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    func mockUp(){
+        leaderBoardView.angel.image = MockUpDataFirstScreen.users[0].photo
+        leaderBoardView.devil.image = MockUpDataFirstScreen.users[1].photo
     }
 }

@@ -43,7 +43,7 @@ class ConflictHeaderView: UITableViewHeaderFooterView, Shadow {
         redLayer.fillColor = UIColor.red.cgColor
         redLayer.opacity = 0.3
         
-        imgView.layer.addSublayer(redLayer)
+//        imgView.layer.addSublayer(redLayer)
         imgView.backgroundColor = .blue
         return imgView
     }()
@@ -89,8 +89,8 @@ class ConflictHeaderView: UITableViewHeaderFooterView, Shadow {
         
         whitePlaneView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            whitePlaneView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
-            whitePlaneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
+            whitePlaneView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            whitePlaneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             whitePlaneView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             whitePlaneView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40)
             ])

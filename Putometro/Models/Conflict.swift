@@ -72,17 +72,41 @@ class Conflict: CloudKitModel {
         var createdAtAux = Date()
         var statusAux = 0
         
+        let dispatchGroup = DispatchGroup()
+        
+        DispatchGroupManager.dispatchGroup.enter()
+        
         //fetching the rageMeasurer record from the reference
-        let rageMeasurerAux = fetchRageMeasurer(record: record)
+        dispatchGroup.enter()
+        var rageMeasurerAux = RageMeasurer()
+        fetchRageMeasurer(record: record, completion: {rageResponse in
+            rageMeasurerAux = rageResponse
+            dispatchGroup.leave()
+        })
         
         //fetching the creator record from the reference
-        let creatorAux = fetchCreator(record: record)
+        dispatchGroup.enter()
+        var creatorAux = User()
+        fetchCreator(record: record, completion: {creatorResponse in
+            creatorAux = creatorResponse
+            dispatchGroup.leave()
+        })
         
         //fetching the troubleMakers records from the reference list
-        let troubleMakersAux = fetchTroubleMakers(record: record)
+        dispatchGroup.enter()
+        var troubleMakersAux = [User]()
+        fetchTroubleMakers(record: record, completion: {troubleMakersResponse in
+            troubleMakersAux = troubleMakersResponse
+            dispatchGroup.leave()
+        })
         
         //fetching the brokenRules records from the reference list
-        let brokenRulesAux = fetchBrokenRules(record: record)
+        dispatchGroup.enter()
+        var brokenRulesAux = [Rule]()
+        fetchBrokenRules(record: record, completion: { brokenRulesResponse in
+            brokenRulesAux = brokenRulesResponse
+            dispatchGroup.leave()
+        })
         
         if let createdAt = record["createdAt"] as? Date {
             createdAtAux = createdAt
@@ -92,7 +116,12 @@ class Conflict: CloudKitModel {
             statusAux = status
         }
         
-        setupRecord(rageMeasurer: rageMeasurerAux, creator: creatorAux, troubleMakers: troubleMakersAux, brokenRules: brokenRulesAux, createdAt: createdAtAux, status: statusAux)
+        
+        dispatchGroup.notify(queue: .main) {
+            self.setupRecord(rageMeasurer: rageMeasurerAux, creator: creatorAux, troubleMakers: troubleMakersAux, brokenRules: brokenRulesAux, createdAt: createdAtAux, status: statusAux)
+            DispatchGroupManager.dispatchGroup.leave()
+        }
+        
     }
     
     init(rageMeasurer: RageMeasurer, creator: User, troubleMakers: [User], brokenRules: [Rule], createdAt: Date, status: Int) {
@@ -114,30 +143,28 @@ class Conflict: CloudKitModel {
     
     
     
-    private func fetchRageMeasurer(record: CKRecord) -> RageMeasurer{
+    private func fetchRageMeasurer(record: CKRecord, completion: @escaping (RageMeasurer) -> Void){
         var rageMesurerAux = RageMeasurer()
         if let rageMeasurerReference = record["rageMeasurer"] as? CKRecord.Reference  {
             CloudKitWrapper.fetchWithId(recordID: rageMeasurerReference.recordID) { (record, error) in
                 if let record = record{
                     rageMesurerAux = RageMeasurer(record: record)
+                    completion(rageMesurerAux)
                 }
             }
         }
-        return rageMesurerAux
     }
     
-    private func fetchCreator(record: CKRecord) -> User{
-        var creatorAux = User()
+    private func fetchCreator(record: CKRecord , completion: @escaping (User) -> Void){
         if let creatorReference = record["creator"] as? CKRecord.Reference {
             CloudKitWrapper.fetchWithId(recordID: creatorReference.recordID) { (record, error) in
                 if let record = record{
-                    creatorAux = User(record: record)
+                    completion(User(record: record))
                 }
             }
         }
-        return creatorAux
     }
-    private func fetchTroubleMakers(record: CKRecord) -> [User]{
+    private func fetchTroubleMakers(record: CKRecord, completion: @escaping ([User]) -> Void){
         var troubleMakersAux = [User]()
         if let troubleMakersReferenceList = record["troubleMakers"] as? [CKRecord.Reference] {
             var troubleMakersRecordIDs = [CKRecord.ID]()
@@ -148,14 +175,14 @@ class Conflict: CloudKitModel {
                 CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
                     if let record = record{
                         troubleMakersAux.append(User(record: record))
+                        completion(troubleMakersAux)
                     }
                 })
             }
         }
-        return troubleMakersAux
     }
     
-    private func fetchBrokenRules(record: CKRecord) -> [Rule]{
+    private func fetchBrokenRules(record: CKRecord, completion: @escaping ([Rule]) -> Void){
         var brokenRulesAux = [Rule]()
         if let brokenRulesReferenceList = record["brokenRules"] as? [CKRecord.Reference] {
             var brokenRulesRecordIDs = [CKRecord.ID]()
@@ -166,10 +193,10 @@ class Conflict: CloudKitModel {
                 CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
                     if let record = record{
                         brokenRulesAux.append(Rule(record: record))
+                        completion(brokenRulesAux)
                     }
                 })
             }
         }
-        return brokenRulesAux
     }
 }

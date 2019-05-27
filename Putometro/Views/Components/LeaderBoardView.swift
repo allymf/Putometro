@@ -49,12 +49,12 @@ class LeaderBoardView: UIView, Shadow {
         addSubview(devil)
         devil.type = .devil
         devil.translatesAutoresizingMaskIntoConstraints = false
-        devil.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
+        devil.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         devil.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
         devil.heightAnchor.constraint(equalToConstant: 48).isActive = true
         devil.widthAnchor.constraint(equalToConstant: 48).isActive = true
         
-        configShadow(devil)
+//        configShadow(devil)
     }
     
     private func constraintAngelView(){
@@ -66,7 +66,7 @@ class LeaderBoardView: UIView, Shadow {
         angel.heightAnchor.constraint(equalToConstant: 48).isActive = true
         angel.widthAnchor.constraint(equalToConstant: 48).isActive = true
         
-        configShadow(angel)
+//        configShadow(angel)
     }
     
 

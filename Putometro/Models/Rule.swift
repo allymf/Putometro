@@ -61,12 +61,20 @@ class Rule: CloudKitModel {
             statusAux = status
         }
         
+        DispatchGroupManager.dispatchGroup.enter()
         //fetch Votes
-        let votesAux = fetchVotes(record: record)
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        var votesAux = [Vote]()
+        fetchVotes(record: record, completion: { votesResponse in
+            votesAux = votesResponse
+            dispatchGroup.leave()
+        })
         
-        setupRecord(title: titleAux, descript: descriptAux, status: statusAux, votes: votesAux)
-        
-        
+        dispatchGroup.notify(queue: .main) {
+            self.setupRecord(title: titleAux, descript: descriptAux, status: statusAux, votes: votesAux)
+            DispatchGroupManager.dispatchGroup.leave()
+        }
     }
     
     init(title: String, descript: String, status: Int, votes: [Vote]) {
@@ -83,7 +91,7 @@ class Rule: CloudKitModel {
         self.votes = votes
     }
     
-    private func fetchVotes(record : CKRecord) -> [Vote]{
+    private func fetchVotes(record : CKRecord, completion: @escaping ([Vote]) -> Void){
         var votesAux = [Vote]()
         if let votesReferenceList = record["votes"] as? [CKRecord.Reference]{
             var votesIDs = [CKRecord.ID]()
@@ -93,11 +101,11 @@ class Rule: CloudKitModel {
             votesIDs.forEach { (id) in
                 CloudKitWrapper.fetchWithId(recordID: id, completion: { (record, error) in
                     if let record = record{
-                        self.votes.append(Vote(record: record))
+                        votesAux.append(Vote(record: record))
+                        completion(votesAux)
                     }
                 })
             }
         }
-        return votesAux
     }
 }

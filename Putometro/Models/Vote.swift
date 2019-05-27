@@ -36,11 +36,19 @@ class Vote: CloudKitModel {
         if let status = record["status"] as? Int{
             statusAux = status
         }
-        
+        DispatchGroupManager.dispatchGroup.enter()
         //fetch User
-        let userAux = fetchUser(record: record)
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        let userAux = fetchUser(record: record, completion: {
+            dispatchGroup.leave()
+        })
         
-        setupRecord(status: statusAux, user: userAux)
+        dispatchGroup.notify(queue: .main) {
+            self.setupRecord(status: statusAux, user: userAux)
+            DispatchGroupManager.dispatchGroup.leave()
+        }
+        
     }
     
     init(status: Int, user: User) {
@@ -55,15 +63,16 @@ class Vote: CloudKitModel {
         self.user = user
     }
     
-    private func fetchUser(record: CKRecord) -> User{
+    private func fetchUser(record: CKRecord, completion: @escaping () -> Void) -> User{
         var userAux = User()
         if let user = record["user"] as? CKRecord.Reference {
             CloudKitWrapper.fetchWithId(recordID: user.recordID) { (record, error) in
                 if let record = record{
-                    self.user = User(record: record)
+                    userAux = User(record: record)
                 }
             }
         }
+        completion()
         return userAux
     }
 }

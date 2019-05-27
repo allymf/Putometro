@@ -16,13 +16,13 @@ enum LeaderboardStatus {
     var color: CGColor {
         switch self {
         case .pissed:
-            return UIColor(displayP3Red: 0.98823529411, green: 0.76470588235, blue: 0.54117647058, alpha: 1.0).cgColor
+            return UIColor(displayP3Red: 0.98823529411, green: 0.76470588235, blue: 0.54117647058, alpha: 0.4).cgColor
             
         case .devil:
-            return UIColor.red.cgColor
+            return UIColor(displayP3Red: 1, green: 0, blue: 0, alpha: 0.4).cgColor
             
         case .angel:
-            return UIColor(displayP3Red: 0.60784313725, green: 0.81568627451, blue: 0.94117647058, alpha: 1.0).cgColor
+            return UIColor(displayP3Red: 0.60784313725, green: 0.81568627451, blue: 0.94117647058, alpha: 0.4).cgColor
         }
     }
     
