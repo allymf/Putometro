@@ -17,6 +17,6 @@ class MockUpDataFirstScreen{
     
     static let rules = [Rule(title: "Não pode bater no amiguinho", descript: "", status: 1, votes: votes), Rule(title: "Não pode falar polêmica", descript: "", status: 1, votes: votes), Rule(title: "Não pode chegar atrasado", descript: "", status: 1, votes: votes), Rule(title: "Não pode xingar o amiguinho", descript: "", status: 1, votes: votes)]
     
-    static let conflicts = [Conflict(rageMeasurer: RageMeasurer(), creator: users[0], troubleMakers: [users[1]], brokenRules: [rules[0],rules[1]], createdAt: Date(), status: 1), Conflict(rageMeasurer: RageMeasurer(), creator: users[1], troubleMakers: [users[2]], brokenRules: [rules[1],rules[2]], createdAt: Date(), status: 1), Conflict(rageMeasurer: RageMeasurer(), creator: users[2], troubleMakers: [users[3]], brokenRules: [rules[2],rules[3]], createdAt: Date(), status: 1)]
+    static let conflicts = [Conflict(rageMeasurer: RageMeasurer(), creator: users[0], troubleMakers: [users[1]], brokenRules: [rules[0],rules[1], rules[2]], createdAt: Date(), status: 1), Conflict(rageMeasurer: RageMeasurer(), creator: users[1], troubleMakers: [users[2]], brokenRules: [rules[1]], createdAt: Date(), status: 1), Conflict(rageMeasurer: RageMeasurer(), creator: users[2], troubleMakers: [users[3]], brokenRules: [rules[2],rules[3]], createdAt: Date(), status: 1)]
     
 }

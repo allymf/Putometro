@@ -67,7 +67,7 @@ extension FCTableViewModel: UITableViewDataSource{
             let model = MockUpDataFirstScreen.conflicts[indexPath.section].brokenRules[indexPath.row]
             cell.setupCell(ruleTitle: model.title, isBottomLineHidden: false)
             
-            if indexPath.row == 1{
+            if indexPath.row == MockUpDataFirstScreen.conflicts[indexPath.section].brokenRules.count - 1 {
                 cell.bottomLineView.isHidden = true
             }
             else{
